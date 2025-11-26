@@ -1,0 +1,33 @@
+<div class="max-w-6xl mx-auto">
+    <div class="mb-8">
+        <h2 class="text-3xl font-bold text-white mb-2">
+            최근 인기 동영상
+        </h2>
+        <p class="text-gray-400">
+            고정된 키워드 조합으로 최근 3주간 조회수 5만 이상인 인기 영상을 모아봅니다. 24시간마다 자동 업데이트됩니다.
+        </p>
+    </div>
+
+    <!-- 고정 키워드 표시 (읽기 전용) -->
+    <div id="trendingKeywordsList" class="flex gap-2 flex-wrap mb-8"></div>
+
+    <!-- Loading Indicator -->
+    <div id="trendingLoader" class="hidden flex flex-col items-center justify-center py-20">
+        <div class="w-12 h-12 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin mb-4"></div>
+        <p class="text-gray-400 animate-pulse">인기 영상을 불러오는 중...</p>
+    </div>
+
+    <!-- Video Grid -->
+    <div id="trendingGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <!-- Empty Message -->
+    <div id="emptyTrendingMessage" class="hidden text-center py-20 text-gray-500">
+        <i class="fa-regular fa-fire text-4xl mb-4 opacity-50"></i>
+        <p>조건에 맞는 인기 영상이 없습니다.</p>
+    </div>
+
+    <!-- Auto-update notice -->
+    <p class="text-xs text-gray-500 text-center mt-8">
+        ※ 최신 리스트는 24시간마다 자동 업데이트됩니다.
+    </p>
+</div>

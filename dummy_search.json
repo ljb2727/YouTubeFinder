@@ -1,0 +1,206 @@
+{
+    "items": [
+        {
+            "id": {
+                "videoId": "search_dummy_001"
+            },
+            "snippet": {
+                "title": "[더미] 시니어를 위한 쇼츠 제작 꿀팁 10가지",
+                "channelTitle": "시니어 크리에이터",
+                "channelId": "search_ch_001",
+                "publishedAt": "2024-11-20T10:00:00Z",
+                "thumbnails": {
+                    "medium": {
+                        "url": "https://picsum.photos/320/180?random=10"
+                    }
+                }
+            }
+        },
+        {
+            "id": {
+                "videoId": "search_dummy_002"
+            },
+            "snippet": {
+                "title": "[더미] 구독자 100명으로 조회수 10만 찍은 비결",
+                "channelTitle": "유튜브 마스터",
+                "channelId": "search_ch_002",
+                "publishedAt": "2024-11-22T15:30:00Z",
+                "thumbnails": {
+                    "medium": {
+                        "url": "https://picsum.photos/320/180?random=11"
+                    }
+                }
+            }
+        },
+        {
+            "id": {
+                "videoId": "search_dummy_003"
+            },
+            "snippet": {
+                "title": "[더미] 황혼 로맨스 드라마 1화 - 60대의 두근거림",
+                "channelTitle": "드라마 채널",
+                "channelId": "search_ch_003",
+                "publishedAt": "2024-11-25T09:00:00Z",
+                "thumbnails": {
+                    "medium": {
+                        "url": "https://picsum.photos/320/180?random=12"
+                    }
+                }
+            }
+        },
+        {
+            "id": {
+                "videoId": "search_dummy_004"
+            },
+            "snippet": {
+                "title": "[더미] 성과율 500% 달성한 시니어 유튜버의 노하우",
+                "channelTitle": "성공 사례",
+                "channelId": "search_ch_004",
+                "publishedAt": "2024-11-18T12:00:00Z",
+                "thumbnails": {
+                    "medium": {
+                        "url": "https://picsum.photos/320/180?random=13"
+                    }
+                }
+            }
+        },
+        {
+            "id": {
+                "videoId": "search_dummy_005"
+            },
+            "snippet": {
+                "title": "[더미] 할머니의 요리 비법 - 손주가 좋아하는 간식",
+                "channelTitle": "할머니 레시피",
+                "channelId": "search_ch_005",
+                "publishedAt": "2024-11-24T18:00:00Z",
+                "thumbnails": {
+                    "medium": {
+                        "url": "https://picsum.photos/320/180?random=14"
+                    }
+                }
+            }
+        },
+        {
+            "id": {
+                "videoId": "search_dummy_006"
+            },
+            "snippet": {
+                "title": "[더미] 중년 부부의 여행 브이로그 - 제주도 3박 4일",
+                "channelTitle": "여행 일기",
+                "channelId": "search_ch_006",
+                "publishedAt": "2024-11-21T14:00:00Z",
+                "thumbnails": {
+                    "medium": {
+                        "url": "https://picsum.photos/320/180?random=15"
+                    }
+                }
+            }
+        }
+    ],
+    "videoStats": [
+        {
+            "id": "search_dummy_001",
+            "statistics": {
+                "viewCount": "85000",
+                "subscriberCount": "5000"
+            },
+            "contentDetails": {
+                "duration": "PT2M15S"
+            }
+        },
+        {
+            "id": "search_dummy_002",
+            "statistics": {
+                "viewCount": "120000",
+                "subscriberCount": "100"
+            },
+            "contentDetails": {
+                "duration": "PT1M45S"
+            }
+        },
+        {
+            "id": "search_dummy_003",
+            "statistics": {
+                "viewCount": "200000",
+                "subscriberCount": "50000"
+            },
+            "contentDetails": {
+                "duration": "PT2M30S"
+            }
+        },
+        {
+            "id": "search_dummy_004",
+            "statistics": {
+                "viewCount": "95000",
+                "subscriberCount": "500"
+            },
+            "contentDetails": {
+                "duration": "PT1M50S"
+            }
+        },
+        {
+            "id": "search_dummy_005",
+            "statistics": {
+                "viewCount": "150000",
+                "subscriberCount": "20000"
+            },
+            "contentDetails": {
+                "duration": "PT2M00S"
+            }
+        },
+        {
+            "id": "search_dummy_006",
+            "statistics": {
+                "viewCount": "70000",
+                "subscriberCount": "8000"
+            },
+            "contentDetails": {
+                "duration": "PT2M45S"
+            }
+        }
+    ],
+    "channelStats": [
+        {
+            "id": "search_ch_001",
+            "statistics": {
+                "subscriberCount": "5000",
+                "hiddenSubscriberCount": false
+            }
+        },
+        {
+            "id": "search_ch_002",
+            "statistics": {
+                "subscriberCount": "100",
+                "hiddenSubscriberCount": false
+            }
+        },
+        {
+            "id": "search_ch_003",
+            "statistics": {
+                "subscriberCount": "50000",
+                "hiddenSubscriberCount": false
+            }
+        },
+        {
+            "id": "search_ch_004",
+            "statistics": {
+                "subscriberCount": "500",
+                "hiddenSubscriberCount": false
+            }
+        },
+        {
+            "id": "search_ch_005",
+            "statistics": {
+                "subscriberCount": "20000",
+                "hiddenSubscriberCount": false
+            }
+        },
+        {
+            "id": "search_ch_006",
+            "statistics": {
+                "subscriberCount": "8000",
+                "hiddenSubscriberCount": false
+            }
+        }
+    ]
+}
