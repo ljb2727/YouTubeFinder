@@ -176,6 +176,12 @@
                     </button>
                 </div>
 
+                <!-- Target Channel Subs -->
+                <div id="targetChannelSubs" class="hidden flex items-center gap-2 px-4 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium mr-2">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span id="targetSubsCount">Loading...</span>
+                </div>
+
                 <!-- API Settings Button -->
                 <button onclick="openSettings()" class="h-10 px-4 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-yellow-400 transition-all gap-2" title="API 키 설정">
                     <i class="fa-solid fa-key"></i> <span class="text-sm font-medium">API 설정</span>
@@ -2319,6 +2325,36 @@
                 grid.appendChild(card);
             });
         }
+
+        // ==========================================
+        // TARGET CHANNEL SUBS
+        // ==========================================
+        async function fetchTargetChannelSubs() {
+            const channelId = 'UC2qjSbOs_InmdtWO2Q-aY6w';
+            try {
+                const response = await fetchWithRotation((key) => `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${key}`, 'youtube');
+                const data = await response.json();
+                if (data.items && data.items.length > 0) {
+                    const subs = parseInt(data.items[0].statistics.subscriberCount);
+                    const formattedSubs = subs.toLocaleString();
+                    const el = document.getElementById('targetChannelSubs');
+                    const countEl = document.getElementById('targetSubsCount');
+                    if (el && countEl) {
+                        countEl.innerText = `${formattedSubs}명`;
+                        el.classList.remove('hidden');
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to fetch target channel subs:', error);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchTargetChannelSubs();
+            // Refresh every 60 seconds
+            setInterval(fetchTargetChannelSubs, 60000);
+        });
     </script>
 </body>
 </html>
