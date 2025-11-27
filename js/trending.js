@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <select id="trendingSortSelect" 
                     class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors cursor-pointer hover:bg-white/10"
                     onchange="sortTrendingVideos(this.value)">
-                    <option value="ratio">성과율 높은순</option>
-                    <option value="viewCount">조회수 많은순</option>
-                    <option value="publishedAt">최근 업로드순</option>
-                    <option value="subCount">구독자 많은순</option>
+                    <option value="ratio" class="bg-gray-800 text-white">성과율 높은순</option>
+                    <option value="viewCount" class="bg-gray-800 text-white">조회수 많은순</option>
+                    <option value="publishedAt" class="bg-gray-800 text-white">최근 업로드순</option>
+                    <option value="subCount" class="bg-gray-800 text-white">구독자 많은순</option>
                 </select>
             </div>
         </div>
