@@ -63,54 +63,39 @@
 
     <!-- Header -->
     <header class="glass sticky top-0 z-50 border-b border-white/10">
-        <div class="container mx-auto px-3 md:px-6 py-3 md:py-4 flex justify-between items-center">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <!-- Logo / Home Button -->
-            <div class="flex items-center gap-2 md:gap-3 cursor-pointer" onclick="resetToHome()" title="홈으로">
-                <div
-                    class="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <i class="fa-solid fa-house text-white text-base md:text-lg"></i>
-                </div>
-                <h1 class="hidden md:block text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                    YouTube Viral Finder
-                </h1>
-            </div>
+            <button onclick="resetToHome()" 
+                class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
+                title="홈으로">
+                <i class="fa-solid fa-house text-white text-lg"></i>
+            </button>
 
-            <div class="flex items-center gap-2 md:gap-3">
+            <div class="flex items-center gap-2">
                 <!-- Navigation Tabs -->
                 <div class="flex bg-white/5 rounded-lg p-1 border border-white/10 gap-0.5">
                     <button id="tabSearch" onclick="showSearchTab()"
-                        class="px-2 md:px-4 py-1.5 rounded-md text-sm font-medium transition-all text-white bg-white/10 shadow-sm"
+                        class="px-3 py-1.5 rounded-md text-sm font-medium transition-all text-white bg-white/10 shadow-sm"
                         title="검색">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <span class="hidden md:inline ml-2">검색</span>
                     </button>
                     <button id="tabTrending" onclick="showTrendingTab()"
-                        class="px-2 md:px-4 py-1.5 rounded-md text-sm font-medium transition-all text-gray-400 hover:text-white"
+                        class="px-3 py-1.5 rounded-md text-sm font-medium transition-all text-gray-400 hover:text-white"
                         title="인기">
                         <i class="fa-solid fa-fire"></i>
-                        <span class="hidden md:inline ml-2">인기</span>
                     </button>
                     <button id="tabFavorites" onclick="showFavoritesTab()"
-                        class="px-2 md:px-4 py-1.5 rounded-md text-sm font-medium transition-all text-gray-400 hover:text-white"
+                        class="px-3 py-1.5 rounded-md text-sm font-medium transition-all text-gray-400 hover:text-white"
                         title="즐겨찾기">
                         <i class="fa-solid fa-heart"></i>
-                        <span class="hidden md:inline ml-2">즐찾</span>
                     </button>
-                </div>
-
-                <!-- Target Channel Subs (hidden on mobile when empty) -->
-                <div id="targetChannelSubs"
-                    class="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-medium mr-2">
-                    <i class="fa-brands fa-youtube"></i>
-                    <span id="targetSubsCount">Loading...</span>
                 </div>
 
                 <!-- API Settings Button -->
                 <button onclick="openSettings()"
-                    class="h-9 md:h-10 px-2 md:px-4 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-yellow-400 transition-all gap-2"
+                    class="h-10 px-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-yellow-400 transition-all"
                     title="API 키 설정">
                     <i class="fa-solid fa-key"></i>
-                    <span class="hidden md:inline text-sm font-medium">API 설정</span>
                 </button>
             </div>
         </div>
