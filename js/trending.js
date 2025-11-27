@@ -144,19 +144,6 @@ async function loadTrendingFeed(forceRefresh = false) {
     try {
         // ========== 개발 모드: 더미 데이터 사용 ==========
         if (window.DEV_MODE || localStorage.getItem('DEV_MODE') === 'true') {
-            // ... (더미 데이터 로직은 그대로 유지, 생략)
-            // 더미 데이터 로직이 너무 길어서 생략하고 아래 프로덕션 모드만 수정합니다.
-            // 실제 파일에서는 더미 데이터 로직이 유지되어야 합니다.
-            // 여기서는 replace_file_content의 특성상 전체를 교체하지 않고 필요한 부분만 수정해야 하는데,
-            // 구조가 많이 바뀌어서 전체를 다시 쓰는 것이 안전할 수 있습니다.
-            // 하지만 더미 데이터 부분은 건드리지 않기 위해 StartLine을 조정하겠습니다.
-            // 아래 코드는 프로덕션 모드 부분입니다.
-        }
-    } catch (e) {
-        // ...
-    }
-}
-// 위 코드는 예시이고, 실제로는 아래와 같이 부분 교체를 진행합니다.
             console.log('🔧 개발 모드: 더미 데이터를 사용합니다...');
 
             // 더미 데이터 (내장)
@@ -176,7 +163,16 @@ async function loadTrendingFeed(forceRefresh = false) {
                 {
                     "id": { "videoId": "dummy_vid_002" },
                     "snippet": {
-                        "title": "[더미] 황혼 이혼? 70대 부부의 솔직한 대화 (충격)",
+                        "title": "[더미] 황혼 이혼? 70대 부부의 솔픈 대화 (충격)",
+                        "channelTitle": "부부 클리닉",
+                        "channelId": "dummy_channel_002",
+                        "publishedAt": "2024-11-22T15:30:00Z",
+                        "thumbnails": { "medium": { "url": "https://picsum.photos/320/180?random=2" } }
+                    },
+                    "statistics": { "viewCount": "85000", "subscriberCount": "5000", "hiddenSubscriberCount": false },
+                    "contentDetails": { "duration": "PT1M45S" }
+                },
+                {
                     "id": { "videoId": "dummy_vid_005" },
                     "snippet": {
                         "title": "[더미] 5060 패션 꿀팁! 이것만 입어도 10년 젊어보임",
@@ -303,8 +299,6 @@ async function loadTrendingFeed(forceRefresh = false) {
             loader.classList.add('hidden');
             emptyMsg.classList.remove('hidden');
         }
-
-
 
     } catch (error) {
         console.error('Trending 로드 실패:', error);
