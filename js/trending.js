@@ -126,39 +126,6 @@ async function loadTrendingFeed(forceRefresh = false) {
                     "id": { "videoId": "dummy_vid_002" },
                     "snippet": {
                         "title": "[더미] 황혼 이혼? 70대 부부의 솔직한 대화 (충격)",
-                        "channelTitle": "부부 클리닉",
-                        "channelId": "dummy_channel_002",
-                        "publishedAt": "2024-11-22T15:30:00Z",
-                        "thumbnails": { "medium": { "url": "https://picsum.photos/320/180?random=2" } }
-                    },
-                    "statistics": { "viewCount": "85000", "subscriberCount": "5000", "hiddenSubscriberCount": false },
-                    "contentDetails": { "duration": "PT1M45S" }
-                },
-                {
-                    "id": { "videoId": "dummy_vid_003" },
-                    "snippet": {
-                        "title": "[더미] 손주들이 오면 꼭 해주는 요리 TOP 3",
-                        "channelTitle": "할머니의 부엌",
-                        "channelId": "dummy_channel_003",
-                        "publishedAt": "2024-11-25T09:00:00Z",
-                        "thumbnails": { "medium": { "url": "https://picsum.photos/320/180?random=3" } }
-                    },
-                    "statistics": { "viewCount": "300000", "subscriberCount": "200000", "hiddenSubscriberCount": false },
-                    "contentDetails": { "duration": "PT3M10S" }
-                },
-                {
-                    "id": { "videoId": "dummy_vid_004" },
-                    "snippet": {
-                        "title": "[더미] 은퇴 후 귀농 1년차, 현실은 이렇습니다",
-                        "channelTitle": "귀농 일기",
-                        "channelId": "dummy_channel_004",
-                        "publishedAt": "2024-11-18T12:00:00Z",
-                        "thumbnails": { "medium": { "url": "https://picsum.photos/320/180?random=4" } }
-                    },
-                    "statistics": { "viewCount": "45000", "subscriberCount": "100", "hiddenSubscriberCount": false },
-                    "contentDetails": { "duration": "PT5M00S" }
-                },
-                {
                     "id": { "videoId": "dummy_vid_005" },
                     "snippet": {
                         "title": "[더미] 5060 패션 꿀팁! 이것만 입어도 10년 젊어보임",
