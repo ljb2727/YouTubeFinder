@@ -295,6 +295,11 @@ window.addEventListener("DOMContentLoaded", () => {
 // SETTINGS LOGIC
 // ==========================================
 function checkApiKeys() {
+    // 개발 모드이면 API 키 확인 건너뜀
+    if (window.DEV_MODE || localStorage.getItem('DEV_MODE') === 'true') {
+        return;
+    }
+
     if (YOUTUBE_API_KEYS.length === 0 || GEMINI_API_KEYS.length === 0) {
         openSettings();
     }
@@ -533,6 +538,12 @@ function toggleFavorite(event, channelId, channelTitle) {
         updateFavoriteBtn(btn, isAdding);
     }
 
+    // Update UI if in trending tab
+    const trendingBtn = document.getElementById(`fav-btn-trending-${channelId}`);
+    if (trendingBtn) {
+        updateFavoriteBtn(trendingBtn, isAdding);
+    }
+
     // Update UI if in favorites tab
     const favoritesTab = document.getElementById("favoritesTabContent");
     if (!favoritesTab.classList.contains("hidden")) {
@@ -644,10 +655,185 @@ async function loadFavoritesFeed() {
         listContainer.appendChild(chip);
     });
 
-    // Load Videos (API call)
+    // Load Videos (API call or Dummy Data)
     feedGrid.innerHTML = "";
     loader.classList.remove("hidden");
 
+    // ========== 개발 모드: 더미  데이터 사용 ==========
+    if (window.DEV_MODE || localStorage.getItem('DEV_MODE') === 'true') {
+        console.log('🔧 즐겨찾기 피드: 더미 데이터 사용');
+        
+        // 시뮬레이션 딜레이
+        await new Promise(resolve => setTimeout(resolve, 800));
+        
+        // 더미 데이터 생성 (모든 즐겨찾기 채널에 대해 동적으로 생성)
+        const dummyVideos = favoriteChannels.flatMap((ch, idx) => {
+            return [
+                {
+                    id: { videoId: `fav_dummy_${ch.id}_1` },
+                    snippet: {
+                        title: `[더미] ${ch.title}의 최신 인기 영상 1`,
+                        channelTitle: ch.title,
+                        channelId: ch.id,
+                        publishedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * (idx + 1)).toISOString(), // 1일씩 차이
+                        thumbnails: { medium: { url: `https://picsum.photos/320/180?random=${idx * 10 + 1}` } }
+                    },
+                    channelColor: ch.color
+                },
+                {
+                    id: { videoId: `fav_dummy_${ch.id}_2` },
+                    snippet: {
+                        title: `[더미] ${ch.title}의 숨겨진 명작 2`,
+                        channelTitle: ch.title,
+                        channelId: ch.id,
+                        publishedAt: new Date(Date.now() - 1000 * 60 * 60 * 12 * (idx + 1)).toISOString(),
+                        thumbnails: { medium: { url: `https://picsum.photos/320/180?random=${idx * 10 + 2}` } }
+                    },
+                    channelColor: ch.color
+                }
+            ];
+        });
+
+        // 더미 통계 데이터 생성
+        const dummyStats = {};
+        dummyVideos.forEach(v => {
+            dummyStats[v.id.videoId] = {
+                viewCount: Math.floor(Math.random() * 900000) + 10000, // 1만 ~ 91만
+                subscriberCount: Math.floor(Math.random() * 50000) + 1000, // 1천 ~ 5.1만
+                hiddenSubscriberCount: Math.random() < 0.1, // 10% 확률로 비공개
+                duration: `PT${Math.floor(Math.random() * 10) + 1}M${Math.floor(Math.random() * 60)}S` // 1~10분
+            };
+        });
+
+        loader.classList.add('hidden');
+
+        // 선택된 채널만 필터링
+        const activeChannelIds = selectedFeedChannels;
+        const filteredVideos = dummyVideos.filter(v => activeChannelIds.includes(v.snippet.channelId));
+
+        if (filteredVideos.length === 0) {
+            feedGrid.innerHTML =
+                '<div class="col-span-full text-center py-20 text-gray-500"><i class="fa-regular fa-square-check text-4xl mb-4 opacity-50"></i><p>채널을 선택하여 영상을 확인하세요.</p></div>';
+            return;
+        }
+
+        filteredVideos.forEach((video, index) => {
+            const vidId = video.id.videoId;
+            const stats = dummyStats[vidId];
+            
+            const viewCount = stats.viewCount;
+            const durationSec = parseDuration(stats.duration);
+            const durationStr = formatDuration(durationSec);
+            const subCount = stats.subscriberCount;
+            const hiddenSubs = stats.hiddenSubscriberCount;
+
+            let ratio = 0;
+            if (subCount > 0) ratio = (viewCount / subCount) * 100;
+
+            const isHighPerformer = ratio >= 300;
+            const ratioDisplay = hiddenSubs ? 'N/A' : `${ratio.toFixed(0)}%`;
+            const ratioColor = isHighPerformer ? 'text-red-400' : 'text-green-400';
+
+            const cardBorderColor = video.channelColor || "#ffffff";
+            const glow = isHighPerformer
+                ? "shadow-[0_0_15px_rgba(239,68,68,0.15)]"
+                : "";
+            const timeAgoStr = timeAgo(video.snippet.publishedAt);
+
+            const bigFireCount = Math.floor(ratio / 1000);
+            const smallFireCount = Math.floor((ratio % 1000) / 100);
+
+            let fireIcons = '';
+            if (bigFireCount > 0) {
+                fireIcons +=
+                    '<i class="fa-solid fa-fire text-lg text-yellow-300 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]"></i>'.repeat(
+                        bigFireCount
+                    );
+            }
+            if (smallFireCount > 0) {
+                fireIcons += '<i class="fa-solid fa-fire text-sm"></i>'.repeat(
+                    Math.min(smallFireCount, 10)
+                );
+            }
+
+            const safeTitle = video.snippet.title
+                .replace(/'/g, "\\'")
+                .replace(/"/g, "&quot;");
+            const safeChannel = video.snippet.channelTitle
+                .replace(/'/g, "\\'")
+                .replace(/"/g, "&quot;");
+
+            const card = document.createElement("div");
+            card.className = `glass-card rounded-xl overflow-hidden flex flex-col h-full ${glow} feed-card animate-fade-in`;
+            card.style.border = `6px solid ${cardBorderColor}`;
+            if (isHighPerformer)
+                card.style.boxShadow = `0 0 15px ${cardBorderColor}40`;
+
+            card.style.animationDelay = `${index * 50}ms`;
+            card.setAttribute("data-channel-id", video.snippet.channelId);
+            card.innerHTML = `
+            <div class="relative group cursor-pointer" onclick="window.open('https://www.youtube.com/watch?v=${vidId}', '_blank')">
+                <img src="${video.snippet.thumbnails.medium.url}" alt="${safeTitle}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i class="fa-brands fa-youtube text-red-500 text-4xl drop-shadow-lg"></i>
+                </div>
+                ${fireIcons
+                    ? `<div class="absolute top-2 left-2 bg-gradient-to-r from-red-600 to-orange-500 text-white text-sm font-bold px-2 py-1 rounded shadow-lg flex items-center gap-0.5">${fireIcons}</div>`
+                    : ""
+                }
+                <div class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1.5 py-0.5 rounded">
+                    ${timeAgoStr}
+                </div>
+            </div>
+            
+            <div class="p-5 flex flex-col flex-grow">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-sm font-bold text-white">${video.snippet.channelTitle}</span>
+                        </div>
+                    </div>
+                    <button onclick="toggleFavorite(event, '${video.snippet.channelId}', '${safeChannel}')" class="text-lg transition-transform hover:scale-110 ml-2">
+                        <i class="fa-solid fa-heart text-red-500"></i>
+                    </button>
+                </div>
+
+                <h3 class="text-base font-bold text-white mb-3 line-clamp-2 leading-snug" title="${safeTitle}">${video.snippet.title}</h3>
+                
+                <div class="text-sm text-gray-400 mb-3">
+                    <i class="fa-regular fa-clock mr-1"></i>${durationStr}
+                </div>
+                
+                <div class="grid grid-cols-3 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
+                    <div class="text-center">
+                        <div class="text-xs text-gray-500 mb-1">조회수</div>
+                        <div class="font-semibold text-white text-xs">${formatKoreanNumber(viewCount)}회</div>
+                    </div>
+                    <div class="text-center border-l border-white/10">
+                        <div class="text-xs text-gray-500 mb-1">구독자</div>
+                        <div class="font-semibold text-white text-xs">${hiddenSubs || subCount === 0
+                    ? "비공개"
+                    : formatKoreanNumber(subCount) + "명"
+                }</div>
+                    </div>
+                    <div class="text-center border-l border-white/10">
+                        <div class="text-xs text-gray-500 mb-1">성과율</div>
+                        <div class="font-bold ${ratioColor} text-xs">${ratioDisplay}</div>
+                    </div>
+                </div>
+
+                <button onclick="openAnalysisFromFeed('${vidId}', '${safeTitle}', '${video.snippet.thumbnails.medium.url}', '${safeChannel}', ${ratio}, ${hiddenSubs})" class="mt-auto w-full bg-white/5 hover:bg-blue-600 hover:text-white text-gray-300 border border-white/10 hover:border-blue-500 py-2.5 rounded-lg transition-all duration-200 font-medium flex items-center justify-center gap-2 group">
+                    <i class="fa-solid fa-wand-magic-sparkles group-hover:animate-pulse"></i> AI 분석하기
+                </button>
+            </div>
+        `;
+            feedGrid.appendChild(card);
+        });
+        
+        return;
+    }
+
+    // ========== 프로덕션 모드: 실제 API 호출 ==========
     try {
         // Filter to only selected channels
         const activeChannels = favoriteChannels.filter(c => selectedFeedChannels.includes(c.id));
@@ -1492,485 +1678,15 @@ function clearRecentSearches() {
 }
 
 // ==========================================
-// TRENDING LOGIC
-// ==========================================
-
-let trendingKeywords = JSON.parse(localStorage.getItem('trendingKeywords')) || [
-    "시니어 드라마", "숏폼 드라마", "중년 공감 쇼츠", "노부부 이야기",
-    "고부갈등", "가족 숏드라마", "주부 공감 시트콤", "인생 2막", "황혼이야기",
-    "시니어 로맨스", "황혼 육아", "중년 부부", "5060 공감", "할머니의 지혜",
-    "액티브 시니어", "꽃중년", "시니어 유튜버", "은퇴 후 일상"
-];
-
-let recommendedTrendingKeywords = [
-    "은퇴 후 삶",
-    "건강 정보",
-    "트로트",
-    "추억 여행",
-    "손주 사랑",
-    "귀농 귀촌",
-    "시니어 패션",
-    "중년 다이어트",
-    "시니어 취미",
-    "웰다잉",
-    "시니어 일자리",
-    "리마인드 웨딩",
-    "시니어 모델",
-    "중년의 사랑",
-    "할머니 먹방",
-    "할아버지 브이로그",
-    "노년의 지혜",
-    "인생 조언",
-    "추억의 노래",
-    "옛날 이야기",
-];
-
-let cachedTrendingVideos =
-    JSON.parse(localStorage.getItem("cachedTrendingVideos")) || [];
-let lastTrendingFetchTime =
-    parseInt(localStorage.getItem("lastTrendingFetchTime")) || 0;
-
-function handleTrendingInputKey(e) {
-    if (e.key === "Enter") addCustomTrendingKeyword();
-}
-
-function addCustomTrendingKeyword() {
-    const input = document.getElementById("trendingKeywordInput");
-    const keyword = input.value.trim();
-
-    if (keyword) {
-        addTrendingKeyword(keyword);
-        input.value = "";
-    }
-}
-
-function renderTrendingKeywords() {
-    const list = document.getElementById('trendingKeywordsList');
-    const recList = document.getElementById('trendingRecommendedList');
-    const recContainer = document.getElementById('trendingKeywordRecommendations');
-
-    // Active Keywords
-    list.innerHTML = "";
-    trendingKeywords.forEach((k) => {
-        const chip = document.createElement("div");
-        chip.className =
-            "flex items-center gap-2 px-3 py-1.5 rounded-full whitespace-nowrap bg-purple-600/30 border border-purple-500 text-white animate-fade-in";
-        chip.innerHTML = `
-        <span class="text-sm font-medium">${k}</span>
-        <button onclick="removeTrendingKeyword('${k}')" class="text-gray-400 hover:text-red-400 ml-1">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    `;
-        list.appendChild(chip);
-    });
-
-    // Recommended Keywords (exclude active ones)
-    recList.innerHTML = '';
-    const availableRecs = recommendedTrendingKeywords.filter(k => !trendingKeywords.includes(k));
-
-    if (availableRecs.length > 0) {
-        availableRecs.forEach((k) => {
-            const chip = document.createElement("button");
-            chip.className =
-                "px-3 py-1 rounded-full bg-white/5 hover:bg-blue-600/20 hover:text-blue-300 border border-white/10 hover:border-blue-500/30 text-gray-400 text-xs transition-all duration-200 flex items-center gap-1";
-            chip.innerHTML = `<i class="fa-solid fa-plus text-[10px]"></i> ${k}`;
-            chip.onclick = () => addTrendingKeyword(k);
-            recList.appendChild(chip);
-        });
-        recContainer.classList.remove("hidden");
-    } else {
-        recContainer.classList.add("hidden");
-    }
-}
-
-function addTrendingKeyword(keyword) {
-    if (!trendingKeywords.includes(keyword)) {
-        trendingKeywords.push(keyword);
-        localStorage.setItem(
-            "trendingKeywords",
-            JSON.stringify(trendingKeywords)
-        );
-        renderTrendingKeywords();
-        loadTrendingFeed(true); // Refresh feed with new keyword
-    }
-}
-
-function removeTrendingKeyword(keyword) {
-    trendingKeywords = trendingKeywords.filter((k) => k !== keyword);
-    localStorage.setItem(
-        "trendingKeywords",
-        JSON.stringify(trendingKeywords)
-    );
-    renderTrendingKeywords();
-    loadTrendingFeed(true); // Refresh feed without keyword
-}
-
-async function loadTrendingFeed(forceRefresh = false) {
-    console.log('loadTrendingFeed called. Force:', forceRefresh);
-    const grid = document.getElementById('trendingGrid');
-    const loader = document.getElementById('trendingLoader');
-    const emptyMsg = document.getElementById('emptyTrendingMessage');
-
-    renderTrendingKeywords();
-
-    // Check cache (6 hours = 21600000 ms)
-    const now = Date.now();
-    const cacheDuration = 6 * 60 * 60 * 1000;
-
-    if (!forceRefresh && cachedTrendingVideos.length > 0 && (now - lastTrendingFetchTime < cacheDuration)) {
-        console.log('Using cached trending videos');
-        renderTrendingVideos(cachedTrendingVideos);
-        return;
-    }
-
-    if (trendingKeywords.length === 0) {
-        grid.innerHTML = "";
-        emptyMsg.classList.remove("hidden");
-        return;
-    }
-
-    emptyMsg.classList.add("hidden");
-    grid.innerHTML = "";
-    loader.classList.remove("hidden");
-
-    try {
-        // 1. Split keywords into chunks (3 keywords per request) to avoid query complexity issues
-        const chunkSize = 3;
-        const keywordChunks = [];
-        for (let i = 0; i < trendingKeywords.length; i += chunkSize) {
-            keywordChunks.push(trendingKeywords.slice(i, i + chunkSize));
-        }
-
-        // Extend search period to 3 weeks
-        const searchDate = new Date();
-        searchDate.setDate(searchDate.getDate() - 21);
-        const publishedAfter = searchDate.toISOString();
-
-        console.log(
-            `Splitting ${trendingKeywords.length} keywords into ${keywordChunks.length} chunks.`
-        );
-
-        // 2. Parallel Fetch for each chunk
-        // 2. Parallel Fetch for each chunk with Pagination & Key Rotation
-        const searchPromises = keywordChunks.map(async (chunk, index) => {
-            const query = chunk.join("|");
-            let allChunkItems = [];
-            let nextPageToken = "";
-            let pagesFetched = 0;
-            const maxPages = 3; // Fetch up to 3 pages (approx 150 videos per chunk)
-
-            while (pagesFetched < maxPages) {
-                const urlBuilder = (key) => `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&type=video&videoDuration=short&order=viewCount&publishedAfter=${publishedAfter}&maxResults=50&regionCode=KR&key=${key}${nextPageToken ? `&pageToken=${nextPageToken}` : ''}`;
-
-                try {
-                    const res = await fetchWithRotation(urlBuilder, 'youtube');
-                    const data = await res.json();
-
-                    if (data.items) {
-                        allChunkItems = allChunkItems.concat(data.items);
-                    }
-
-                    nextPageToken = data.nextPageToken;
-                    if (!nextPageToken) break;
-                    pagesFetched++;
-                } catch (e) {
-                    console.warn(`Chunk ${index} page ${pagesFetched} error:`, e);
-                    break;
-                }
-            }
-            return { items: allChunkItems };
-        });
-
-        const results = await Promise.all(searchPromises);
-
-        // 3. Merge Results & Remove Duplicates
-        let allItems = [];
-        results.forEach((r) => {
-            if (r.items) allItems = allItems.concat(r.items);
-        });
-
-        const uniqueItems = [];
-        const seenIds = new Set();
-        allItems.forEach((item) => {
-            if (item.id && item.id.videoId && !seenIds.has(item.id.videoId)) {
-                seenIds.add(item.id.videoId);
-                uniqueItems.push(item);
-            }
-        });
-
-        console.log(`Total unique videos found from all chunks: ${uniqueItems.length}`);
-
-        if (uniqueItems.length === 0) {
-            console.log("No items found from any chunk.");
-            cachedTrendingVideos = [];
-            renderTrendingVideos([]);
-            loader.classList.add("hidden");
-            return;
-        }
-
-        // 4. Fetch Statistics for ALL unique items (Batching 50 at a time)
-        const statsPromises = [];
-        for (let i = 0; i < uniqueItems.length; i += 50) {
-            const batch = uniqueItems.slice(i, i + 50);
-            const videoIds = batch.map((item) => item.id.videoId).join(",");
-            statsPromises.push(
-                fetchWithRotation((key) => `https://www.googleapis.com/youtube/v3/videos?part=statistics,contentDetails,snippet&id=${videoIds}&key=${key}`, 'youtube')
-                    .then(res => res.json())
-                    .then(data => data.items || [])
-            );
-        }
-
-        const statsResults = await Promise.all(statsPromises);
-        const allStatsItems = statsResults.flat();
-
-        // Mock statsData structure for compatibility
-        const statsData = { items: allStatsItems };
-
-        // Process videos (Initial filter: 10k+ views)
-        let processedVideos = statsData.items.map(item => {
-            const viewCount = parseInt(item.statistics.viewCount) || 0;
-            const durationSec = parseDuration(item.contentDetails.duration);
-
-            return {
-                id: item.id,
-                title: item.snippet.title,
-                thumbnail: item.snippet.thumbnails.medium?.url || item.snippet.thumbnails.default?.url,
-                channelTitle: item.snippet.channelTitle,
-                channelId: item.snippet.channelId,
-                publishedAt: item.snippet.publishedAt,
-                viewCount: viewCount,
-                durationSec: durationSec,
-                subCount: 0,
-                ratio: 0,
-                hiddenSubs: false
-            };
-        }).filter(v => v.viewCount >= 50000 && v.durationSec >= 60 && v.durationSec <= 180);
-
-        console.log('Processed videos count (after view count filter 50k+):', processedVideos.length);
-
-        // Fetch Channel Details for Ratio Calculation
-        if (processedVideos.length > 0) {
-            const channelIds = [
-                ...new Set(processedVideos.map((v) => v.channelId)),
-            ].join(",");
-            const channelResponse = await fetch(
-                `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelIds}&key=${YOUTUBE_API_KEY}`
-            );
-            const channelData = await channelResponse.json();
-
-            const channelMap = {};
-            channelData.items.forEach((ch) => {
-                channelMap[ch.id] = {
-                    subCount: parseInt(ch.statistics.subscriberCount) || 0,
-                    hiddenSubs: ch.statistics.hiddenSubscriberCount,
-                };
-            });
-
-            processedVideos.forEach((v) => {
-                const ch = channelMap[v.channelId];
-                if (ch) {
-                    v.subCount = ch.subCount;
-                    v.hiddenSubs = ch.hiddenSubs;
-                    if (!v.hiddenSubs && v.subCount > 0) {
-                        v.ratio = (v.viewCount / v.subCount) * 100;
-                    } else {
-                        v.ratio = 0;
-                    }
-                }
-            });
-
-
-            // Filter by Subscriber Count >= 100
-            processedVideos = processedVideos.filter((v) => v.subCount >= 100);
-        }
-
-        // Filter by Ratio >= 300%
-        const highRatioVideos = processedVideos.filter((v) => v.ratio >= 300);
-        console.log("High ratio videos (>= 300%):", highRatioVideos.length);
-
-        if (highRatioVideos.length > 0) {
-            processedVideos = highRatioVideos;
-            // Sort by Ratio High to Low
-            processedVideos.sort((a, b) => b.ratio - a.ratio);
-        } else {
-            // Fallback
-            console.log(
-                "No 300% ratio videos found. Showing top ratio videos instead."
-            );
-            processedVideos.sort((a, b) => b.ratio - a.ratio);
-            if (processedVideos.length > 0) {
-                showToast(
-                    "성과율 300% 이상인 영상이 없어, 성과율 높은 순으로 표시합니다.",
-                    "info"
-                );
-            }
-        }
-
-        // Update Cache
-        cachedTrendingVideos = processedVideos;
-        lastTrendingFetchTime = Date.now();
-        localStorage.setItem(
-            "cachedTrendingVideos",
-            JSON.stringify(cachedTrendingVideos)
-        );
-        localStorage.setItem("lastTrendingFetchTime", lastTrendingFetchTime);
-
-        renderTrendingVideos(cachedTrendingVideos);
-    } catch (error) {
-        console.error("Trending load error:", error);
-        showToast(
-            "인기 영상을 불러오는 중 오류가 발생했습니다: " + error.message,
-            "error"
-        );
-    } finally {
-        loader.classList.add("hidden");
-    }
-}
-
-function renderTrendingVideos(videos) {
-    const grid = document.getElementById('trendingGrid');
-    const emptyMsg = document.getElementById('emptyTrendingMessage');
-
-    grid.innerHTML = '';
-
-    if (videos.length === 0) {
-        emptyMsg.classList.remove("hidden");
-        return;
-    }
-    emptyMsg.classList.add("hidden");
-
-    videos.forEach((video, index) => {
-        const isHighPerformer = video.ratio >= 300;
-        const ratioDisplay = video.hiddenSubs
-            ? "N/A"
-            : `${video.ratio.toFixed(0)}%`;
-        const ratioColor = isHighPerformer
-            ? "text-red-400"
-            : "text-green-400";
-        const cardBorder = isHighPerformer
-            ? "border-red-500/30"
-            : "border-white/5";
-        const glow = isHighPerformer
-            ? "shadow-[0_0_15px_rgba(239,68,68,0.15)]"
-            : "";
-        const timeAgoStr = timeAgo(video.publishedAt);
-        const durationStr = formatDuration(video.durationSec);
-        const isFav = isFavorite(video.channelId);
-
-        // Calculate fire icons (1 per 100% ratio)
-        const bigFireCount = Math.floor(video.ratio / 1000);
-        const smallFireCount = Math.floor((video.ratio % 1000) / 100);
-
-        let fireIcons = '';
-        if (bigFireCount > 0) {
-            fireIcons +=
-                '<i class="fa-solid fa-fire text-lg text-yellow-300 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]"></i>'.repeat(
-                    bigFireCount
-                );
-        }
-        if (smallFireCount > 0) {
-            fireIcons += '<i class="fa-solid fa-fire text-sm"></i>'.repeat(
-                Math.min(smallFireCount, 10)
-            );
-        }
-
-        // Escape title and channel title for onclick handler
-        const safeTitle = video.title
-            .replace(/'/g, "\\'")
-            .replace(/"/g, "&quot;");
-        const safeChannel = video.channelTitle
-            .replace(/'/g, "\\'")
-            .replace(/"/g, "&quot;");
-
-        const card = document.createElement("div");
-        card.className = `glass-card rounded-xl overflow-hidden flex flex-col h-full ${cardBorder} ${glow} animate-fade-in`;
-        card.style.animationDelay = `${index * 50}ms`;
-        card.innerHTML = `
-        <div class="relative group cursor-pointer" onclick="window.open('https://www.youtube.com/watch?v=${video.id
-            }', '_blank')">
-            <img src="${video.thumbnail
-            }" alt="${safeTitle}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <i class="fa-brands fa-youtube text-red-500 text-4xl drop-shadow-lg"></i>
-            </div>
-            ${fireIcons
-                ? `<div class="absolute top-2 left-2 bg-gradient-to-r from-red-600 to-orange-500 text-white text-sm font-bold px-2 py-1 rounded shadow-lg flex items-center gap-0.5">${fireIcons}</div>`
-                : ""
-            }
-            <div class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1.5 py-0.5 rounded">
-                ${timeAgoStr}
-            </div>
-        </div>
-        
-        <div class="p-5 flex flex-col flex-grow">
-            <div class="flex justify-between items-start mb-3">
-                <div class="flex-1">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-sm font-bold text-white">${video.channelTitle
-            }</span>
-                        <span class="text-xs text-gray-400">${video.hiddenSubs || video.subCount === 0
-                ? "비공개"
-                : formatKoreanNumber(video.subCount) +
-                "명"
-            }</span>
-                    </div>
-                </div>
-                <button id="fav-btn-${video.channelId
-            }" onclick="toggleFavorite(event, '${video.channelId
-            }', '${safeChannel}')" class="text-lg transition-transform hover:scale-110 ml-2">
-                    ${isFav
-                ? '<i class="fa-solid fa-heart text-red-500"></i>'
-                : '<i class="fa-regular fa-heart text-gray-400 hover:text-red-400"></i>'
-            }
-                </button>
-            </div>
-
-            <h3 class="text-base font-bold text-white mb-3 line-clamp-2 leading-snug" title="${safeTitle}">${video.title
-            }</h3>
-            
-            <div class="text-sm text-gray-400 mb-3">
-                <i class="fa-regular fa-clock mr-1"></i>${durationStr}
-            </div>
-            
-            <div class="grid grid-cols-3 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
-                <div class="text-center">
-                    <div class="text-xs text-gray-500 mb-1">조회수</div>
-                    <div class="font-semibold text-white text-xs">${formatKoreanNumber(
-                video.viewCount
-            )}회</div>
-                </div>
-                <div class="text-center border-l border-white/10">
-                    <div class="text-xs text-gray-500 mb-1">구독자</div>
-                    <div class="font-semibold text-white text-xs">${video.hiddenSubs || video.subCount === 0
-                ? "비공개"
-                : formatKoreanNumber(video.subCount) + "명"
-            }</div>
-                </div>
-                <div class="text-center border-l border-white/10">
-                    <div class="text-xs text-gray-500 mb-1">성과율</div>
-                    <div class="font-bold ${ratioColor} text-xs">${ratioDisplay}</div>
-                </div>
-            </div>
-
-            <button onclick="openAnalysisFromFeed('${video.id
-            }', '${safeTitle}', '${video.thumbnail
-            }', '${safeChannel}', ${video.ratio}, ${video.hiddenSubs
-            })" class="mt-auto w-full bg-white/5 hover:bg-blue-600 hover:text-white text-gray-300 border border-white/10 hover:border-blue-500 py-2.5 rounded-lg transition-all duration-200 font-medium flex items-center justify-center gap-2 group">
-                <i class="fa-solid fa-wand-magic-sparkles group-hover:animate-pulse"></i> AI 분석하기
-            </button>
-        </div>
-    `;
-        grid.appendChild(card);
-    });
-}
-
-// ==========================================
 // TARGET CHANNEL SUBS
 // ==========================================
 async function fetchTargetChannelSubs() {
     const channelId = "UC2qjSbOs_InmdtWO2Q-aY6w";
     try {
         const response = await fetchWithRotation((key) => `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${key}`, 'youtube');
+        
+        if (!response) return;
+
         const data = await response.json();
         if (data.items && data.items.length > 0) {
             const subs = parseInt(data.items[0].statistics.subscriberCount);

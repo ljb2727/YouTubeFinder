@@ -119,7 +119,7 @@ async function loadTrendingFeed(forceRefresh = false) {
 
     try {
         // ========== 개발 모드: 더미 데이터 사용 ==========
-        if (USE_DUMMY_DATA) {
+        if (window.DEV_MODE || localStorage.getItem('DEV_MODE') === 'true') {
             console.log('🔧 개발 모드: 더미 데이터를 사용합니다...');
 
             // 더미 데이터 (내장)
@@ -274,28 +274,89 @@ function renderTrendingVideos(videos) {
         const timeAgoStr = typeof timeAgo === 'function' ? timeAgo(video.publishedAt) : '';
         const durationStr = typeof formatDuration === 'function' ? formatDuration(video.durationSec) : '';
 
-        const card = document.createElement('div');
-        card.className = 'glass-card rounded-xl overflow-hidden flex flex-col h-full animate-slide-up';
-        card.style.animationDelay = `${index * 50}ms`;
+        const isHighPerformer = video.ratio >= 300;
+        const ratioDisplay = video.hiddenSubs ? 'N/A' : `${video.ratio.toFixed(0)}%`;
+        const ratioColor = isHighPerformer ? 'text-red-400' : 'text-green-400';
+        const glow = isHighPerformer ? 'shadow-[0_0_15px_rgba(239,68,68,0.15)]' : '';
+        const cardBorderColor = isHighPerformer ? 'rgba(239, 68, 68, 0.3)' : 'rgba(255, 255, 255, 0.05)';
+
+        // Fire Icons
+        const bigFireCount = Math.floor(video.ratio / 1000);
+        const smallFireCount = Math.floor((video.ratio % 1000) / 100);
+
+        let fireIcons = '';
+        if (bigFireCount > 0) {
+            fireIcons +=
+                '<i class="fa-solid fa-fire text-lg text-yellow-300 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]"></i>'.repeat(
+                    bigFireCount
+                );
+        }
+        if (smallFireCount > 0) {
+            fireIcons += '<i class="fa-solid fa-fire text-sm"></i>'.repeat(
+                Math.min(smallFireCount, 10)
+            );
+        }
 
         const safeTitle = video.title.replace(/'/g, "\\'").replace(/"/g, "&quot;");
         const safeChannel = video.channelTitle.replace(/'/g, "\\'").replace(/"/g, "&quot;");
 
+        const card = document.createElement('div');
+        card.className = `glass-card rounded-xl overflow-hidden flex flex-col h-full ${glow} animate-slide-up`;
+        card.style.animationDelay = `${index * 50}ms`;
+        card.style.border = `1px solid ${cardBorderColor}`;
+
         card.innerHTML = `
-            <div class="relative group cursor-pointer">
-                <img src="${video.thumbnail}" alt="${video.title}" class="w-full h-48 object-cover">
-                <div class="absolute top-2 right-2 bg-black/80 px-2 py-1 rounded text-xs text-white font-bold">${durationStr}</div>
-            </div>
-            <div class="p-4 flex-grow flex flex-col">
-                <h3 class="font-bold text-white text-sm line-clamp-2 mb-2">${video.title}</h3>
-                <p class="text-xs text-gray-400 mb-1">${video.channelTitle}</p>
-                <p class="text-xs text-gray-500">${timeAgoStr}</p>
-                <div class="text-xs text-gray-400 mt-2">
-                    <span>조회수 ${typeof formatKoreanNumber === 'function' ? formatKoreanNumber(video.viewCount) : video.viewCount}</span>
-                    <span class="mx-1">·</span>
-                    <span class="text-green-400 font-bold">성과율 ${video.ratio.toFixed(0)}%</span>
+            <div class="relative group cursor-pointer" onclick="window.open('https://www.youtube.com/watch?v=${video.id.videoId}', '_blank')">
+                <img src="${video.thumbnail}" alt="${safeTitle}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <i class="fa-brands fa-youtube text-red-500 text-4xl drop-shadow-lg"></i>
                 </div>
-                <button onclick="typeof openAnalysisFromFeed === 'function' && openAnalysisFromFeed('${video.id}', '${safeTitle}', '${video.thumbnail}', '${safeChannel}', ${video.ratio}, ${video.hiddenSubs})" class="mt-auto w-full bg-white/5 hover:bg-blue-600 hover:text-white text-gray-300 border border-white/10 hover:border-blue-500 py-2.5 rounded-lg transition-all duration-200 font-medium flex items-center justify-center gap-2 group">
+                ${fireIcons
+                    ? `<div class="absolute top-2 left-2 bg-gradient-to-r from-red-600 to-orange-500 text-white text-sm font-bold px-2 py-1 rounded shadow-lg flex items-center gap-0.5">${fireIcons}</div>`
+                    : ""
+                }
+                <div class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1.5 py-0.5 rounded">
+                    ${timeAgoStr}
+                </div>
+            </div>
+            
+            <div class="p-5 flex flex-col flex-grow">
+                <div class="flex justify-between items-start mb-3">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-sm font-bold text-white">${video.channelTitle}</span>
+                        </div>
+                    </div>
+                    <button id="fav-btn-trending-${video.channelId}" onclick="toggleFavorite(event, '${video.channelId}', '${safeChannel}')" class="text-lg transition-transform hover:scale-110 ml-2">
+                        <i class="${isFav ? "fa-solid" : "fa-regular"} fa-heart ${isFav ? "text-red-500" : "text-gray-400 hover:text-red-400"}"></i>
+                    </button>
+                </div>
+
+                <h3 class="text-base font-bold text-white mb-3 line-clamp-2 leading-snug" title="${safeTitle}">${video.title}</h3>
+                
+                <div class="text-sm text-gray-400 mb-3">
+                    <i class="fa-regular fa-clock mr-1"></i>${durationStr}
+                </div>
+                
+                <div class="grid grid-cols-3 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
+                    <div class="text-center">
+                        <div class="text-xs text-gray-500 mb-1">조회수</div>
+                        <div class="font-semibold text-white text-xs">${typeof formatKoreanNumber === 'function' ? formatKoreanNumber(video.viewCount) : video.viewCount}회</div>
+                    </div>
+                    <div class="text-center border-l border-white/10">
+                        <div class="text-xs text-gray-500 mb-1">구독자</div>
+                        <div class="font-semibold text-white text-xs">${video.hiddenSubs || video.subCount === 0
+                    ? "비공개"
+                    : (typeof formatKoreanNumber === 'function' ? formatKoreanNumber(video.subCount) : video.subCount) + "명"
+                }</div>
+                    </div>
+                    <div class="text-center border-l border-white/10">
+                        <div class="text-xs text-gray-500 mb-1">성과율</div>
+                        <div class="font-bold ${ratioColor} text-xs">${ratioDisplay}</div>
+                    </div>
+                </div>
+
+                <button onclick="typeof openAnalysisFromFeed === 'function' && openAnalysisFromFeed('${video.id.videoId}', '${safeTitle}', '${video.thumbnail}', '${safeChannel}', ${video.ratio}, ${video.hiddenSubs})" class="mt-auto w-full bg-white/5 hover:bg-blue-600 hover:text-white text-gray-300 border border-white/10 hover:border-blue-500 py-2.5 rounded-lg transition-all duration-200 font-medium flex items-center justify-center gap-2 group">
                     <i class="fa-solid fa-wand-magic-sparkles group-hover:animate-pulse"></i> AI 분석하기
                 </button>
             </div>
@@ -303,17 +364,6 @@ function renderTrendingVideos(videos) {
 
         grid.appendChild(card);
     });
-}
-
-// Helper: Parse PT duration
-function parseDuration(duration) {
-    if (!duration) return 0;
-    const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
-    if (!match) return 0;
-    const hours = parseInt(match[1]) || 0;
-    const minutes = parseInt(match[2]) || 0;
-    const seconds = parseInt(match[3]) || 0;
-    return hours * 3600 + minutes * 60 + seconds;
 }
 
 console.log('✅ trending.js 로드 완료');

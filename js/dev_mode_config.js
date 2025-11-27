@@ -24,10 +24,12 @@ function toggleDevMode(enabled) {
     window.USE_DUMMY_DATA = enabled;
 
     // 페이지 새로고침 알림
-    if (enabled) {
-        showToast('🔧 개발 모드가 활성화되었습니다. 이제 더미 데이터를 사용합니다.', 'success');
-    } else {
-        showToast('✅ 개발 모드가 비활성화되었습니다. 실제 API를 사용합니다.', 'info');
+    if (typeof showToast === 'function') {
+        if (enabled) {
+            showToast('🔧 개발 모드가 활성화되었습니다. 이제 더미 데이터를 사용합니다.', 'success');
+        } else {
+            showToast('✅ 개발 모드가 비활성화되었습니다. 실제 API를 사용합니다.', 'info');
+        }
     }
 
     console.log(`개발 모드: ${enabled ? 'ON' : 'OFF'}`);
@@ -38,10 +40,22 @@ window.addEventListener('DOMContentLoaded', () => {
     const checkbox = document.getElementById('devModeCheckbox');
     if (checkbox) {
         checkbox.checked = DEV_MODE;
-        toggleDevMode(DEV_MODE); // 초기 상태 적용
+        
+        // 경고 표시/숨김 (초기 상태)
+        const warning = document.getElementById('devModeWarning');
+        if (warning) {
+            if (DEV_MODE) {
+                warning.classList.remove('hidden');
+            } else {
+                warning.classList.add('hidden');
+            }
+        }
     }
+    
+    console.log(`개발 모드 초기 상태: ${DEV_MODE ? 'ON' : 'OFF'}`);
 });
 
 // 전역으로 노출
 window.DEV_MODE = DEV_MODE;
+window.USE_DUMMY_DATA = DEV_MODE; // trending.js 호환성
 window.toggleDevMode = toggleDevMode;

@@ -104,6 +104,15 @@ function saveApiKeys() {
     const youtubeKeyIndex = parseInt(document.querySelector('input[name="activeYoutubeKey"]:checked')?.value || '0');
     const geminiKeyIndex = parseInt(document.querySelector('input[name="activeGeminiKey"]:checked')?.value || '0');
 
+    // Save dev mode state
+    const devModeCheckbox = document.getElementById('devModeCheckbox');
+    if (devModeCheckbox) {
+        localStorage.setItem('DEV_MODE', devModeCheckbox.checked.toString());
+        if (typeof window !== 'undefined') {
+            window.DEV_MODE = devModeCheckbox.checked;
+        }
+    }
+
     // Save to localStorage
     localStorage.setItem('YOUTUBE_API_KEYS', JSON.stringify(youtubeKeys));
     localStorage.setItem('GEMINI_API_KEYS', JSON.stringify(geminiKeys));
@@ -123,9 +132,9 @@ function saveApiKeys() {
 
     // Show success message
     if (typeof showToast !== 'undefined') {
-        showToast('API 키가 저장되었습니다!', 'success');
+        showToast('설정이 저장되었습니다!', 'success');
     } else {
-        alert('API 키가 저장되었습니다!');
+        alert('설정이 저장되었습니다!');
     }
 
     closeSettings();

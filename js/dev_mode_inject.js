@@ -126,6 +126,17 @@ if (typeof window !== 'undefined') {
                 channelMap[ch.id] = ch.statistics;
             });
 
+            // Helper to parse ISO 8601 duration
+            const parseDuration = (duration) => {
+                if (!duration) return 0;
+                const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+                if (!match) return 0;
+                const hours = parseInt(match[1]) || 0;
+                const minutes = parseInt(match[2]) || 0;
+                const seconds = parseInt(match[3]) || 0;
+                return hours * 3600 + minutes * 60 + seconds;
+            };
+
             const processedVideos = dummyData.items.map(video => {
                 const videoId = video.id.videoId;
                 const stats = statsMap[videoId];
@@ -135,6 +146,7 @@ if (typeof window !== 'undefined') {
                 const viewCount = parseInt(stats?.viewCount) || 0;
                 const subCount = parseInt(chStats?.subscriberCount) || 0;
                 const hiddenSubs = chStats?.hiddenSubscriberCount || false;
+                const durationSec = parseDuration(duration);
 
                 let ratio = 0;
                 if (subCount > 0) ratio = (viewCount / subCount) * 100;
@@ -144,6 +156,7 @@ if (typeof window !== 'undefined') {
                     snippet: video.snippet,
                     statistics: stats,
                     contentDetails: { duration: duration },
+                    durationSec: durationSec, // 추가됨
                     channelId: video.snippet.channelId,
                     ratio: ratio,
                     subCount: subCount,
@@ -157,8 +170,8 @@ if (typeof window !== 'undefined') {
             }
 
             // Render results
-            if (typeof window.renderResults === 'function') {
-                window.renderResults(processedVideos);
+            if (typeof window.renderVideos === 'function') {
+                window.renderVideos(processedVideos);
             }
 
             if (searchLoader) searchLoader.classList.add('hidden');
