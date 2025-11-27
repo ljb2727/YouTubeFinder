@@ -432,4 +432,30 @@ function renderTrendingVideos(videos) {
     });
 }
 
+// 정렬 기능
+function sortTrendingVideos(sortBy, save = true) {
+    if (!cachedTrendingVideos || cachedTrendingVideos.length === 0) return;
+
+    console.log(`Sorting trending videos by: ${sortBy}`);
+
+    const sorted = [...cachedTrendingVideos].sort((a, b) => {
+        if (sortBy === 'viewCount') {
+            return b.viewCount - a.viewCount;
+        } else if (sortBy === 'publishedAt') {
+            return new Date(b.publishedAt) - new Date(a.publishedAt);
+        } else if (sortBy === 'subCount') {
+            return b.subCount - a.subCount;
+        } else {
+            // 기본값: ratio (성과율)
+            return b.ratio - a.ratio;
+        }
+    });
+
+    renderTrendingVideos(sorted);
+
+    if (save) {
+        localStorage.setItem('trendingSort', sortBy);
+    }
+}
+
 console.log('✅ trending.js 로드 완료');
