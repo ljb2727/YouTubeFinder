@@ -500,44 +500,35 @@ function toggleFavorite(event, channelId, channelTitle) {
             );
         }
 
-        showToast("즐겨찾기에서 삭제되었습니다.");
+        showToast("즐겨찾기에서 삭제되었습니다.", "info");
     }
 
     localStorage.setItem('favoriteChannels', JSON.stringify(favoriteChannels));
 
-    // Update UI if in search results
-    const btn = document.getElementById(`fav-btn-${channelId}`);
-    if (btn) {
+    // Update UI
+    loadFavoritesFeed();
+
+    // Update ALL heart buttons for this channel in the search results
+    // This handles multiple videos from the same channel
+    const heartButtons = document.querySelectorAll(`button[onclick*="'${channelId}'"]`);
+    heartButtons.forEach(btn => {
         updateFavoriteBtn(btn, isAdding);
-    }
+    });
 
-    // Update UI if in trending tab
-    const trendingBtn = document.getElementById(`fav-btn-trending-${channelId}`);
-    if (trendingBtn) {
-        updateFavoriteBtn(trendingBtn, isAdding);
-    }
+    // If we are in the favorites tab, we might need to remove cards
+    if (!isAdding) {
+        // If removing, remove elements directly to save API calls
+        const chip = document.getElementById(`fav-chip-${channelId}`);
+        if (chip) chip.remove();
 
-    // Update UI if in favorites tab
-    const favoritesTab = document.getElementById("favoritesTabContent");
-    if (!favoritesTab.classList.contains("hidden")) {
-        if (isAdding) {
-            // If adding while in favorites tab (unlikely but possible via console or other means), reload
-            loadFavoritesFeed();
-        } else {
-            // If removing, remove elements directly to save API calls
-            const chip = document.getElementById(`fav-chip-${channelId}`);
-            if (chip) chip.remove();
+        const cards = document.querySelectorAll(
+            `.feed-card[data-channel-id="${channelId}"]`
+        );
+        cards.forEach((card) => card.remove());
 
-            const cards = document.querySelectorAll(
-                `.feed-card[data-channel-id="${channelId}"]`
-            );
-            cards.forEach((card) => card.remove());
-
-            if (favoriteChannels.length === 0) {
-                document
-                    .getElementById("emptyFeedMessage")
-                    .classList.remove("hidden");
-            }
+        if (favoriteChannels.length === 0) {
+            const emptyMsg = document.getElementById("emptyFeedMessage");
+            if (emptyMsg) emptyMsg.classList.remove("hidden");
         }
     }
 }
