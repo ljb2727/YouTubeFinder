@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             최근 인기 동영상
         </h2>
         <p class="text-gray-400">
-            고정된 키워드 조합으로 최근 3주간 조회수 5만 이상인 인기 영상을 모아봅니다. 24시간마다 자동 업데이트됩니다.
+            고정된 키워드 조합으로 최근 3주간 조회수 5만 이상인 인기 영상을 모아봅니다. 6시간마다 자동 업데이트됩니다.
         </p>
     </div>
 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     <!-- Auto-update notice -->
     <p class="text-xs text-gray-500 text-center mt-8">
-        ※ 최신 리스트는 24시간마다 자동 업데이트됩니다.
+        ※ 최신 리스트는 6시간마다 자동 업데이트됩니다.
     </p>
 </div>
         `;
@@ -97,20 +97,6 @@ async function loadTrendingFeed(forceRefresh = false) {
     const emptyMsg = document.getElementById('emptyTrendingMessage');
 
     if (!grid || !loader || !emptyMsg) {
-        console.error('Trending elements not found');
-        return;
-    }
-
-    renderTrendingKeywords();
-
-    // 캐시 확인 (24시간 = 86400000 ms)
-    const now = Date.now();
-    const cacheDuration = 24 * 60 * 60 * 1000;
-
-    if (!forceRefresh && cachedTrendingVideos.length > 0 && (now - lastTrendingFetchTime < cacheDuration)) {
-        console.log('Using cached trending videos');
-        renderTrendingVideos(cachedTrendingVideos);
-        return;
     }
 
     emptyMsg.classList.add('hidden');
