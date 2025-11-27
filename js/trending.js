@@ -204,12 +204,13 @@ async function loadTrendingFeed(forceRefresh = false) {
                 };
             });
 
-            // 필터링: 조회수 5만 이상, 1-3분, 구독자 100명 이상
+            // 필터링: 조회수 5만 이상, 1-3분, 구독자 100명 이상, 성과율 300% 이상
             processedVideos = processedVideos.filter(v =>
                 v.viewCount >= 50000 &&
                 v.durationSec >= 60 &&
                 v.durationSec <= 180 &&
-                v.subCount >= 100
+                v.subCount >= 100 &&
+                v.ratio >= 300
             );
 
             // 성과율로 정렬
@@ -228,10 +229,51 @@ async function loadTrendingFeed(forceRefresh = false) {
             return;
         }
 
-        // ========== 프로덕션 모드: YouTube API 호출 생략 (index.html에 로직 있음) ==========
-        console.log('⚠️ 프로덕션 모드는 index.html의 기존 trending 로직을 사용합니다.');
-        loader.classList.add('hidden');
-        emptyMsg.classList.remove('hidden');
+        // ========== 프로덕션 모드: YouTube API 호출 ==========
+        console.log('🚀 프로덕션 모드: 실제 YouTube API를 호출합니다...');
+        
+        // ========== 프로덕션 모드: 정적 데이터 파일 로드 (GitHub Actions 갱신) ==========
+        console.log('🚀 프로덕션 모드: 서버에서 갱신된 인기 영상 데이터를 로드합니다...');
+
+        try {
+            // GitHub Actions가 생성한 JSON 파일 로드
+            // 캐싱 방지를 위해 타임스탬프 추가
+            const response = await fetch(`data/trending.json?t=${Date.now()}`);
+            
+            if (!response.ok) {
+                throw new Error(`데이터 파일을 찾을 수 없습니다. (${response.status})`);
+            }
+
+            const data = await response.json();
+
+            if (!Array.isArray(data) || data.length === 0) {
+                console.log('데이터 파일이 비어있습니다.');
+                loader.classList.add('hidden');
+                emptyMsg.classList.remove('hidden');
+                return;
+            }
+
+            console.log(`✅ 정적 데이터 ${data.length}개 로드 완료`);
+
+            // 캐시 업데이트 (로컬 스토리지에도 저장하여 잦은 파일 요청 방지)
+            cachedTrendingVideos = data;
+            lastTrendingFetchTime = Date.now();
+            localStorage.setItem('cachedTrendingVideos', JSON.stringify(cachedTrendingVideos));
+            localStorage.setItem('lastTrendingFetchTime', lastTrendingFetchTime);
+
+            renderTrendingVideos(cachedTrendingVideos);
+            loader.classList.add('hidden');
+
+        } catch (fileError) {
+            console.warn('정적 데이터 로드 실패, API 직접 호출을 시도하지 않습니다 (비용 절감).', fileError);
+            loader.classList.add('hidden');
+            emptyMsg.classList.remove('hidden');
+            
+            // 만약 파일 로드 실패 시 API 직접 호출로 폴백하려면 여기에 이전 로직을 넣을 수 있음.
+            // 하지만 사용자 요청에 따라 "서버 파일 갱신" 방식을 따르므로 여기서는 에러 처리만 함.
+        }
+
+
 
     } catch (error) {
         console.error('Trending 로드 실패:', error);
