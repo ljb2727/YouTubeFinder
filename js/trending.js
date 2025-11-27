@@ -18,16 +18,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         const html = `
 <div class="max-w-6xl mx-auto">
     <div class="mb-8">
-        <h2 class="text-3xl font-bold text-white mb-2">
-            최근 인기 동영상
-        </h2>
-        <p class="text-gray-400">
+        <div class="flex justify-between items-end mb-2">
+            <h2 class="text-3xl font-bold text-white">
+                최근 인기 동영상
+            </h2>
+            <div id="trendingLastUpdated" class="text-xs text-gray-400"></div>
+        </div>
+        <p class="text-gray-400 mb-4">
             고정된 키워드 조합으로 최근 3주간 조회수 5만 이상인 인기 영상을 모아봅니다. 6시간마다 자동 업데이트됩니다.
         </p>
+        
+        <!-- 적용된 키워드 표시 -->
+        <div class="bg-white/5 rounded-lg p-4 mb-6 border border-white/10">
+            <p class="text-xs text-gray-500 mb-2 font-bold">적용된 검색 키워드</p>
+            <div id="trendingKeywordsList" class="flex gap-2 flex-wrap"></div>
+        </div>
     </div>
-
-    <!-- 고정 키워드 표시 (읽기 전용) -->
-    <div id="trendingKeywordsList" class="flex gap-2 flex-wrap mb-8"></div>
 
     <!-- Loading Indicator -->
     <div id="trendingLoader" class="hidden flex flex-col items-center justify-center py-20">
@@ -61,31 +67,62 @@ document.addEventListener('DOMContentLoaded', async () => {
 function initTrending() {
     // 캐시된 데이터가 있으면 바로 표시
     if (cachedTrendingVideos.length > 0) {
-        renderTrendingKeywords();
+        // 메타데이터가 있으면 표시
+        const cachedMeta = JSON.parse(localStorage.getItem('cachedTrendingMeta'));
+        if (cachedMeta) {
+            renderTrendingMeta(cachedMeta);
+        } else {
+            // 없으면 기본 키워드 표시
+            renderTrendingKeywords(FIXED_TRENDING_KEYWORDS);
+        }
         renderTrendingVideos(cachedTrendingVideos);
+    } else {
+        // 데이터가 없으면 기본 키워드라도 표시
+        renderTrendingKeywords(FIXED_TRENDING_KEYWORDS);
     }
 }
 
-// 고정 키워드 (사용자가 변경 불가)
+// 고정 키워드 (기본값, 서버 데이터 없을 시 사용)
 const FIXED_TRENDING_KEYWORDS = [
-    "시니어드라마", "숏폼드라마", "쇼츠드라마", "시니어로맨스",
-    "노후지혜", "숏드라마", "황혼이야기", "시어머니",
-    "막장드라마", "고부갈등", "시니어썰"
+    '막장드라마', '시니어드라마', '시니어썰', '노후지혜', '시니어로맨스', 
+    '고부갈등', '숏폼드라마', '황혼이야기', '쇼츠드라마', '시어머니', 
+    '반전드라마', '시니어사연', '사이다사연', '실제사연', '시월드', 
+    '참교육', '숏드라마', '실화사연'
 ];
 
 let cachedTrendingVideos = JSON.parse(localStorage.getItem('cachedTrendingVideos')) || [];
 let lastTrendingFetchTime = parseInt(localStorage.getItem('lastTrendingFetchTime')) || 0;
 
-// 고정 키워드 표시 (읽기 전용)
-function renderTrendingKeywords() {
+// 메타데이터 렌더링 (업데이트 시간 및 키워드)
+function renderTrendingMeta(meta) {
+    if (!meta) return;
+
+    // 업데이트 시간 표시
+    const timeEl = document.getElementById('trendingLastUpdated');
+    if (timeEl && meta.updatedAt) {
+        const date = new Date(meta.updatedAt);
+        const timeStr = date.toLocaleString('ko-KR', { 
+            month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' 
+        });
+        timeEl.innerHTML = `<i class="fa-regular fa-clock mr-1"></i>업데이트: ${timeStr}`;
+    }
+
+    // 키워드 표시
+    if (meta.keywords && Array.isArray(meta.keywords)) {
+        renderTrendingKeywords(meta.keywords);
+    }
+}
+
+// 키워드 칩 렌더링
+function renderTrendingKeywords(keywords) {
     const list = document.getElementById('trendingKeywordsList');
     if (!list) return;
 
     list.innerHTML = '';
-    FIXED_TRENDING_KEYWORDS.forEach(k => {
+    keywords.forEach(k => {
         const chip = document.createElement('div');
-        chip.className = 'px-3 py-1.5 rounded-full bg-purple-600/30 border border-purple-500 text-white text-sm font-medium';
-        chip.innerHTML = `<span>${k}</span>`;
+        chip.className = 'px-3 py-1.5 rounded-full bg-purple-600/30 border border-purple-500 text-white text-xs font-medium';
+        chip.innerHTML = `<span>#${k}</span>`;
         list.appendChild(chip);
     });
 }
@@ -97,6 +134,7 @@ async function loadTrendingFeed(forceRefresh = false) {
     const emptyMsg = document.getElementById('emptyTrendingMessage');
 
     if (!grid || !loader || !emptyMsg) {
+        return;
     }
 
     emptyMsg.classList.add('hidden');
@@ -106,6 +144,19 @@ async function loadTrendingFeed(forceRefresh = false) {
     try {
         // ========== 개발 모드: 더미 데이터 사용 ==========
         if (window.DEV_MODE || localStorage.getItem('DEV_MODE') === 'true') {
+            // ... (더미 데이터 로직은 그대로 유지, 생략)
+            // 더미 데이터 로직이 너무 길어서 생략하고 아래 프로덕션 모드만 수정합니다.
+            // 실제 파일에서는 더미 데이터 로직이 유지되어야 합니다.
+            // 여기서는 replace_file_content의 특성상 전체를 교체하지 않고 필요한 부분만 수정해야 하는데,
+            // 구조가 많이 바뀌어서 전체를 다시 쓰는 것이 안전할 수 있습니다.
+            // 하지만 더미 데이터 부분은 건드리지 않기 위해 StartLine을 조정하겠습니다.
+            // 아래 코드는 프로덕션 모드 부분입니다.
+        }
+    } catch (e) {
+        // ...
+    }
+}
+// 위 코드는 예시이고, 실제로는 아래와 같이 부분 교체를 진행합니다.
             console.log('🔧 개발 모드: 더미 데이터를 사용합니다...');
 
             // 더미 데이터 (내장)
@@ -196,9 +247,6 @@ async function loadTrendingFeed(forceRefresh = false) {
             return;
         }
 
-        // ========== 프로덕션 모드: YouTube API 호출 ==========
-        console.log('🚀 프로덕션 모드: 실제 YouTube API를 호출합니다...');
-        
         // ========== 프로덕션 모드: 정적 데이터 파일 로드 (GitHub Actions 갱신) ==========
         console.log('🚀 프로덕션 모드: 서버에서 갱신된 인기 영상 데이터를 로드합니다...');
 
@@ -211,19 +259,38 @@ async function loadTrendingFeed(forceRefresh = false) {
                 throw new Error(`데이터 파일을 찾을 수 없습니다. (${response.status})`);
             }
 
-            const data = await response.json();
+            const rawData = await response.json();
+            let videos = [];
+            let meta = null;
 
-            if (!Array.isArray(data) || data.length === 0) {
+            // 데이터 구조 확인 (배열 vs 객체)
+            if (Array.isArray(rawData)) {
+                videos = rawData;
+            } else if (rawData.videos && Array.isArray(rawData.videos)) {
+                videos = rawData.videos;
+                meta = rawData.meta;
+            }
+
+            if (videos.length === 0) {
                 console.log('데이터 파일이 비어있습니다.');
                 loader.classList.add('hidden');
                 emptyMsg.classList.remove('hidden');
                 return;
             }
 
-            console.log(`✅ 정적 데이터 ${data.length}개 로드 완료`);
+            console.log(`✅ 정적 데이터 ${videos.length}개 로드 완료`);
 
-            // 캐시 업데이트 (로컬 스토리지에도 저장하여 잦은 파일 요청 방지)
-            cachedTrendingVideos = data;
+            // 메타데이터 처리
+            if (meta) {
+                renderTrendingMeta(meta);
+                localStorage.setItem('cachedTrendingMeta', JSON.stringify(meta));
+            } else {
+                // 메타데이터가 없으면 기본 키워드 표시
+                renderTrendingKeywords(FIXED_TRENDING_KEYWORDS);
+            }
+
+            // 캐시 업데이트
+            cachedTrendingVideos = videos;
             lastTrendingFetchTime = Date.now();
             localStorage.setItem('cachedTrendingVideos', JSON.stringify(cachedTrendingVideos));
             localStorage.setItem('lastTrendingFetchTime', lastTrendingFetchTime);
@@ -235,9 +302,6 @@ async function loadTrendingFeed(forceRefresh = false) {
             console.warn('정적 데이터 로드 실패, API 직접 호출을 시도하지 않습니다 (비용 절감).', fileError);
             loader.classList.add('hidden');
             emptyMsg.classList.remove('hidden');
-            
-            // 만약 파일 로드 실패 시 API 직접 호출로 폴백하려면 여기에 이전 로직을 넣을 수 있음.
-            // 하지만 사용자 요청에 따라 "서버 파일 갱신" 방식을 따르므로 여기서는 에러 처리만 함.
         }
 
 

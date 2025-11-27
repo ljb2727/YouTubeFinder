@@ -11,8 +11,10 @@ if (!YOUTUBE_API_KEY) {
 
 // 검색 키워드 (trending.js와 동일하게 유지)
 const FIXED_TRENDING_KEYWORDS = [
-    '숏드라마', '막장드라마', '시니어드라마', '시니어썰', '노후지혜',
-    '시니어로맨스', '고부갈등', '숏폼드라마', '황혼이야기', '쇼츠드라마', '시어머니'
+    '막장드라마', '시니어드라마', '시니어썰', '노후지혜', '시니어로맨스', 
+    '고부갈등', '숏폼드라마', '황혼이야기', '쇼츠드라마', '시어머니', 
+    '반전드라마', '시니어사연', '사이다사연', '실제사연', '시월드', 
+    '참교육', '숏드라마', '실화사연'
 ];
 
 async function updateTrendingData() {
@@ -24,11 +26,10 @@ async function updateTrendingData() {
     const videoIds = new Set();
 
     // 1. 키워드별 검색
-    // API Quota 절약을 위해 키워드를 랜덤으로 10개만 선정하여 검색
-    const shuffled = FIXED_TRENDING_KEYWORDS.sort(() => 0.5 - Math.random());
-    const selectedKeywords = shuffled.slice(0, 10); 
+    // 사용자의 요청에 따라 모든 키워드 검색 (전용 API 키 사용 가정)
+    const selectedKeywords = FIXED_TRENDING_KEYWORDS;
     
-    console.log(`Selected keywords: ${selectedKeywords.join(', ')}`);
+    console.log(`Searching with ${selectedKeywords.length} keywords: ${selectedKeywords.join(', ')}`);
 
     for (const keyword of selectedKeywords) {
         try {
@@ -148,9 +149,17 @@ async function updateTrendingData() {
 
     console.log(`Final processed videos: ${processedVideos.length}`);
 
-    // 파일 저장
+    // 파일 저장 (메타데이터 포함)
+    const outputData = {
+        meta: {
+            updatedAt: new Date().toISOString(),
+            keywords: selectedKeywords
+        },
+        videos: processedVideos
+    };
+
     const outputPath = path.join(__dirname, '../data/trending.json');
-    fs.writeFileSync(outputPath, JSON.stringify(processedVideos, null, 2));
+    fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
     console.log(`Saved to ${outputPath}`);
 }
 
