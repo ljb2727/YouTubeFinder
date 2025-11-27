@@ -333,22 +333,8 @@ function renderTrendingVideos(videos) {
         const glow = isHighPerformer ? 'shadow-[0_0_15px_rgba(239,68,68,0.15)]' : '';
         const cardBorderColor = isHighPerformer ? 'rgba(239, 68, 68, 0.3)' : 'rgba(255, 255, 255, 0.05)';
 
-        // Fire Icons
-        const bigFireCount = Math.floor(video.ratio / 1000);
-        const smallFireCount = Math.floor((video.ratio % 1000) / 100);
-
-        let fireIcons = '';
-        if (bigFireCount > 0) {
-            fireIcons +=
-                '<i class="fa-solid fa-fire text-lg text-yellow-300 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]"></i>'.repeat(
-                    bigFireCount
-                );
-        }
-        if (smallFireCount > 0) {
-            fireIcons += '<i class="fa-solid fa-fire text-sm"></i>'.repeat(
-                Math.min(smallFireCount, 10)
-            );
-        }
+        // Fire Icons (utils.js의 공통 함수 사용)
+        const fireIcons = generateFireIcons(video.ratio);
 
         const safeTitle = video.title.replace(/'/g, "\\'").replace(/"/g, "&quot;");
         const safeChannel = video.channelTitle.replace(/'/g, "\\'").replace(/"/g, "&quot;");

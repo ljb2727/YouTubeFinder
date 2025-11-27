@@ -740,21 +740,8 @@ async function loadFavoritesFeed() {
                 : "";
             const timeAgoStr = timeAgo(video.snippet.publishedAt);
 
-            const bigFireCount = Math.floor(ratio / 1000);
-            const smallFireCount = Math.floor((ratio % 1000) / 100);
-
-            let fireIcons = '';
-            if (bigFireCount > 0) {
-                fireIcons +=
-                    '<i class="fa-solid fa-fire text-lg text-yellow-300 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]"></i>'.repeat(
-                        bigFireCount
-                    );
-            }
-            if (smallFireCount > 0) {
-                fireIcons += '<i class="fa-solid fa-fire text-sm"></i>'.repeat(
-                    Math.min(smallFireCount, 10)
-                );
-            }
+            // Fire Icons (utils.js의 공통 함수 사용)
+            const fireIcons = generateFireIcons(ratio);
 
             const safeTitle = video.snippet.title
                 .replace(/'/g, "\\'")
