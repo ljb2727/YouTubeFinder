@@ -2,8 +2,10 @@
 // 개발 모드 설정 관리
 // ==========================================
 
-// localStorage에서 개발 모드 상태 가져오기
-let DEV_MODE = localStorage.getItem('DEV_MODE') === 'true';
+// localStorage에서 개발 모드 상태 가져오기 (기본값: false)
+// 사용자의 요청으로 기본적으로 비활성화 상태 유지
+let DEV_MODE = false;
+localStorage.setItem('DEV_MODE', 'false');
 
 // 개발 모드 토글 함수
 function toggleDevMode(enabled) {
