@@ -310,18 +310,20 @@
         <!-- FAVORITES TAB CONTENT -->
         <div id="favoritesTabContent" class="hidden">
             <div class="max-w-6xl mx-auto">
-                <div class="flex justify-between items-center mb-8">
+                <div class="flex justify-between items-center mb-6 md:mb-8">
                     <div>
-                        <h2 class="text-3xl font-bold text-white mb-2">
-                            즐겨찾기 채널 피드
+                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-1 md:mb-2">
+                            즐겨찾기
                         </h2>
-                        <p class="text-gray-400">
+                        <p class="text-sm md:text-base text-gray-400">
                             저장한 채널들의 최신 영상을 모아봅니다.
                         </p>
                     </div>
                     <button onclick="loadFavoritesFeed(true)"
-                        class="bg-white/5 hover:bg-white/10 text-white px-4 py-2 rounded-lg border border-white/10 transition-colors flex items-center gap-2">
-                        <i class="fa-solid fa-rotate-right"></i> 새로고침
+                        class="bg-white/5 hover:bg-white/10 text-white px-3 md:px-4 py-2 rounded-lg border border-white/10 transition-colors flex items-center gap-2"
+                        title="새로고침">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span class="hidden md:inline">새로고침</span>
                     </button>
                 </div>
 
@@ -479,24 +481,26 @@
     <div id="settingsModal" class="fixed inset-0 z-[110] hidden">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeSettings()"></div>
         <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
-            <div class="bg-[#1e293b] w-full max-w-md rounded-2xl shadow-2xl border border-white/10 pointer-events-auto overflow-hidden transform transition-all scale-95 opacity-0"
+            <!-- Modal Container with flex layout -->
+            <div class="bg-[#1e293b] w-full max-w-md max-h-[90vh] md:max-h-[85vh] rounded-2xl shadow-2xl border border-white/10 pointer-events-auto transform transition-all scale-95 opacity-0 flex flex-col"
                 id="settingsContent">
-                <!-- Modal Header -->
-                <div class="p-6 border-b border-white/10 bg-[#0f172a]">
+                
+                <!-- Modal Header (Fixed) -->
+                <div class="p-4 md:p-6 border-b border-white/10 bg-[#0f172a] flex-shrink-0">
                     <div class="flex justify-between items-center mb-4">
-                        <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-2 md:gap-3">
                             <i class="fa-solid fa-gear text-blue-400"></i>
-                            <h2 class="text-xl font-bold text-white">API 키 설정</h2>
+                            <h2 class="text-lg md:text-xl font-bold text-white">API 키 설정</h2>
                             <button onclick="resetAllSettings()"
-                                class="ml-2 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-red-500/10 border border-white/10 hover:border-red-500/30 flex items-center gap-2 text-gray-400 hover:text-red-400 transition-all text-sm"
+                                class="ml-1 md:ml-2 px-2 md:px-3 py-1 md:py-1.5 rounded-lg bg-white/5 hover:bg-red-500/10 border border-white/10 hover:border-red-500/30 flex items-center gap-1 md:gap-2 text-gray-400 hover:text-red-400 transition-all text-xs md:text-sm"
                                 title="모든 설정 초기화">
-                                <i class="fa-solid fa-rotate-right"></i>
-                                <span class="font-medium">초기화</span>
+                                <i class="fa-solid fa-rotate-right text-xs md:text-sm"></i>
+                                <span class="font-medium hidden sm:inline">초기화</span>
                             </button>
                         </div>
                         <button onclick="closeSettings()"
                             class="text-gray-400 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-lg">
-                            <i class="fa-solid fa-xmark text-2xl"></i>
+                            <i class="fa-solid fa-xmark text-xl md:text-2xl"></i>
                         </button>
                     </div>
                     
@@ -527,32 +531,32 @@
                     </div>
                 </div>
 
-                <!-- Modal Body -->
-                <div class="p-6 space-y-6">
-                    <p class="text-sm text-gray-400">
+                <!-- Modal Body (Scrollable) -->
+                <div class="p-4 md:p-6 space-y-4 md:space-y-6 overflow-y-auto flex-grow">
+                    <p class="text-xs md:text-sm text-gray-400">
                         API 키를 입력하면 브라우저에 안전하게 저장됩니다.
                     </p>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-300 mb-2">YouTube Data API Keys (최대
+                        <label class="block text-xs md:text-sm font-medium text-gray-300 mb-2">YouTube Data API Keys (최대
                             3개)</label>
                         <div class="space-y-2">
                             <div class="flex items-center gap-2">
                                 <input type="radio" name="activeYoutubeKey" value="0" class="accent-blue-500 w-4 h-4" />
                                 <input type="password" id="inputYoutubeKey1"
-                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-blue-500 transition-colors"
                                     placeholder="Key 1" />
                             </div>
                             <div class="flex items-center gap-2">
                                 <input type="radio" name="activeYoutubeKey" value="1" class="accent-blue-500 w-4 h-4" />
                                 <input type="password" id="inputYoutubeKey2"
-                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-blue-500 transition-colors"
                                     placeholder="Key 2 (Optional)" />
                             </div>
                             <div class="flex items-center gap-2">
                                 <input type="radio" name="activeYoutubeKey" value="2" class="accent-blue-500 w-4 h-4" />
                                 <input type="password" id="inputYoutubeKey3"
-                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-blue-500 transition-colors"
                                     placeholder="Key 3 (Optional)" />
                             </div>
                         </div>
@@ -564,24 +568,24 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Gemini API Keys (최대 3개)</label>
+                        <label class="block text-xs md:text-sm font-medium text-gray-300 mb-2">Gemini API Keys (최대 3개)</label>
                         <div class="space-y-2">
                             <div class="flex items-center gap-2">
                                 <input type="radio" name="activeGeminiKey" value="0" class="accent-blue-500 w-4 h-4" />
                                 <input type="password" id="inputGeminiKey1"
-                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-blue-500 transition-colors"
                                     placeholder="Key 1" />
                             </div>
                             <div class="flex items-center gap-2">
                                 <input type="radio" name="activeGeminiKey" value="1" class="accent-blue-500 w-4 h-4" />
                                 <input type="password" id="inputGeminiKey2"
-                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-blue-500 transition-colors"
                                     placeholder="Key 2 (Optional)" />
                             </div>
                             <div class="flex items-center gap-2">
                                 <input type="radio" name="activeGeminiKey" value="2" class="accent-blue-500 w-4 h-4" />
                                 <input type="password" id="inputGeminiKey3"
-                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                                    class="flex-grow bg-black/20 border border-white/10 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-blue-500 transition-colors"
                                     placeholder="Key 3 (Optional)" />
                             </div>
                         </div>
@@ -590,9 +594,12 @@
                                 class="text-blue-400 hover:underline">Google AI Studio</a>에서 발급
                         </p>
                     </div>
+                </div>
 
+                <!-- Modal Footer (Fixed) -->
+                <div class="p-4 md:p-6 border-t border-white/10 bg-[#0f172a] flex-shrink-0">
                     <button onclick="saveApiKeys()"
-                        class="w-full bg-blue-600 hover:bg-blue-500 text-white py-3 rounded-lg font-bold transition-all shadow-lg shadow-blue-600/20">
+                        class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2.5 md:py-3 rounded-lg font-bold transition-all shadow-lg shadow-blue-600/20 text-sm md:text-base">
                         <i class="fa-solid fa-save mr-2"></i>저장하기
                     </button>
                 </div>
