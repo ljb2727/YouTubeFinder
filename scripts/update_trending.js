@@ -17,6 +17,12 @@ const FIXED_TRENDING_KEYWORDS = [
     '참교육', '숏드라마', '실화사연'
 ];
 
+// 한글 포함 여부 검사 함수
+function containsKorean(text) {
+    const koreanRegex = /[\uAC00-\uD7A3\u1100-\u11FF\u3130-\u318F]/;
+    return koreanRegex.test(text);
+}
+
 async function updateTrendingData() {
     console.log('🚀 Starting trending data update...');
     
@@ -33,7 +39,8 @@ async function updateTrendingData() {
 
     for (const keyword of selectedKeywords) {
         try {
-            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(keyword)}&type=video&order=viewCount&publishedAfter=${publishedAfter}&videoDuration=short&maxResults=10&key=${YOUTUBE_API_KEY}`;
+            // regionCode=KR 추가하여 한국 지역 중심으로 검색
+            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(keyword)}&type=video&order=viewCount&publishedAfter=${publishedAfter}&videoDuration=short&maxResults=10&regionCode=KR&key=${YOUTUBE_API_KEY}`;
             
             const response = await fetch(url);
             if (!response.ok) {
@@ -135,19 +142,20 @@ async function updateTrendingData() {
         };
     });
 
-    // 필터링: 조회수 1만 이상, 1-3분, 구독자 100명 이상, 성과율 300% 이상
+    // 필터링: 조회수 1만 이상, 1-3분, 구독자 100명 이상, 성과율 300% 이상, 한글 포함
     processedVideos = processedVideos.filter(v =>
         v.viewCount >= 10000 &&
         v.durationSec >= 60 &&
         v.durationSec <= 180 &&
         v.subCount >= 100 &&
-        v.ratio >= 300
+        v.ratio >= 300 &&
+        containsKorean(v.title) // 제목에 한글 포함된 영상만
     );
 
     // 정렬
     processedVideos.sort((a, b) => b.ratio - a.ratio);
 
-    console.log(`Final processed videos: ${processedVideos.length}`);
+    console.log(`Final processed videos (Korean only): ${processedVideos.length}`);
 
     // 파일 저장 (메타데이터 포함)
     const outputData = {
