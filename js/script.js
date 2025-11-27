@@ -65,20 +65,7 @@ const formatKoreanNumber = (num) => {
     return num.toString();
 };
 
-const timeAgo = (dateString) => {
-    const now = new Date();
-    const posted = new Date(dateString);
-    const diff = now - posted;
-    const minutes = Math.floor(diff / (1000 * 60));
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-    if (minutes < 60) return `${minutes}분 전`;
-    if (hours < 24) return `${hours}시간 전`;
-    if (days < 30) return `${days}일 전`;
-    if (days < 365) return `${Math.floor(days / 30)}개월 전`;
-    return `${Math.floor(days / 365)}년 전`;
-};
+// timeAgo와 formatDuration 함수는 utils.js에 정의되어 있음
 
 const parseDuration = (duration) => {
     const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
@@ -86,20 +73,6 @@ const parseDuration = (duration) => {
     const minutes = parseInt(match[2]) || 0;
     const seconds = parseInt(match[3]) || 0;
     return hours * 3600 + minutes * 60 + seconds;
-};
-
-const formatDuration = (seconds) => {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-
-    if (hours > 0) {
-        return `${hours}:${String(minutes).padStart(2, "0")}:${String(
-            secs
-        ).padStart(2, "0")}`;
-    } else {
-        return `${minutes}:${String(secs).padStart(2, "0")}`;
-    }
 };
 
 const parseNumber = (str) => {
