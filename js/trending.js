@@ -18,13 +18,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         const html = `
 <div class="max-w-6xl mx-auto">
     <div class="mb-8">
-        <div class="flex justify-between items-end mb-2">
-            <h2 class="text-3xl font-bold text-white">
-                최근 인기 동영상
-            </h2>
-            <div id="trendingLastUpdated" class="text-xs text-gray-400"></div>
+        <div class="flex justify-between items-end mb-2 flex-wrap gap-4">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold text-white">
+                    최근 인기 동영상
+                </h2>
+                <div id="trendingLastUpdated" class="text-xs text-gray-400 mt-1"></div>
+            </div>
+            
+            <!-- 정렬 선택 -->
+            <div class="flex items-center gap-2">
+                <label class="text-sm text-gray-400 hidden md:inline">정렬:</label>
+                <select id="trendingSortSelect" 
+                    class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors cursor-pointer hover:bg-white/10"
+                    onchange="sortTrendingVideos(this.value)">
+                    <option value="ratio">성과율 높은순</option>
+                    <option value="viewCount">조회수 많은순</option>
+                    <option value="publishedAt">최근 업로드순</option>
+                    <option value="subCount">구독자 많은순</option>
+                </select>
+            </div>
         </div>
-        <p class="text-gray-400 mb-4">
+        <p class="text-sm md:text-base text-gray-400 mb-4">
             고정된 키워드 조합으로 최근 3주간 조회수 5만 이상인 인기 영상을 모아봅니다. 6시간마다 자동 업데이트됩니다.
         </p>
         
@@ -65,6 +80,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Trending 기능 초기화
 function initTrending() {
+    // 저장된 정렬 값 불러오기
+    const savedSort = localStorage.getItem('trendingSort') || 'ratio';
+    const sortSelect = document.getElementById('trendingSortSelect');
+    if (sortSelect) {
+        sortSelect.value = savedSort;
+    }
+
     // 캐시된 데이터가 있으면 바로 표시
     if (cachedTrendingVideos.length > 0) {
         // 메타데이터가 있으면 표시
@@ -75,7 +97,8 @@ function initTrending() {
             // 없으면 기본 키워드 표시
             renderTrendingKeywords(FIXED_TRENDING_KEYWORDS);
         }
-        renderTrendingVideos(cachedTrendingVideos);
+        // 저장된 정렬 기준으로 정렬 후 렌더링
+        sortTrendingVideos(savedSort, false);
     } else {
         // 데이터가 없으면 기본 키워드라도 표시
         renderTrendingKeywords(FIXED_TRENDING_KEYWORDS);
@@ -238,7 +261,9 @@ async function loadTrendingFeed(forceRefresh = false) {
             localStorage.setItem('cachedTrendingVideos', JSON.stringify(cachedTrendingVideos));
             localStorage.setItem('lastTrendingFetchTime', lastTrendingFetchTime);
 
-            renderTrendingVideos(cachedTrendingVideos);
+            // 저장된 정렬 기준으로 정렬 후 렌더링
+            const savedSort = localStorage.getItem('trendingSort') || 'ratio';
+            sortTrendingVideos(savedSort, false);
             loader.classList.add('hidden');
             return;
         }
@@ -291,7 +316,9 @@ async function loadTrendingFeed(forceRefresh = false) {
             localStorage.setItem('cachedTrendingVideos', JSON.stringify(cachedTrendingVideos));
             localStorage.setItem('lastTrendingFetchTime', lastTrendingFetchTime);
 
-            renderTrendingVideos(cachedTrendingVideos);
+            // 저장된 정렬 기준으로 정렬 후 렌더링
+            const savedSort = localStorage.getItem('trendingSort') || 'ratio';
+            sortTrendingVideos(savedSort, false);
             loader.classList.add('hidden');
 
         } catch (fileError) {
