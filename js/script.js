@@ -398,6 +398,14 @@ function saveApiKeys() {
     location.reload();
 }
 
+function resetAllSettings() {
+    if (confirm("⚠️ 경고: 모든 설정과 데이터(API 키, 즐겨찾기 등)가 완전히 삭제됩니다.\n\n정말 초기화하시겠습니까?")) {
+        localStorage.clear();
+        alert("모든 데이터가 초기화되었습니다. 페이지를 새로고침합니다.");
+        location.reload();
+    }
+}
+
 // ==========================================
 // TAB NAVIGATION & RESET
 // ==========================================
