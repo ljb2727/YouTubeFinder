@@ -888,21 +888,7 @@ async function loadFavoritesFeed() {
             const timeAgoStr = timeAgo(video.snippet.publishedAt);
 
             // Calculate fire icons
-            const bigFireCount = Math.floor(ratio / 1000);
-            const smallFireCount = Math.floor((ratio % 1000) / 100);
-
-            let fireIcons = '';
-            if (bigFireCount > 0) {
-                fireIcons +=
-                    '<i class="fa-solid fa-fire text-lg text-yellow-300 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]"></i>'.repeat(
-                        bigFireCount
-                    );
-            }
-            if (smallFireCount > 0) {
-                fireIcons += '<i class="fa-solid fa-fire text-sm"></i>'.repeat(
-                    Math.min(smallFireCount, 10)
-                );
-            }
+            const fireIcons = generateFireIcons(ratio);
 
             const safeTitle = video.snippet.title
                 .replace(/'/g, "\\'")
@@ -1187,21 +1173,7 @@ function renderVideos(videos) {
             const glow = isHighPerformer ? 'shadow-[0_0_15px_rgba(239,68,68,0.15)]' : '';
 
             // Fire Icons
-            const bigFireCount = Math.floor(ratio / 1000);
-            const smallFireCount = Math.floor((ratio % 1000) / 100);
-
-            let fireIcons = '';
-            if (bigFireCount > 0) {
-                fireIcons +=
-                    '<i class="fa-solid fa-fire text-lg text-yellow-300 drop-shadow-[0_0_5px_rgba(253,224,71,0.8)]"></i>'.repeat(
-                        bigFireCount
-                    );
-            }
-            if (smallFireCount > 0) {
-                fireIcons += '<i class="fa-solid fa-fire text-sm"></i>'.repeat(
-                    Math.min(smallFireCount, 10)
-                );
-            }
+            const fireIcons = generateFireIcons(ratio);
 
             const safeTitle = video.snippet.title
                 .replace(/'/g, "\\'")
