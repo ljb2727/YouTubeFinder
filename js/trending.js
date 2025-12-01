@@ -34,6 +34,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             <!-- 정렬 선택 -->
             <div class="flex items-center gap-2">
+                <!-- 숨긴 영상 복구 버튼 -->
+                <button id="resetHiddenBtn" onclick="resetHiddenVideos()" class="hidden text-xs bg-red-500/20 hover:bg-red-500/30 text-red-400 border border-red-500/30 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1 mr-2" title="숨긴 영상 다시 보기">
+                    <i class="fa-solid fa-eye"></i>
+                    <span class="hidden sm:inline">숨긴 영상 복구</span>
+                </button>
+
                 <label class="text-sm text-gray-400 hidden md:inline">정렬:</label>
                 <select id="trendingSortSelect" 
                     class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors cursor-pointer hover:bg-white/10"
@@ -463,14 +469,29 @@ function renderTrendingVideos(videos) {
 
     grid.innerHTML = '';
 
-    if (videos.length === 0) {
+    // 숨겨진 영상 필터링
+    const hiddenVideos = JSON.parse(localStorage.getItem('hiddenTrendingVideos')) || [];
+    const visibleVideos = videos.filter(v => !hiddenVideos.includes(v.id.videoId));
+
+    // 복구 버튼 제어
+    const resetBtn = document.getElementById('resetHiddenBtn');
+    if (resetBtn) {
+        if (hiddenVideos.length > 0) {
+            resetBtn.classList.remove('hidden');
+            resetBtn.innerHTML = `<i class="fa-solid fa-eye mr-1"></i><span class="hidden sm:inline">숨긴 영상 복구 (${hiddenVideos.length})</span>`;
+        } else {
+            resetBtn.classList.add('hidden');
+        }
+    }
+
+    if (visibleVideos.length === 0) {
         if (emptyMsg) emptyMsg.classList.remove('hidden');
         return;
     }
 
     if (emptyMsg) emptyMsg.classList.add('hidden');
 
-    videos.forEach((video, index) => {
+    visibleVideos.forEach((video, index) => {
         const isFav = typeof isFavorite === 'function' ? isFavorite(video.channelId) : false;
         const timeAgoStr = typeof timeAgo === 'function' ? timeAgo(video.publishedAt) : '';
         const durationStr = typeof formatDuration === 'function' ? formatDuration(video.durationSec) : '';
@@ -488,6 +509,7 @@ function renderTrendingVideos(videos) {
         const safeChannel = video.channelTitle.replace(/'/g, "\\'").replace(/"/g, "&quot;");
 
         const card = document.createElement('div');
+        card.id = `trending-card-${video.id.videoId}`;
         card.className = `glass-card rounded-xl overflow-hidden flex flex-col h-full ${glow} animate-slide-up`;
         card.style.animationDelay = `${index * 50}ms`;
         card.style.border = `1px solid ${cardBorderColor}`;
@@ -502,6 +524,12 @@ function renderTrendingVideos(videos) {
                     ? `<div class="absolute top-2 left-2 bg-gradient-to-r from-red-600 to-orange-500 text-white text-sm font-bold px-2 py-1 rounded shadow-lg flex items-center gap-0.5">${fireIcons}</div>`
                     : ""
                 }
+                
+                <!-- 숨기기 버튼 -->
+                <button onclick="hideTrendingVideo(event, '${video.id.videoId}', '${safeTitle}')" class="absolute top-2 right-2 bg-black/60 hover:bg-red-600 text-white p-1.5 rounded-full transition-colors z-10 opacity-0 group-hover:opacity-100" title="이 영상 숨기기">
+                    <i class="fa-solid fa-eye-slash text-xs"></i>
+                </button>
+
                 <div class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1.5 py-0.5 rounded">
                     ${timeAgoStr}
                 </div>
@@ -555,6 +583,59 @@ function renderTrendingVideos(videos) {
 
         grid.appendChild(card);
     });
+}
+
+// 영상 숨기기 함수
+function hideTrendingVideo(event, videoId, title) {
+    event.stopPropagation(); // 카드 클릭 방지
+
+    if (!confirm('이 영상을 목록에서 숨기시겠습니까?')) return;
+
+    // 로컬 스토리지에 저장
+    const hiddenVideos = JSON.parse(localStorage.getItem('hiddenTrendingVideos')) || [];
+    if (!hiddenVideos.includes(videoId)) {
+        hiddenVideos.push(videoId);
+        localStorage.setItem('hiddenTrendingVideos', JSON.stringify(hiddenVideos));
+    }
+
+    // 화면에서 제거 (애니메이션 효과)
+    const card = document.getElementById(`trending-card-${videoId}`);
+    if (card) {
+        card.style.transition = 'all 0.3s ease';
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            card.remove();
+            // 모든 카드가 지워졌는지 확인
+            const grid = document.getElementById('trendingGrid');
+            if (grid && grid.children.length === 0) {
+                const emptyMsg = document.getElementById('emptyTrendingMessage');
+                if (emptyMsg) emptyMsg.classList.remove('hidden');
+            }
+        }, 300);
+    }
+
+    if (typeof showToast === 'function') {
+        showToast('영상이 숨겨졌습니다.', 'success');
+    }
+}
+
+// 숨긴 영상 초기화 함수
+function resetHiddenVideos() {
+    const hiddenVideos = JSON.parse(localStorage.getItem('hiddenTrendingVideos')) || [];
+    if (hiddenVideos.length === 0) return;
+
+    if (!confirm(`숨겨진 영상 ${hiddenVideos.length}개를 모두 다시 보이게 하시겠습니까?`)) return;
+
+    localStorage.removeItem('hiddenTrendingVideos');
+    
+    // 현재 정렬 상태 유지하며 재렌더링
+    const savedSort = localStorage.getItem('trendingSort') || 'ratio';
+    sortTrendingVideos(savedSort, false);
+
+    if (typeof showToast === 'function') {
+        showToast('숨겨진 영상이 모두 복구되었습니다.', 'success');
+    }
 }
 
 // 정렬 기능
@@ -613,5 +694,7 @@ function closeUsageModal() {
 // 전역 스코프에 함수 할당
 window.openUsageModal = openUsageModal;
 window.closeUsageModal = closeUsageModal;
+window.hideTrendingVideo = hideTrendingVideo;
+window.resetHiddenVideos = resetHiddenVideos;
 
 console.log('✅ trending.js 로드 완료');
