@@ -168,6 +168,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// 데이터가 최신인지 확인 (1시간 10분 기준)
+function isDataStale(updatedAt) {
+    if (!updatedAt) return true;
+    const updateTime = new Date(updatedAt).getTime();
+    const now = Date.now();
+    // 70분 = 70 * 60 * 1000 ms
+    return (now - updateTime) > (70 * 60 * 1000);
+}
+
 // Trending 기능 초기화
 function initTrending() {
     // 저장된 정렬 값 불러오기
@@ -407,6 +416,16 @@ async function loadTrendingFeed(forceRefresh = false) {
             if (meta) {
                 renderTrendingMeta(meta);
                 localStorage.setItem('cachedTrendingMeta', JSON.stringify(meta));
+                
+                // 데이터가 오래되었는지 확인 (70분 경과)
+                if (isDataStale(meta.updatedAt)) {
+                    console.warn('⚠️ 서버 데이터가 오래되었습니다 (70분 경과).');
+                    // 사용자에게 지연 사실만 알림 (API 보호를 위해 직접 갱신하지 않음)
+                    const delayMin = Math.floor((Date.now() - new Date(meta.updatedAt).getTime()) / (1000 * 60));
+                    if (typeof showToast === 'function') {
+                        showToast(`현재 서버 업데이트가 지연되고 있습니다. (마지막: ${delayMin}분 전)`, 'warning');
+                    }
+                }
             } else {
                 // 메타데이터가 없으면 기본 키워드 표시
                 renderTrendingKeywords(FIXED_TRENDING_KEYWORDS);
