@@ -698,6 +698,11 @@ async function loadFavoritesFeed() {
             let ratio = 0;
             if (subCount > 0) ratio = (viewCount / subCount) * 100;
 
+            // Calculate views per hour
+            const publishedDate = new Date(video.snippet.publishedAt);
+            const hoursSincePublished = Math.max(1, (Date.now() - publishedDate.getTime()) / (1000 * 60 * 60));
+            const viewsPerHour = Math.round(viewCount / hoursSincePublished);
+
             const isHighPerformer = ratio >= 300;
             const ratioDisplay = hiddenSubs ? 'N/A' : `${ratio.toFixed(0)}%`;
             const ratioColor = isHighPerformer ? 'text-red-400' : 'text-green-400';
@@ -759,7 +764,7 @@ async function loadFavoritesFeed() {
                     <i class="fa-regular fa-clock mr-1"></i>${durationStr}
                 </div>
                 
-                <div class="grid grid-cols-3 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
+                <div class="grid grid-cols-2 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
                     <div class="text-center">
                         <div class="text-xs text-gray-500 mb-1">조회수</div>
                         <div class="font-semibold text-white text-xs">${formatKoreanNumber(viewCount)}회</div>
@@ -771,9 +776,13 @@ async function loadFavoritesFeed() {
                     : formatKoreanNumber(subCount) + "명"
                 }</div>
                     </div>
-                    <div class="text-center border-l border-white/10">
+                    <div class="text-center border-t border-white/10 pt-2 mt-1">
                         <div class="text-xs text-gray-500 mb-1">성과율</div>
                         <div class="font-bold ${ratioColor} text-xs">${ratioDisplay}</div>
+                    </div>
+                    <div class="text-center border-l border-t border-white/10 pt-2 mt-1">
+                        <div class="text-xs text-gray-500 mb-1">시간당</div>
+                        <div class="font-bold text-blue-400 text-xs">${formatKoreanNumber(viewsPerHour)}/hr</div>
                     </div>
                 </div>
 
@@ -872,6 +881,11 @@ async function loadFavoritesFeed() {
             let ratio = 0;
             if (subCount > 0) ratio = (viewCount / subCount) * 100;
 
+            // Calculate views per hour
+            const publishedDate = new Date(video.snippet.publishedAt);
+            const hoursSincePublished = Math.max(1, (Date.now() - publishedDate.getTime()) / (1000 * 60 * 60));
+            const viewsPerHour = Math.round(viewCount / hoursSincePublished);
+
             const isHighPerformer = ratio >= 300;
             const ratioDisplay = hiddenSubs ? 'N/A' : `${ratio.toFixed(0)}%`;
             const ratioColor = isHighPerformer ? 'text-red-400' : 'text-green-400';
@@ -938,7 +952,7 @@ async function loadFavoritesFeed() {
                     <i class="fa-regular fa-clock mr-1"></i>${durationStr}
                 </div>
                 
-                <div class="grid grid-cols-3 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
+                <div class="grid grid-cols-2 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
                     <div class="text-center">
                         <div class="text-xs text-gray-500 mb-1">조회수</div>
                         <div class="font-semibold text-white text-xs">${formatKoreanNumber(
@@ -952,9 +966,13 @@ async function loadFavoritesFeed() {
                     : formatKoreanNumber(subCount) + "명"
                 }</div>
                     </div>
-                    <div class="text-center border-l border-white/10">
+                    <div class="text-center border-t border-white/10 pt-2 mt-1">
                         <div class="text-xs text-gray-500 mb-1">성과율</div>
                         <div class="font-bold ${ratioColor} text-xs">${ratioDisplay}</div>
+                    </div>
+                    <div class="text-center border-l border-t border-white/10 pt-2 mt-1">
+                        <div class="text-xs text-gray-500 mb-1">시간당</div>
+                        <div class="font-bold text-blue-400 text-xs">${formatKoreanNumber(viewsPerHour)}/hr</div>
                     </div>
                 </div>
 
