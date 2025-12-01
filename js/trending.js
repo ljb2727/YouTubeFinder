@@ -193,6 +193,11 @@ function initTrending() {
         // 데이터가 없으면 기본 키워드라도 표시
         renderTrendingKeywords(FIXED_TRENDING_KEYWORDS);
     }
+
+    // 백그라운드에서 항상 최신 데이터 로드 (캐시 강제 갱신)
+    // 캐시가 있어도 최신 데이터를 조용히 가져와 업데이트
+    console.log('📡 trending.json에서 최신 데이터 확인 중...');
+    loadTrendingFeed(true);
 }
 
 // 고정 키워드 (기본값, 서버 데이터 없을 시 사용)
