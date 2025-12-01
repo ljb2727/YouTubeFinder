@@ -20,9 +20,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     <div class="mb-8">
         <div class="flex justify-between items-end mb-2 flex-wrap gap-4">
             <div>
-                <h2 class="text-2xl md:text-3xl font-bold text-white">
-                    최근 인기 동영상
-                </h2>
+                <div class="flex items-center gap-3">
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">
+                        최근 인기 동영상
+                    </h2>
+                    <button onclick="openUsageModal()" class="text-xs md:text-sm bg-white/10 hover:bg-white/20 text-gray-300 px-3 py-1.5 rounded-full transition-colors flex items-center gap-1.5 border border-white/10">
+                        <i class="fa-regular fa-circle-question"></i>
+                        <span>사용 방법</span>
+                    </button>
+                </div>
                 <div id="trendingLastUpdated" class="text-xs text-gray-400 mt-1"></div>
             </div>
             
@@ -70,6 +76,77 @@ document.addEventListener('DOMContentLoaded', async () => {
     <p class="text-xs text-gray-500 text-center mt-8">
         ※ 최신 리스트는 매시 정각 자동 업데이트됩니다.
     </p>
+
+    <!-- Usage Guide Modal -->
+    <div id="usageModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="closeUsageModal()"></div>
+        
+        <!-- Modal Panel -->
+        <div class="relative z-10 flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div class="relative transform overflow-hidden rounded-2xl bg-[#1a1a1a] border border-white/10 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <!-- Header -->
+                <div class="bg-white/5 px-4 py-3 sm:px-6 border-b border-white/10 flex justify-between items-center">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2" id="modal-title">
+                        <i class="fa-solid fa-book-open text-blue-400"></i> 사용 방법 및 지표 설명
+                    </h3>
+                    <button type="button" onclick="closeUsageModal()" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Body -->
+                <div class="px-4 py-5 sm:p-6 space-y-6 max-h-[70vh] overflow-y-auto custom-scrollbar">
+                    
+                    <!-- Section 1: 지표 설명 -->
+                    <div>
+                        <h4 class="text-blue-400 font-bold mb-3 text-sm uppercase tracking-wider">📊 핵심 지표 이해하기</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="font-bold text-white">🔥 성과율 (Performance Ratio)</span>
+                                    <span class="text-xs bg-red-500/20 text-red-300 px-2 py-0.5 rounded">핵심 지표</span>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-2">구독자 대비 조회수가 얼마나 잘 나왔는지 보여줍니다.</p>
+                                <div class="bg-black/30 rounded p-2 text-xs text-gray-400 font-mono">
+                                    (조회수 ÷ 구독자수) × 100
+                                </div>
+                                <p class="text-xs text-gray-400 mt-2">
+                                    • <span class="text-green-400">100% 이상</span>: 구독자보다 많은 사람이 시청함 (알고리즘 탐)<br>
+                                    • <span class="text-red-400">300% 이상</span>: 대박 터진 영상! 벤치마킹 1순위
+                                </p>
+                            </div>
+
+                            <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="font-bold text-white">⚡ 시간당 조회수 (Views/Hr)</span>
+                                </div>
+                                <p class="text-sm text-gray-300">영상이 업로드된 후 현재까지 시간당 평균 몇 명이 봤는지 나타냅니다.</p>
+                                <p class="text-xs text-gray-400 mt-1">이 수치가 높을수록 현재 가장 뜨거운 반응을 얻고 있는 영상입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2: 활용 팁 -->
+                    <div>
+                        <h4 class="text-purple-400 font-bold mb-3 text-sm uppercase tracking-wider">💡 이렇게 활용해보세요</h4>
+                        <ul class="space-y-2 text-sm text-gray-300 list-disc list-inside">
+                            <li><span class="text-white font-bold">성과율 300% 이상</span>인 영상을 찾아 썸네일과 제목 패턴을 분석하세요.</li>
+                            <li><span class="text-white font-bold">AI 분석하기</span> 버튼을 눌러 해당 영상이 왜 떴는지 심층 분석을 받아보세요.</li>
+                            <li>비슷한 주제의 영상을 만들 때, 상위 노출된 키워드와 태그를 참고하세요.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="bg-white/5 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-white/10">
+                    <button type="button" onclick="closeUsageModal()" class="inline-flex w-full justify-center rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto transition-colors">
+                        확인했습니다
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
         `;
 
@@ -471,5 +548,30 @@ function sortTrendingVideos(sortBy, save = true) {
         localStorage.setItem('trendingSort', sortBy);
     }
 }
+
+// 모달 제어 함수
+function openUsageModal() {
+    const modal = document.getElementById('usageModal');
+    if (modal) {
+        modal.classList.remove('hidden');
+        // 애니메이션 효과
+        const panel = modal.querySelector('.relative.transform');
+        if (panel) {
+            panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+            panel.classList.add('opacity-100', 'translate-y-0', 'sm:scale-100');
+        }
+    }
+}
+
+function closeUsageModal() {
+    const modal = document.getElementById('usageModal');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+}
+
+// 전역 스코프에 함수 할당
+window.openUsageModal = openUsageModal;
+window.closeUsageModal = closeUsageModal;
 
 console.log('✅ trending.js 로드 완료');
