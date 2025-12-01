@@ -526,8 +526,8 @@ function renderTrendingVideos(videos) {
                 }
                 
                 <!-- 숨기기 버튼 -->
-                <button onclick="hideTrendingVideo(event, '${video.id.videoId}', '${safeTitle}')" class="absolute top-2 right-2 bg-black/60 hover:bg-red-600 text-white p-1.5 rounded-full transition-colors z-10 opacity-0 group-hover:opacity-100" title="이 영상 숨기기">
-                    <i class="fa-solid fa-eye-slash text-xs"></i>
+                <button onclick="hideTrendingVideo(event, '${video.id.videoId}', '${safeTitle}')" class="absolute top-2 right-2 bg-black/60 hover:bg-red-600 text-white p-1.5 rounded-full transition-colors z-10" title="이 영상 숨기기">
+                    <i class="fa-solid fa-xmark text-xs"></i>
                 </button>
 
                 <div class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1.5 py-0.5 rounded">
