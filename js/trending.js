@@ -526,8 +526,8 @@ function renderTrendingVideos(videos) {
                 }
                 
                 <!-- 숨기기 버튼 -->
-                <button onclick="hideTrendingVideo(event, '${video.id.videoId}', '${safeTitle}')" class="absolute top-2 right-2 bg-black/60 hover:bg-red-600 text-white p-1.5 rounded-full transition-colors z-10" title="이 영상 숨기기">
-                    <i class="fa-solid fa-xmark text-xs"></i>
+                <button onclick="hideTrendingVideo(event, '${video.id.videoId}', '${safeTitle}')" class="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-red-600 text-white rounded-full transition-colors z-10" title="이 영상 숨기기">
+                    <i class="fa-solid fa-xmark"></i>
                 </button>
 
                 <div class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1.5 py-0.5 rounded">
@@ -539,7 +539,7 @@ function renderTrendingVideos(videos) {
                 <div class="flex justify-between items-start mb-3">
                     <div class="flex-1">
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="text-sm font-bold text-white">${video.channelTitle}</span>
+                            <span class="text-sm font-bold text-white hover:text-blue-400 cursor-pointer" onclick="window.open('https://www.youtube.com/channel/${video.channelId}', '_blank')">${video.channelTitle}</span>
                         </div>
                     </div>
                     <button id="fav-btn-trending-${video.channelId}" onclick="toggleFavorite(event, '${video.channelId}', '${safeChannel}')" class="text-lg transition-transform hover:scale-110 ml-2">

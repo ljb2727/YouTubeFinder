@@ -935,8 +935,7 @@ async function loadFavoritesFeed() {
                 <div class="flex justify-between items-start mb-3">
                     <div class="flex-1">
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="text-sm font-bold text-white">${video.snippet.channelTitle
-                }</span>
+                            <span class="text-sm font-bold text-white hover:text-blue-400 cursor-pointer" onclick="window.open('https://www.youtube.com/channel/${video.snippet.channelId}', '_blank')">${video.snippet.channelTitle}</span>
                         </div>
                     </div>
                     <button onclick="toggleFavorite(event, '${video.snippet.channelId
@@ -1235,8 +1234,7 @@ function renderVideos(videos) {
                 <div class="flex justify-between items-start mb-3">
                     <div class="flex-1">
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="text-sm font-bold text-white">${video.snippet.channelTitle
-                }</span>
+                            <span class="text-sm font-bold text-white hover:text-blue-400 cursor-pointer" onclick="window.open('https://www.youtube.com/channel/${video.snippet.channelId}', '_blank')">${video.snippet.channelTitle}</span>
                         </div>
                     </div>
                     <button id="fav-btn-${video.snippet.channelId
