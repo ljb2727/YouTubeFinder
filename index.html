@@ -74,23 +74,24 @@
     <!-- Header -->
     <header class="glass sticky top-0 z-50 border-b border-white/10">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo / Home Button -->
-            <button onclick="resetToHome()" 
-                class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
-                title="홈으로">
-                <i class="fa-solid fa-house text-white text-lg"></i>
-            </button>
+            <!-- Left Side: Home + Navigation Tabs -->
+            <div class="flex items-center gap-3">
+                <!-- Logo / Home Button -->
+                <button onclick="resetToHome()" 
+                    class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
+                    title="홈으로">
+                    <i class="fa-solid fa-house text-white text-lg"></i>
+                </button>
 
-            <div class="flex items-center gap-2">
                 <!-- Navigation Tabs -->
                 <div class="flex bg-white/5 rounded-lg p-1 border border-white/10 gap-0.5">
                     <button id="tabSearch" onclick="showSearchTab()"
-                        class="px-3 py-1.5 rounded-md text-sm font-medium transition-all text-white bg-white/10 shadow-sm"
+                        class="px-3 py-1.5 rounded-md text-sm font-medium transition-all text-gray-400 hover:text-white"
                         title="검색">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                     <button id="tabTrending" onclick="showTrendingTab()"
-                        class="px-3 py-1.5 rounded-md text-sm font-medium transition-all text-gray-400 hover:text-white"
+                        class="px-3 py-1.5 rounded-md text-sm font-medium transition-all text-white bg-white/10 shadow-sm"
                         title="인기">
                         <i class="fa-solid fa-fire"></i>
                     </button>
@@ -100,14 +101,14 @@
                         <i class="fa-solid fa-heart"></i>
                     </button>
                 </div>
-
-                <!-- API Settings Button -->
-                <button onclick="openSettings()"
-                    class="h-10 px-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-yellow-400 transition-all"
-                    title="API 키 설정">
-                    <i class="fa-solid fa-key"></i>
-                </button>
             </div>
+
+            <!-- Right Side: API Settings Button -->
+            <button onclick="openSettings()"
+                class="h-10 px-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-yellow-400 transition-all"
+                title="API 키 설정">
+                <i class="fa-solid fa-key"></i>
+            </button>
         </div>
     </header>
 

@@ -262,6 +262,8 @@ window.addEventListener("DOMContentLoaded", () => {
     loadFilters();
     checkApiKeys();
     renderRecentSearches();
+    // 페이지 첫 로드 시 인기영상 탭을 기본으로 표시
+    showTrendingTab();
 });
 
 // ==========================================
@@ -410,13 +412,7 @@ function resetAllSettings() {
 // TAB NAVIGATION & RESET
 // ==========================================
 function resetToHome() {
-    showSearchTab();
-    document.getElementById("searchInput").value = "";
-    document.getElementById("resultsSection").classList.add("hidden");
-    document
-        .getElementById("keywordRecommendations")
-        .classList.add("hidden");
-    document.getElementById("videoGrid").innerHTML = "";
+    showTrendingTab();
 }
 
 function updateTabStyles(activeId) {
