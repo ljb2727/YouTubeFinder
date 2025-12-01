@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     class="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors cursor-pointer hover:bg-white/10"
                     onchange="sortTrendingVideos(this.value)">
                     <option value="ratio" class="bg-gray-800 text-white">성과율 높은순</option>
+                    <option value="viewsPerHour" class="bg-gray-800 text-white">시간당 조회수</option>
                     <option value="viewCount" class="bg-gray-800 text-white">조회수 많은순</option>
                     <option value="publishedAt" class="bg-gray-800 text-white">최근 업로드순</option>
                     <option value="subCount" class="bg-gray-800 text-white">구독자 많은순</option>
@@ -40,7 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         </div>
         <p class="text-sm md:text-base text-gray-400 mb-4">
-            고정된 키워드 조합으로 최근 3주간 조회수 5만 이상인 인기 영상을 모아봅니다. 6시간마다 자동 업데이트됩니다.
+            고정된 키워드 조합으로 최근 3주간 조회수 5만 이상인 인기 영상을 모아봅니다. 매시 정각 자동 업데이트됩니다.
         </p>
         
         <!-- 적용된 키워드 표시 -->
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     <!-- Auto-update notice -->
     <p class="text-xs text-gray-500 text-center mt-8">
-        ※ 최신 리스트는 6시간마다 자동 업데이트됩니다.
+        ※ 최신 리스트는 매시 정각 자동 업데이트됩니다.
     </p>
 </div>
         `;
@@ -110,7 +111,8 @@ const FIXED_TRENDING_KEYWORDS = [
     '막장드라마', '시니어드라마', '시니어썰', '노후지혜', '시니어로맨스', 
     '고부갈등', '숏폼드라마', '황혼이야기', '쇼츠드라마', '시어머니', 
     '반전드라마', '시니어사연', '사이다사연', '실제사연', '시월드', 
-    '참교육', '숏드라마', '실화사연'
+    '참교육', '숏드라마', '실화사연', '인생사연', '반전사연', 
+    '노후사연', '노년사연', '가족사연', '가족갈등', '사연'
 ];
 
 let cachedTrendingVideos = JSON.parse(localStorage.getItem('cachedTrendingVideos')) || [];
@@ -225,6 +227,11 @@ async function loadTrendingFeed(forceRefresh = false) {
                 const viewCount = parseInt(item.statistics.viewCount) || 0;
                 const subCount = parseInt(item.statistics.subscriberCount) || 0;
                 const durationSec = parseDuration(item.contentDetails.duration);
+                
+                // 더미 데이터용 시간당 조회수 계산
+                const publishedDate = new Date(item.snippet.publishedAt);
+                const hoursSincePublished = Math.max(1, (Date.now() - publishedDate.getTime()) / (1000 * 60 * 60));
+                const viewsPerHour = Math.round(viewCount / hoursSincePublished);
 
                 return {
                     id: item.id.videoId,
@@ -237,6 +244,7 @@ async function loadTrendingFeed(forceRefresh = false) {
                     durationSec: durationSec,
                     subCount: subCount,
                     ratio: subCount > 0 ? (viewCount / subCount) * 100 : 0,
+                    viewsPerHour: viewsPerHour,
                     hiddenSubs: item.statistics.hiddenSubscriberCount || false
                 };
             });
@@ -404,7 +412,7 @@ function renderTrendingVideos(videos) {
                     <i class="fa-regular fa-clock mr-1"></i>${durationStr}
                 </div>
                 
-                <div class="grid grid-cols-3 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
+                <div class="grid grid-cols-2 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
                     <div class="text-center">
                         <div class="text-xs text-gray-500 mb-1">조회수</div>
                         <div class="font-semibold text-white text-xs">${typeof formatKoreanNumber === 'function' ? formatKoreanNumber(video.viewCount) : video.viewCount}회</div>
@@ -416,9 +424,13 @@ function renderTrendingVideos(videos) {
                     : (typeof formatKoreanNumber === 'function' ? formatKoreanNumber(video.subCount) : video.subCount) + "명"
                 }</div>
                     </div>
-                    <div class="text-center border-l border-white/10">
+                    <div class="text-center border-t border-white/10 pt-2 mt-1">
                         <div class="text-xs text-gray-500 mb-1">성과율</div>
                         <div class="font-bold ${ratioColor} text-xs">${ratioDisplay}</div>
+                    </div>
+                    <div class="text-center border-l border-t border-white/10 pt-2 mt-1">
+                        <div class="text-xs text-gray-500 mb-1">시간당</div>
+                        <div class="font-bold text-blue-400 text-xs">${typeof formatKoreanNumber === 'function' ? formatKoreanNumber(video.viewsPerHour || 0) : (video.viewsPerHour || 0)}/hr</div>
                     </div>
                 </div>
 
@@ -445,6 +457,8 @@ function sortTrendingVideos(sortBy, save = true) {
             return new Date(b.publishedAt) - new Date(a.publishedAt);
         } else if (sortBy === 'subCount') {
             return b.subCount - a.subCount;
+        } else if (sortBy === 'viewsPerHour') {
+            return (b.viewsPerHour || 0) - (a.viewsPerHour || 0);
         } else {
             // 기본값: ratio (성과율)
             return b.ratio - a.ratio;

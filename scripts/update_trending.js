@@ -1,12 +1,47 @@
 const fs = require('fs');
 const path = require('path');
 
-// 환경 변수에서 API 키 가져오기
-const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+// 환경 변수에서 API 키 가져오기 (콤마로 구분된 다중 키 지원)
+const API_KEYS = (process.env.YOUTUBE_API_KEY || '').split(',').map(k => k.trim()).filter(k => k);
 
-if (!YOUTUBE_API_KEY) {
+if (API_KEYS.length === 0) {
     console.error('Error: YOUTUBE_API_KEY environment variable is not set.');
     process.exit(1);
+}
+
+// 현재 시간(시)에 맞춰 키 선택 (키 로테이션)
+const currentHour = new Date().getHours();
+let currentKeyIndex = currentHour % API_KEYS.length;
+
+console.log(`🔑 Starting with API Key index: ${currentKeyIndex} (Total keys: ${API_KEYS.length})`);
+
+// API 호출 래퍼 함수 (Quota 초과 시 자동 키 전환)
+async function safeFetch(urlBuilder) {
+    let attempts = 0;
+    while (attempts < API_KEYS.length) {
+        const apiKey = API_KEYS[currentKeyIndex];
+        const url = urlBuilder(apiKey);
+        
+        try {
+            const response = await fetch(url);
+            
+            if (response.ok) return response;
+            
+            // 403 Forbidden (Quota Exceeded) 발생 시 키 교체
+            if (response.status === 403) {
+                console.warn(`⚠️ API Key index ${currentKeyIndex} quota exceeded (403). Switching to next key...`);
+                currentKeyIndex = (currentKeyIndex + 1) % API_KEYS.length;
+                attempts++;
+                continue;
+            }
+            
+            return response; // 403 이외의 에러는 그대로 반환
+        } catch (e) {
+            console.error(`Network error with key index ${currentKeyIndex}:`, e);
+            throw e;
+        }
+    }
+    throw new Error('🚫 All API keys exhausted.');
 }
 
 // 검색 키워드 (trending.js와 동일하게 유지)
@@ -14,7 +49,8 @@ const FIXED_TRENDING_KEYWORDS = [
     '막장드라마', '시니어드라마', '시니어썰', '노후지혜', '시니어로맨스', 
     '고부갈등', '숏폼드라마', '황혼이야기', '쇼츠드라마', '시어머니', 
     '반전드라마', '시니어사연', '사이다사연', '실제사연', '시월드', 
-    '참교육', '숏드라마', '실화사연'
+    '참교육', '숏드라마', '실화사연', '인생사연', '반전사연', 
+    '노후사연', '노년사연', '가족사연', '가족갈등', '사연'
 ];
 
 // 한글 포함 여부 검사 함수
@@ -40,9 +76,10 @@ async function updateTrendingData() {
     for (const keyword of selectedKeywords) {
         try {
             // regionCode=KR 추가하여 한국 지역 중심으로 검색
-            const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(keyword)}&type=video&order=viewCount&publishedAfter=${publishedAfter}&videoDuration=short&maxResults=10&regionCode=KR&key=${YOUTUBE_API_KEY}`;
+            const response = await safeFetch(key => 
+                `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(keyword)}&type=video&order=viewCount&publishedAfter=${publishedAfter}&videoDuration=short&maxResults=10&regionCode=KR&key=${key}`
+            );
             
-            const response = await fetch(url);
             if (!response.ok) {
                 console.warn(`Failed to search keyword '${keyword}': ${response.status}`);
                 continue;
@@ -76,8 +113,9 @@ async function updateTrendingData() {
     for (let i = 0; i < chunkIds.length; i += 50) {
         const chunk = chunkIds.slice(i, i + 50);
         try {
-            const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${chunk.join(',')}&key=${YOUTUBE_API_KEY}`;
-            const response = await fetch(url);
+            const response = await safeFetch(key => 
+                `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${chunk.join(',')}&key=${key}`
+            );
             if (response.ok) {
                 const data = await response.json();
                 if (data.items) videoDetails.push(...data.items);
@@ -95,8 +133,9 @@ async function updateTrendingData() {
     for (let i = 0; i < channelIdArray.length; i += 50) {
         const chunk = channelIdArray.slice(i, i + 50);
         try {
-            const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${chunk.join(',')}&key=${YOUTUBE_API_KEY}`;
-            const response = await fetch(url);
+            const response = await safeFetch(key => 
+                `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${chunk.join(',')}&key=${key}`
+            );
             if (response.ok) {
                 const data = await response.json();
                 if (data.items) {
@@ -127,6 +166,11 @@ async function updateTrendingData() {
         const hiddenSubs = channelStats ? channelStats.hiddenSubscriberCount : false;
         const durationSec = parseDuration(item.contentDetails.duration);
 
+        // 시간당 조회수 계산 (최소 1시간으로 보정하여 0으로 나누기 방지)
+        const publishedDate = new Date(item.snippet.publishedAt);
+        const hoursSincePublished = Math.max(1, (Date.now() - publishedDate.getTime()) / (1000 * 60 * 60));
+        const viewsPerHour = Math.round(viewCount / hoursSincePublished);
+
         return {
             id: { videoId: item.id }, 
             title: item.snippet.title,
@@ -138,6 +182,7 @@ async function updateTrendingData() {
             durationSec: durationSec,
             subCount: subCount,
             ratio: subCount > 0 ? (viewCount / subCount) * 100 : 0,
+            viewsPerHour: viewsPerHour,
             hiddenSubs: hiddenSubs
         };
     });
