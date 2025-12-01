@@ -1184,6 +1184,11 @@ function renderVideos(videos) {
             const durationStr = formatDuration(video.durationSec);
             const timeAgoStr = timeAgo(video.snippet.publishedAt);
 
+            // Calculate views per hour
+            const publishedDate = new Date(video.snippet.publishedAt);
+            const hoursSincePublished = Math.max(1, (Date.now() - publishedDate.getTime()) / (1000 * 60 * 60));
+            const viewsPerHour = Math.round(viewCount / hoursSincePublished);
+
             // Check if favorite
             const isFav = isFavorite(video.snippet.channelId);
             const heartClass = isFav
@@ -1193,10 +1198,7 @@ function renderVideos(videos) {
             const card = document.createElement("div");
             card.className = `glass-card rounded-xl overflow-hidden flex flex-col h-full ${glow} animate-slide-up`;
             card.style.animationDelay = `${index * 50}ms`;
-
-            if (isHighPerformer) {
-                card.style.borderColor = "rgba(239, 68, 68, 0.3)";
-            }
+            card.style.border = `1px solid ${cardBorderColor}`;
 
             card.innerHTML = `
             <div class="relative group cursor-pointer" onclick="window.open('https://www.youtube.com/watch?v=${video.id
@@ -1219,7 +1221,7 @@ function renderVideos(videos) {
                 <div class="flex justify-between items-start mb-3">
                     <div class="flex-1">
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="text-sm font-bold text-gray-300">${video.snippet.channelTitle
+                            <span class="text-sm font-bold text-white">${video.snippet.channelTitle
                 }</span>
                         </div>
                     </div>
@@ -1237,7 +1239,7 @@ function renderVideos(videos) {
                     <i class="fa-regular fa-clock mr-1"></i>${durationStr}
                 </div>
                 
-                <div class="grid grid-cols-3 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
+                <div class="grid grid-cols-2 gap-2 mb-4 bg-black/20 rounded-lg p-3 border border-white/5">
                     <div class="text-center">
                         <div class="text-xs text-gray-500 mb-1">조회수</div>
                         <div class="font-semibold text-white text-xs">${formatKoreanNumber(
@@ -1246,15 +1248,18 @@ function renderVideos(videos) {
                     </div>
                     <div class="text-center border-l border-white/10">
                         <div class="text-xs text-gray-500 mb-1">구독자</div>
-                        <div class="font-semibold text-white text-xs">${video.hiddenSubs
+                        <div class="font-semibold text-white text-xs">${video.hiddenSubs || video.subCount === 0
                     ? "비공개"
-                    : formatKoreanNumber(video.subCount) +
-                    "명"
+                    : formatKoreanNumber(video.subCount) + "명"
                 }</div>
                     </div>
-                    <div class="text-center border-l border-white/10">
+                    <div class="text-center border-t border-white/10 pt-2 mt-1">
                         <div class="text-xs text-gray-500 mb-1">성과율</div>
                         <div class="font-bold ${ratioColor} text-xs">${ratioDisplay}</div>
+                    </div>
+                    <div class="text-center border-l border-t border-white/10 pt-2 mt-1">
+                        <div class="text-xs text-gray-500 mb-1">시간당</div>
+                        <div class="font-bold text-blue-400 text-xs">${formatKoreanNumber(viewsPerHour)}/hr</div>
                     </div>
                 </div>
 
