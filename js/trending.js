@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
         </div>
         <p class="text-sm md:text-base text-gray-400 mb-4">
-            고정된 키워드 조합으로 최근 3주간 조회수 5만 이상인 인기 영상을 모아봅니다. 매시 정각 자동 업데이트됩니다.
+            고정된 키워드 조합으로 최근 3주간 조회수 1만 이상, 성과율 300% 이상인 인기 영상을 모아봅니다. 매시 정각 자동 업데이트됩니다.
         </p>
         
         <!-- 적용된 키워드 표시 -->
@@ -123,6 +123,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 </div>
                                 <p class="text-sm text-gray-300">영상이 업로드된 후 현재까지 시간당 평균 몇 명이 봤는지 나타냅니다.</p>
                                 <p class="text-xs text-gray-400 mt-1">이 수치가 높을수록 현재 가장 뜨거운 반응을 얻고 있는 영상입니다.</p>
+                            </div>
+
+                            <div class="bg-white/5 rounded-lg p-3 border border-white/5">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="font-bold text-white">🔥 불꽃 마크 의미</span>
+                                </div>
+                                <p class="text-sm text-gray-300 mb-2">썸네일 좌측 상단에 표시되는 불꽃은 성과율을 시각적으로 나타냅니다.</p>
+                                <div class="space-y-1 text-xs text-gray-400">
+                                    • <i class="fa-solid fa-fire text-lg text-yellow-300"></i> <span class="text-yellow-300 font-bold">큰 불꽃</span>: 성과율 <span class="text-white">1000%</span>마다 1개<br>
+                                    • <i class="fa-solid fa-fire text-sm"></i> <span class="font-bold">작은 불꽃</span>: 성과율 <span class="text-white">100%</span>마다 1개<br>
+                                    • <span class="text-yellow-300 font-bold">숫자 표시 (×10.0K)</span>: 성과율이 10,000% 이상인 초대박 영상
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -554,6 +566,8 @@ function openUsageModal() {
     const modal = document.getElementById('usageModal');
     if (modal) {
         modal.classList.remove('hidden');
+        // 배경 스크롤 비활성화
+        document.body.style.overflow = 'hidden';
         // 애니메이션 효과
         const panel = modal.querySelector('.relative.transform');
         if (panel) {
@@ -567,6 +581,8 @@ function closeUsageModal() {
     const modal = document.getElementById('usageModal');
     if (modal) {
         modal.classList.add('hidden');
+        // 배경 스크롤 활성화
+        document.body.style.overflow = '';
     }
 }
 
