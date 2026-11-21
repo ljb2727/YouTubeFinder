@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-11-20T21:07:27.379Z",
+    "updatedAt": "2026-11-21T02:18:41.062Z",
     "keywords": [
+      "쇼츠드라마",
       "시어머니",
       "반전드라마",
-      "시니어사연",
-      "사이다사연"
+      "시니어사연"
     ]
   },
   "videos": [
@@ -18,11 +18,11 @@
       "channelTitle": "오늘의픽쳐",
       "channelId": "UCgaOql1GY2Y8ofYNLRWlK-A",
       "publishedAt": "2026-11-06T07:15:19Z",
-      "viewCount": 7351027,
+      "viewCount": 7376383,
       "durationSec": 114,
-      "subCount": 5420,
-      "ratio": 135627.80442804427,
-      "viewsPerHour": 21011,
+      "subCount": 5450,
+      "ratio": 135346.47706422018,
+      "viewsPerHour": 20775,
       "hiddenSubs": false
     },
     {
@@ -34,11 +34,11 @@
       "channelTitle": "얼마나맛있게요",
       "channelId": "UCDZQtSgYWGsWlvybVNpyMPg",
       "publishedAt": "2026-11-03T07:01:06Z",
-      "viewCount": 1946982,
+      "viewCount": 1947122,
       "durationSec": 168,
       "subCount": 1570,
-      "ratio": 124011.5923566879,
-      "viewsPerHour": 4613,
+      "ratio": 124020.50955414012,
+      "viewsPerHour": 4557,
       "hiddenSubs": false
     },
     {
@@ -50,11 +50,11 @@
       "channelTitle": "복숭아누나",
       "channelId": "UCwPxkEjRCu3vxUO7NJIjJXA",
       "publishedAt": "2026-11-03T11:00:03Z",
-      "viewCount": 2368625,
+      "viewCount": 2374436,
       "durationSec": 159,
-      "subCount": 3220,
-      "ratio": 73559.78260869565,
-      "viewsPerHour": 5665,
+      "subCount": 3240,
+      "ratio": 73285.06172839507,
+      "viewsPerHour": 5609,
       "hiddenSubs": false
     },
     {
@@ -66,11 +66,11 @@
       "channelTitle": "시니시니시니어~",
       "channelId": "UCE3L8XsIGUPPp8o_tGIhQUA",
       "publishedAt": "2026-11-14T08:16:29Z",
-      "viewCount": 501730,
+      "viewCount": 505419,
       "durationSec": 160,
-      "subCount": 890,
-      "ratio": 56374.15730337078,
-      "viewsPerHour": 3199,
+      "subCount": 899,
+      "ratio": 56220.13348164627,
+      "viewsPerHour": 3119,
       "hiddenSubs": false
     },
     {
@@ -82,11 +82,11 @@
       "channelTitle": "星途漫記",
       "channelId": "UC3veMABhRBqX1qWZm1s9AlQ",
       "publishedAt": "2026-11-09T09:00:14Z",
-      "viewCount": 2983371,
+      "viewCount": 2986544,
       "durationSec": 67,
-      "subCount": 5400,
-      "ratio": 55247.61111111111,
-      "viewsPerHour": 10805,
+      "subCount": 5440,
+      "ratio": 54899.705882352944,
+      "viewsPerHour": 10617,
       "hiddenSubs": false
     },
     {
@@ -98,11 +98,11 @@
       "channelTitle": "잼따리",
       "channelId": "UCtZru7xTNIhVjULmqLST76A",
       "publishedAt": "2026-11-09T06:00:07Z",
-      "viewCount": 2260050,
+      "viewCount": 2276324,
       "durationSec": 90,
-      "subCount": 4680,
-      "ratio": 48291.66666666667,
-      "viewsPerHour": 8097,
+      "subCount": 4800,
+      "ratio": 47423.41666666667,
+      "viewsPerHour": 8007,
       "hiddenSubs": false
     },
     {
@@ -114,27 +114,11 @@
       "channelTitle": "불타는돌직구",
       "channelId": "UC5TUOfTtaI2rK12K97kezRA",
       "publishedAt": "2026-11-04T02:53:34Z",
-      "viewCount": 12962895,
+      "viewCount": 12984649,
       "durationSec": 123,
       "subCount": 32600,
-      "ratio": 39763.481595092024,
-      "viewsPerHour": 32227,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "joUQZbOunw0"
-      },
-      "title": "복싱선수 출신 교사가 학교에서 하는 일  #참교육 #스케치코미디 #웃긴영상",
-      "thumbnail": "https://i.ytimg.com/vi/joUQZbOunw0/mqdefault.jpg",
-      "channelTitle": "웃다울다가",
-      "channelId": "UCAlnQmMXHWS9E5uSqsMpt1A",
-      "publishedAt": "2026-11-05T11:45:21Z",
-      "viewCount": 6567338,
-      "durationSec": 164,
-      "subCount": 18400,
-      "ratio": 35692.05434782609,
-      "viewsPerHour": 17780,
+      "ratio": 39830.211656441716,
+      "viewsPerHour": 31871,
       "hiddenSubs": false
     },
     {
@@ -146,11 +130,27 @@
       "channelTitle": "웃다울다가",
       "channelId": "UCAlnQmMXHWS9E5uSqsMpt1A",
       "publishedAt": "2026-11-06T11:45:17Z",
-      "viewCount": 6566929,
+      "viewCount": 6686503,
       "durationSec": 159,
-      "subCount": 18400,
-      "ratio": 35689.83152173913,
-      "viewsPerHour": 19014,
+      "subCount": 18600,
+      "ratio": 35948.94086021506,
+      "viewsPerHour": 19074,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "joUQZbOunw0"
+      },
+      "title": "복싱선수 출신 교사가 학교에서 하는 일  #참교육 #스케치코미디 #웃긴영상",
+      "thumbnail": "https://i.ytimg.com/vi/joUQZbOunw0/mqdefault.jpg",
+      "channelTitle": "웃다울다가",
+      "channelId": "UCAlnQmMXHWS9E5uSqsMpt1A",
+      "publishedAt": "2026-11-05T11:45:21Z",
+      "viewCount": 6617626,
+      "durationSec": 164,
+      "subCount": 18600,
+      "ratio": 35578.634408602156,
+      "viewsPerHour": 17668,
       "hiddenSubs": false
     },
     {
@@ -162,11 +162,11 @@
       "channelTitle": "우체통극장",
       "channelId": "UCmhN0heJpOmuEuH5SiKduug",
       "publishedAt": "2026-11-01T13:00:59Z",
-      "viewCount": 563216,
+      "viewCount": 563662,
       "durationSec": 105,
       "subCount": 1650,
-      "ratio": 34134.303030303025,
-      "viewsPerHour": 1214,
+      "ratio": 34161.333333333336,
+      "viewsPerHour": 1201,
       "hiddenSubs": false
     },
     {
@@ -178,11 +178,11 @@
       "channelTitle": "진상막장",
       "channelId": "UCyye3YEgR5YfisUxAx3s1wg",
       "publishedAt": "2026-11-11T11:21:28Z",
-      "viewCount": 363059,
+      "viewCount": 363587,
       "durationSec": 79,
       "subCount": 1220,
-      "ratio": 29758.934426229505,
-      "viewsPerHour": 1608,
+      "ratio": 29802.213114754097,
+      "viewsPerHour": 1574,
       "hiddenSubs": false
     },
     {
@@ -194,11 +194,11 @@
       "channelTitle": "한번만줘라",
       "channelId": "UCy0iqEEJhs1l9fWRaRfj5yg",
       "publishedAt": "2026-11-05T09:49:39Z",
-      "viewCount": 4011972,
+      "viewCount": 4027899,
       "durationSec": 162,
       "subCount": 14700,
-      "ratio": 27292.326530612245,
-      "viewsPerHour": 10805,
+      "ratio": 27400.673469387755,
+      "viewsPerHour": 10699,
       "hiddenSubs": false
     },
     {
@@ -210,11 +210,11 @@
       "channelTitle": "웃음가득",
       "channelId": "UCf6ffEDTQRpNE0Wtu2lPY4w",
       "publishedAt": "2026-11-04T20:00:34Z",
-      "viewCount": 2081581,
+      "viewCount": 2083141,
       "durationSec": 61,
-      "subCount": 9860,
-      "ratio": 21111.369168357,
-      "viewsPerHour": 5405,
+      "subCount": 9870,
+      "ratio": 21105.7852077001,
+      "viewsPerHour": 5337,
       "hiddenSubs": false
     },
     {
@@ -226,27 +226,11 @@
       "channelTitle": "아워무비",
       "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
       "publishedAt": "2026-11-06T13:38:15Z",
-      "viewCount": 7106899,
+      "viewCount": 7119849,
       "durationSec": 136,
-      "subCount": 35000,
-      "ratio": 20305.425714285717,
-      "viewsPerHour": 20690,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "hNcn8BH9b6k"
-      },
-      "title": "절친과 여동생이 사귀다 헤어진 걸 알게 된 오빠 #슬기로운의사생활 #슬의생 #언젠가는슬기로울전공의생활 #언슬전 #조정석 #유연석 #안은진 #정경호 #전미도",
-      "thumbnail": "https://i.ytimg.com/vi/hNcn8BH9b6k/mqdefault.jpg",
-      "channelTitle": "아워무비",
-      "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
-      "publishedAt": "2026-11-04T10:00:12Z",
-      "viewCount": 6172091,
-      "durationSec": 179,
-      "subCount": 35000,
-      "ratio": 17634.545714285716,
-      "viewsPerHour": 15621,
+      "subCount": 35100,
+      "ratio": 20284.470085470086,
+      "viewsPerHour": 20420,
       "hiddenSubs": false
     },
     {
@@ -258,11 +242,27 @@
       "channelTitle": "김치스매시",
       "channelId": "UCD7SoPXP7bQ1nBtsT1W17tQ",
       "publishedAt": "2026-11-16T07:42:33Z",
-      "viewCount": 2194242,
+      "viewCount": 2206224,
       "durationSec": 168,
       "subCount": 12500,
-      "ratio": 17553.935999999998,
-      "viewsPerHour": 20054,
+      "ratio": 17649.791999999998,
+      "viewsPerHour": 19251,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "hNcn8BH9b6k"
+      },
+      "title": "절친과 여동생이 사귀다 헤어진 걸 알게 된 오빠 #슬기로운의사생활 #슬의생 #언젠가는슬기로울전공의생활 #언슬전 #조정석 #유연석 #안은진 #정경호 #전미도",
+      "thumbnail": "https://i.ytimg.com/vi/hNcn8BH9b6k/mqdefault.jpg",
+      "channelTitle": "아워무비",
+      "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
+      "publishedAt": "2026-11-04T10:00:12Z",
+      "viewCount": 6180155,
+      "durationSec": 179,
+      "subCount": 35100,
+      "ratio": 17607.279202279202,
+      "viewsPerHour": 15438,
       "hiddenSubs": false
     },
     {
@@ -274,11 +274,11 @@
       "channelTitle": "아워무비",
       "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
       "publishedAt": "2026-11-09T12:29:09Z",
-      "viewCount": 5653821,
+      "viewCount": 5667578,
       "durationSec": 176,
-      "subCount": 35000,
-      "ratio": 16153.774285714286,
-      "viewsPerHour": 20737,
+      "subCount": 35100,
+      "ratio": 16146.94586894587,
+      "viewsPerHour": 20400,
       "hiddenSubs": false
     },
     {
@@ -290,27 +290,11 @@
       "channelTitle": "아워무비",
       "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
       "publishedAt": "2026-11-12T10:54:20Z",
-      "viewCount": 5440054,
+      "viewCount": 5474363,
       "durationSec": 155,
-      "subCount": 35000,
-      "ratio": 15543.01142857143,
-      "viewsPerHour": 26902,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "eDtJG14OT8g"
-      },
-      "title": "간 이식해 주는 아들이 면회를 꺼리는 이유 #슬기로운의사생활 #슬의생 #언젠가는슬기로울전공의생활 #언슬전 #조정석 #유연석 #정경호 #안은진 #전미도",
-      "thumbnail": "https://i.ytimg.com/vi/eDtJG14OT8g/mqdefault.jpg",
-      "channelTitle": "아워무비",
-      "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
-      "publishedAt": "2026-11-01T13:00:06Z",
-      "viewCount": 5350873,
-      "durationSec": 178,
-      "subCount": 35000,
-      "ratio": 15288.208571428571,
-      "viewsPerHour": 11529,
+      "subCount": 35100,
+      "ratio": 15596.475783475784,
+      "viewsPerHour": 26394,
       "hiddenSubs": false
     },
     {
@@ -322,27 +306,43 @@
       "channelTitle": "별 : ★잡도리",
       "channelId": "UCN1DIQ26H4VZtc9gD9tMZ9g",
       "publishedAt": "2026-11-15T10:00:05Z",
-      "viewCount": 2725009,
+      "viewCount": 2767844,
       "durationSec": 116,
-      "subCount": 18000,
-      "ratio": 15138.93888888889,
-      "viewsPerHour": 20782,
+      "subCount": 18100,
+      "ratio": 15291.955801104974,
+      "viewsPerHour": 20306,
       "hiddenSubs": false
     },
     {
       "id": {
-        "videoId": "fmCaoZwkytw"
+        "videoId": "eDtJG14OT8g"
       },
-      "title": "생선가게 엄마를 무시한 시부모… 신부가 마이크를 잡자 #시니어드라마 #시니어쇼츠 #시니어 #반전드라마",
-      "thumbnail": "https://i.ytimg.com/vi/fmCaoZwkytw/mqdefault.jpg",
-      "channelTitle": "온작가의 인생극장",
-      "channelId": "UC-LajXQHadyrn4WgsiTrA9g",
-      "publishedAt": "2026-11-10T09:00:23Z",
-      "viewCount": 2119608,
-      "durationSec": 160,
-      "subCount": 16100,
-      "ratio": 13165.26708074534,
-      "viewsPerHour": 8407,
+      "title": "간 이식해 주는 아들이 면회를 꺼리는 이유 #슬기로운의사생활 #슬의생 #언젠가는슬기로울전공의생활 #언슬전 #조정석 #유연석 #정경호 #안은진 #전미도",
+      "thumbnail": "https://i.ytimg.com/vi/eDtJG14OT8g/mqdefault.jpg",
+      "channelTitle": "아워무비",
+      "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
+      "publishedAt": "2026-11-01T13:00:06Z",
+      "viewCount": 5354425,
+      "durationSec": 178,
+      "subCount": 35100,
+      "ratio": 15254.77207977208,
+      "viewsPerHour": 11409,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "lZyRn1Z0ob8"
+      },
+      "title": "급하게 응급실로 달려간 준완이 익순의 핸드폰에서 발견하고 깜짝 놀란 그것은? #슬기로운의사생활 #슬의생 #언젠가는슬기로울전공의생활 #언슬전 #조정석 #유연석 #안은진 #정경호",
+      "thumbnail": "https://i.ytimg.com/vi/lZyRn1Z0ob8/mqdefault.jpg",
+      "channelTitle": "아워무비",
+      "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
+      "publishedAt": "2026-11-14T09:22:26Z",
+      "viewCount": 5092905,
+      "durationSec": 157,
+      "subCount": 35100,
+      "ratio": 14509.700854700855,
+      "viewsPerHour": 31645,
       "hiddenSubs": false
     },
     {
@@ -354,11 +354,27 @@
       "channelTitle": "Tayla Shaw",
       "channelId": "UCxfPp9EeXZ2P5ns_euGPV8w",
       "publishedAt": "2026-11-13T10:18:47Z",
-      "viewCount": 301343,
+      "viewCount": 301804,
       "durationSec": 168,
-      "subCount": 2290,
-      "ratio": 13159.082969432313,
-      "viewsPerHour": 1685,
+      "subCount": 2300,
+      "ratio": 13121.913043478262,
+      "viewsPerHour": 1640,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "fmCaoZwkytw"
+      },
+      "title": "생선가게 엄마를 무시한 시부모… 신부가 마이크를 잡자 #시니어드라마 #시니어쇼츠 #시니어 #반전드라마",
+      "thumbnail": "https://i.ytimg.com/vi/fmCaoZwkytw/mqdefault.jpg",
+      "channelTitle": "온작가의 인생극장",
+      "channelId": "UC-LajXQHadyrn4WgsiTrA9g",
+      "publishedAt": "2026-11-10T09:00:23Z",
+      "viewCount": 2123114,
+      "durationSec": 160,
+      "subCount": 16200,
+      "ratio": 13105.641975308643,
+      "viewsPerHour": 8251,
       "hiddenSubs": false
     },
     {
@@ -370,11 +386,11 @@
       "channelTitle": "예능판다",
       "channelId": "UCZhz9XV3FoGP3zocrWM8fqw",
       "publishedAt": "2026-11-04T22:00:33Z",
-      "viewCount": 2592744,
+      "viewCount": 2594233,
       "durationSec": 170,
-      "subCount": 20400,
-      "ratio": 12709.529411764706,
-      "viewsPerHour": 6768,
+      "subCount": 20500,
+      "ratio": 12654.79512195122,
+      "viewsPerHour": 6681,
       "hiddenSubs": false
     },
     {
@@ -386,11 +402,11 @@
       "channelTitle": "한입만",
       "channelId": "UCuhZp4QFA7fZmKWpx5mlJKQ",
       "publishedAt": "2026-11-06T21:00:39Z",
-      "viewCount": 2470478,
+      "viewCount": 2475485,
       "durationSec": 103,
       "subCount": 20000,
-      "ratio": 12352.39,
-      "viewsPerHour": 7350,
+      "ratio": 12377.425,
+      "viewsPerHour": 7253,
       "hiddenSubs": false
     },
     {
@@ -402,11 +418,11 @@
       "channelTitle": "와글와글",
       "channelId": "UCJhftqznaupmpgRr1aVaSMQ",
       "publishedAt": "2026-11-10T08:33:20Z",
-      "viewCount": 7082707,
+      "viewCount": 7090554,
       "durationSec": 163,
       "subCount": 64000,
-      "ratio": 11066.729687500001,
-      "viewsPerHour": 28043,
+      "ratio": 11078.990625,
+      "viewsPerHour": 27509,
       "hiddenSubs": false
     },
     {
@@ -418,11 +434,11 @@
       "channelTitle": "씨네포켓",
       "channelId": "UC9u4kOkwpcdZDPoQPiM-w9Q",
       "publishedAt": "2026-11-04T09:30:16Z",
-      "viewCount": 591178,
+      "viewCount": 592704,
       "durationSec": 170,
       "subCount": 5430,
-      "ratio": 10887.255985267035,
-      "viewsPerHour": 1494,
+      "ratio": 10915.3591160221,
+      "viewsPerHour": 1479,
       "hiddenSubs": false
     },
     {
@@ -434,11 +450,11 @@
       "channelTitle": "아워무비",
       "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
       "publishedAt": "2026-11-03T10:20:31Z",
-      "viewCount": 3613935,
+      "viewCount": 3620816,
       "durationSec": 132,
-      "subCount": 35000,
-      "ratio": 10325.528571428571,
-      "viewsPerHour": 8630,
+      "subCount": 35100,
+      "ratio": 10315.715099715098,
+      "viewsPerHour": 8540,
       "hiddenSubs": false
     },
     {
@@ -450,11 +466,11 @@
       "channelTitle": "빛나는 인생 드라마",
       "channelId": "UCHWeZLlZBnAbqocrJK0akfA",
       "publishedAt": "2026-11-12T10:00:00Z",
-      "viewCount": 2193365,
+      "viewCount": 2195829,
       "durationSec": 180,
       "subCount": 21600,
-      "ratio": 10154.467592592593,
-      "viewsPerHour": 10798,
+      "ratio": 10165.875,
+      "viewsPerHour": 10541,
       "hiddenSubs": false
     },
     {
@@ -466,11 +482,11 @@
       "channelTitle": "Reel Wild Outdoors",
       "channelId": "UCg223aiDcOTUu1wtqevhELQ",
       "publishedAt": "2026-11-06T05:04:13Z",
-      "viewCount": 1688672,
+      "viewCount": 1691272,
       "durationSec": 120,
-      "subCount": 16900,
-      "ratio": 9992.14201183432,
-      "viewsPerHour": 4797,
+      "subCount": 17000,
+      "ratio": 9948.658823529413,
+      "viewsPerHour": 4734,
       "hiddenSubs": false
     },
     {
@@ -482,11 +498,11 @@
       "channelTitle": "세월접은 편지함",
       "channelId": "UCyXgYri1zMK9pZYRYMbYNWQ",
       "publishedAt": "2026-11-04T11:00:37Z",
-      "viewCount": 125825,
+      "viewCount": 125849,
       "durationSec": 61,
       "subCount": 1290,
-      "ratio": 9753.875968992248,
-      "viewsPerHour": 319,
+      "ratio": 9755.736434108527,
+      "viewsPerHour": 315,
       "hiddenSubs": false
     },
     {
@@ -498,11 +514,11 @@
       "channelTitle": "뭔일편",
       "channelId": "UCTO97YyECGr7YY_vo1Jj8Vg",
       "publishedAt": "2026-11-11T08:00:14Z",
-      "viewCount": 368660,
+      "viewCount": 369810,
       "durationSec": 149,
-      "subCount": 3840,
-      "ratio": 9600.520833333332,
-      "viewsPerHour": 1609,
+      "subCount": 3850,
+      "ratio": 9605.454545454544,
+      "viewsPerHour": 1578,
       "hiddenSubs": false
     },
     {
@@ -514,11 +530,11 @@
       "channelTitle": "불타는돌직구",
       "channelId": "UC5TUOfTtaI2rK12K97kezRA",
       "publishedAt": "2026-11-07T11:10:22Z",
-      "viewCount": 3034617,
+      "viewCount": 3048136,
       "durationSec": 94,
       "subCount": 32600,
-      "ratio": 9308.641104294478,
-      "viewsPerHour": 9426,
+      "ratio": 9350.110429447852,
+      "viewsPerHour": 9318,
       "hiddenSubs": false
     },
     {
@@ -530,27 +546,11 @@
       "channelTitle": "사연파랑새",
       "channelId": "UCeCLOZF4n3l6jxc0Ogr5VgQ",
       "publishedAt": "2026-11-04T03:30:06Z",
-      "viewCount": 530710,
+      "viewCount": 530903,
       "durationSec": 176,
-      "subCount": 5750,
-      "ratio": 9229.739130434782,
-      "viewsPerHour": 1321,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "2wbN7z3mqqA"
-      },
-      "title": "상견례에서 사돈을 직원 취급한 시어머니 | 밥은 잘하겠네",
-      "thumbnail": "https://i.ytimg.com/vi/2wbN7z3mqqA/mqdefault.jpg",
-      "channelTitle": "DENO PICTURES",
-      "channelId": "UCvgDMDNGs3_GVIbB0xUnsNw",
-      "publishedAt": "2026-11-08T04:00:14Z",
-      "viewCount": 2090859,
-      "durationSec": 130,
-      "subCount": 22900,
-      "ratio": 9130.38864628821,
-      "viewsPerHour": 6853,
+      "subCount": 5770,
+      "ratio": 9201.091854419412,
+      "viewsPerHour": 1305,
       "hiddenSubs": false
     },
     {
@@ -562,11 +562,11 @@
       "channelTitle": "딸깍",
       "channelId": "UCO9ASbzj42S37Mzj6wB5Fsg",
       "publishedAt": "2026-11-08T06:00:29Z",
-      "viewCount": 2691653,
+      "viewCount": 2710346,
       "durationSec": 133,
-      "subCount": 29600,
-      "ratio": 9093.422297297297,
-      "viewsPerHour": 8880,
+      "subCount": 29900,
+      "ratio": 9064.702341137123,
+      "viewsPerHour": 8791,
       "hiddenSubs": false
     },
     {
@@ -578,11 +578,43 @@
       "channelTitle": "드라마오락관",
       "channelId": "UC0u18RdGcovLYcITM3y6mew",
       "publishedAt": "2026-11-18T01:44:52Z",
-      "viewCount": 6540349,
+      "viewCount": 6673668,
       "durationSec": 152,
-      "subCount": 72500,
-      "ratio": 9021.171034482759,
-      "viewsPerHour": 97072,
+      "subCount": 73800,
+      "ratio": 9042.91056910569,
+      "viewsPerHour": 91970,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "2wbN7z3mqqA"
+      },
+      "title": "상견례에서 사돈을 직원 취급한 시어머니 | 밥은 잘하겠네",
+      "thumbnail": "https://i.ytimg.com/vi/2wbN7z3mqqA/mqdefault.jpg",
+      "channelTitle": "DENO PICTURES",
+      "channelId": "UCvgDMDNGs3_GVIbB0xUnsNw",
+      "publishedAt": "2026-11-08T04:00:14Z",
+      "viewCount": 2093628,
+      "durationSec": 130,
+      "subCount": 23200,
+      "ratio": 9024.258620689654,
+      "viewsPerHour": 6747,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "4bVJThnqhRc"
+      },
+      "title": "며느리의 요양원 한마디에 시어머니가 빌었던 이유",
+      "thumbnail": "https://i.ytimg.com/vi/4bVJThnqhRc/mqdefault.jpg",
+      "channelTitle": "인생참맛",
+      "channelId": "UCbkPmSFKx4AZMmIapE57LOg",
+      "publishedAt": "2026-11-04T06:29:01Z",
+      "viewCount": 1773149,
+      "durationSec": 75,
+      "subCount": 19700,
+      "ratio": 9000.756345177664,
+      "viewsPerHour": 4391,
       "hiddenSubs": false
     },
     {
@@ -594,11 +626,11 @@
       "channelTitle": "씨네포켓",
       "channelId": "UC9u4kOkwpcdZDPoQPiM-w9Q",
       "publishedAt": "2026-11-05T09:30:13Z",
-      "viewCount": 467009,
+      "viewCount": 467253,
       "durationSec": 106,
       "subCount": 5430,
-      "ratio": 8600.534069981582,
-      "viewsPerHour": 1257,
+      "ratio": 8605.027624309392,
+      "viewsPerHour": 1240,
       "hiddenSubs": false
     },
     {
@@ -610,11 +642,11 @@
       "channelTitle": "백작가의 숏스토리",
       "channelId": "UCFOjmf4FAEfZ8CLa0008nJg",
       "publishedAt": "2026-11-16T13:59:06Z",
-      "viewCount": 1313455,
+      "viewCount": 1320445,
       "durationSec": 169,
-      "subCount": 16300,
-      "ratio": 8058.006134969325,
-      "viewsPerHour": 12735,
+      "subCount": 16500,
+      "ratio": 8002.69696969697,
+      "viewsPerHour": 12190,
       "hiddenSubs": false
     },
     {
@@ -626,11 +658,11 @@
       "channelTitle": "아워무비",
       "channelId": "UCF10VsIQX1_f9k0K4fQ2i6A",
       "publishedAt": "2026-11-07T13:21:39Z",
-      "viewCount": 2753101,
+      "viewCount": 2755847,
       "durationSec": 170,
-      "subCount": 35000,
-      "ratio": 7866.002857142857,
-      "viewsPerHour": 8610,
+      "subCount": 35100,
+      "ratio": 7851.415954415954,
+      "viewsPerHour": 8481,
       "hiddenSubs": false
     },
     {
@@ -642,11 +674,11 @@
       "channelTitle": "건넌방 사연",
       "channelId": "UCm80i2dxnolHEX4rJBXljwQ",
       "publishedAt": "2026-11-13T11:00:30Z",
-      "viewCount": 1586795,
+      "viewCount": 1603067,
       "durationSec": 164,
-      "subCount": 21200,
-      "ratio": 7484.882075471698,
-      "viewsPerHour": 8909,
+      "subCount": 21300,
+      "ratio": 7526.136150234741,
+      "viewsPerHour": 8745,
       "hiddenSubs": false
     },
     {
@@ -658,11 +690,11 @@
       "channelTitle": "William Thompson",
       "channelId": "UCXNDzxbwNS6OQiiiJeWoZAg",
       "publishedAt": "2026-11-15T11:00:38Z",
-      "viewCount": 879891,
+      "viewCount": 903103,
       "durationSec": 165,
-      "subCount": 12500,
-      "ratio": 7039.128,
-      "viewsPerHour": 6762,
+      "subCount": 12700,
+      "ratio": 7111.047244094488,
+      "viewsPerHour": 6675,
       "hiddenSubs": false
     },
     {
@@ -674,11 +706,11 @@
       "channelTitle": "뜨거운 사람들",
       "channelId": "UCOBFcuUxgsE3wJyFAJCteiA",
       "publishedAt": "2026-11-10T10:30:20Z",
-      "viewCount": 2387717,
+      "viewCount": 2392478,
       "durationSec": 75,
       "subCount": 35800,
-      "ratio": 6669.600558659218,
-      "viewsPerHour": 9527,
+      "ratio": 6682.899441340783,
+      "viewsPerHour": 9353,
       "hiddenSubs": false
     },
     {
@@ -690,11 +722,11 @@
       "channelTitle": "황혼의 우편함",
       "channelId": "UCRuxzoSUTnyKxGZCUf8UiYg",
       "publishedAt": "2026-11-10T12:00:38Z",
-      "viewCount": 119222,
+      "viewCount": 119472,
       "durationSec": 92,
-      "subCount": 1900,
-      "ratio": 6274.8421052631575,
-      "viewsPerHour": 479,
+      "subCount": 1930,
+      "ratio": 6190.259067357512,
+      "viewsPerHour": 470,
       "hiddenSubs": false
     },
     {
@@ -706,43 +738,11 @@
       "channelTitle": "배작가의 카피라이트",
       "channelId": "UCczF05vcbmse8ar8Taya97w",
       "publishedAt": "2026-11-12T22:00:14Z",
-      "viewCount": 1550554,
+      "viewCount": 1562263,
       "durationSec": 179,
-      "subCount": 25500,
-      "ratio": 6080.603921568628,
-      "viewsPerHour": 8113,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "h9tkpXuElPo"
-      },
-      "title": "\"엄마, 옥상 열쇠 줘\" 아들의 진짜 이유 #시니어드라마 #반전드라마",
-      "thumbnail": "https://i.ytimg.com/vi/h9tkpXuElPo/mqdefault.jpg",
-      "channelTitle": "웃픈 지구인",
-      "channelId": "UCTbFg7AWI5liD2teGk1WHAg",
-      "publishedAt": "2026-11-06T10:30:07Z",
-      "viewCount": 821578,
-      "durationSec": 158,
-      "subCount": 13600,
-      "ratio": 6041.014705882352,
-      "viewsPerHour": 2370,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "NGzAYCHLlmw"
-      },
-      "title": "[컬투쇼사연] 캠핑장에서 벌어진 50대 부부싸움 #컬투쇼",
-      "thumbnail": "https://i.ytimg.com/vi/NGzAYCHLlmw/mqdefault.jpg",
-      "channelTitle": "팝콘잼",
-      "channelId": "UCh-10N8d9LnSqfHTL02TFyg",
-      "publishedAt": "2026-11-01T23:00:09Z",
-      "viewCount": 1610584,
-      "durationSec": 83,
-      "subCount": 26800,
-      "ratio": 6009.641791044776,
-      "viewsPerHour": 3547,
+      "subCount": 25800,
+      "ratio": 6055.282945736434,
+      "viewsPerHour": 7958,
       "hiddenSubs": false
     },
     {
@@ -754,11 +754,43 @@
       "channelTitle": "사이다한사발TV",
       "channelId": "UCZEQFkd2Z4MdGh9Q7-PSMlw",
       "publishedAt": "2026-11-16T08:37:40Z",
-      "viewCount": 1654224,
+      "viewCount": 1665025,
       "durationSec": 126,
-      "subCount": 27600,
-      "ratio": 5993.565217391304,
-      "viewsPerHour": 15247,
+      "subCount": 27700,
+      "ratio": 6010.9205776173285,
+      "viewsPerHour": 14646,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "NGzAYCHLlmw"
+      },
+      "title": "[컬투쇼사연] 캠핑장에서 벌어진 50대 부부싸움 #컬투쇼",
+      "thumbnail": "https://i.ytimg.com/vi/NGzAYCHLlmw/mqdefault.jpg",
+      "channelTitle": "팝콘잼",
+      "channelId": "UCh-10N8d9LnSqfHTL02TFyg",
+      "publishedAt": "2026-11-01T23:00:09Z",
+      "viewCount": 1615291,
+      "durationSec": 83,
+      "subCount": 26900,
+      "ratio": 6004.7992565055765,
+      "viewsPerHour": 3517,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "h9tkpXuElPo"
+      },
+      "title": "\"엄마, 옥상 열쇠 줘\" 아들의 진짜 이유 #시니어드라마 #반전드라마",
+      "thumbnail": "https://i.ytimg.com/vi/h9tkpXuElPo/mqdefault.jpg",
+      "channelTitle": "웃픈 지구인",
+      "channelId": "UCTbFg7AWI5liD2teGk1WHAg",
+      "publishedAt": "2026-11-06T10:30:07Z",
+      "viewCount": 821803,
+      "durationSec": 158,
+      "subCount": 13700,
+      "ratio": 5998.56204379562,
+      "viewsPerHour": 2336,
       "hiddenSubs": false
     },
     {
@@ -770,11 +802,11 @@
       "channelTitle": "시니어 큐레이터",
       "channelId": "UCtHQWXyrw9v-rinB2vPNYUQ",
       "publishedAt": "2026-11-01T23:02:08Z",
-      "viewCount": 336284,
+      "viewCount": 336289,
       "durationSec": 104,
       "subCount": 6080,
-      "ratio": 5530.986842105263,
-      "viewsPerHour": 741,
+      "ratio": 5531.069078947368,
+      "viewsPerHour": 732,
       "hiddenSubs": false
     },
     {
@@ -786,11 +818,11 @@
       "channelTitle": "편지사연",
       "channelId": "UCfci_yV9TRx4p5WTm3M28Jg",
       "publishedAt": "2026-11-03T11:47:51Z",
-      "viewCount": 2905846,
+      "viewCount": 2913201,
       "durationSec": 136,
-      "subCount": 52700,
-      "ratio": 5513.9392789373815,
-      "viewsPerHour": 6963,
+      "subCount": 52900,
+      "ratio": 5506.996219281663,
+      "viewsPerHour": 6895,
       "hiddenSubs": false
     },
     {
@@ -802,11 +834,11 @@
       "channelTitle": "그사사 : 그 사람의 사연",
       "channelId": "UCE6cdCbWI3Uyj-8KzyXHTWA",
       "publishedAt": "2026-11-12T05:01:06Z",
-      "viewCount": 190801,
+      "viewCount": 193688,
       "durationSec": 122,
-      "subCount": 3540,
-      "ratio": 5389.858757062147,
-      "viewsPerHour": 917,
+      "subCount": 3570,
+      "ratio": 5425.434173669468,
+      "viewsPerHour": 908,
       "hiddenSubs": false
     },
     {
@@ -818,11 +850,11 @@
       "channelTitle": "이야기쿵",
       "channelId": "UCWS5lnU28J4LdaMoQmdznYw",
       "publishedAt": "2026-10-31T06:00:43Z",
-      "viewCount": 3289525,
+      "viewCount": 3294703,
       "durationSec": 123,
-      "subCount": 61200,
-      "ratio": 5375.0408496732025,
-      "viewsPerHour": 6644,
+      "subCount": 61300,
+      "ratio": 5374.719412724307,
+      "viewsPerHour": 6585,
       "hiddenSubs": false
     },
     {
@@ -834,11 +866,11 @@
       "channelTitle": "반반무비",
       "channelId": "UC7g0nkqWyI5OYNPLqf0NYqg",
       "publishedAt": "2026-11-12T10:30:37Z",
-      "viewCount": 2188840,
+      "viewCount": 2202990,
       "durationSec": 107,
-      "subCount": 41400,
-      "ratio": 5287.053140096618,
-      "viewsPerHour": 10803,
+      "subCount": 41500,
+      "ratio": 5308.409638554217,
+      "viewsPerHour": 10601,
       "hiddenSubs": false
     },
     {
@@ -850,27 +882,11 @@
       "channelTitle": "야그쟁이",
       "channelId": "UC6L_H9yn2RS4Uq5ORUbMLow",
       "publishedAt": "2026-11-02T10:35:38Z",
-      "viewCount": 5172972,
+      "viewCount": 5183893,
       "durationSec": 76,
-      "subCount": 99300,
-      "ratio": 5209.438066465257,
-      "viewsPerHour": 11690,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "l9GLonbgDgI"
-      },
-      "title": "도시락 80개 취소하고 갑질하던 팀장의 최후 | 실제사연 | 고부갈등 | 실화경험담 | 인생고백 | 중년의고백 | 사연나라",
-      "thumbnail": "https://i.ytimg.com/vi/l9GLonbgDgI/mqdefault.jpg",
-      "channelTitle": "사연나라",
-      "channelId": "UCi4bjjUEqyCyycvf2995cDQ",
-      "publishedAt": "2026-11-05T13:50:44Z",
-      "viewCount": 461946,
-      "durationSec": 173,
-      "subCount": 8990,
-      "ratio": 5138.442714126808,
-      "viewsPerHour": 1258,
+      "subCount": 99500,
+      "ratio": 5209.942713567839,
+      "viewsPerHour": 11578,
       "hiddenSubs": false
     },
     {
@@ -882,11 +898,27 @@
       "channelTitle": "단골극장",
       "channelId": "UCR7zMAaars6atni2glJs7dw",
       "publishedAt": "2026-11-04T09:15:12Z",
-      "viewCount": 3240402,
+      "viewCount": 3253527,
       "durationSec": 65,
-      "subCount": 63200,
-      "ratio": 5127.21835443038,
-      "viewsPerHour": 8186,
+      "subCount": 63300,
+      "ratio": 5139.8530805687205,
+      "viewsPerHour": 8112,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "l9GLonbgDgI"
+      },
+      "title": "도시락 80개 취소하고 갑질하던 팀장의 최후 | 실제사연 | 고부갈등 | 실화경험담 | 인생고백 | 중년의고백 | 사연나라",
+      "thumbnail": "https://i.ytimg.com/vi/l9GLonbgDgI/mqdefault.jpg",
+      "channelTitle": "사연나라",
+      "channelId": "UCi4bjjUEqyCyycvf2995cDQ",
+      "publishedAt": "2026-11-05T13:50:44Z",
+      "viewCount": 462013,
+      "durationSec": 173,
+      "subCount": 9000,
+      "ratio": 5133.477777777778,
+      "viewsPerHour": 1240,
       "hiddenSubs": false
     },
     {
@@ -898,27 +930,11 @@
       "channelTitle": "드라마오락관",
       "channelId": "UC0u18RdGcovLYcITM3y6mew",
       "publishedAt": "2026-11-13T03:02:09Z",
-      "viewCount": 3568272,
+      "viewCount": 3587303,
       "durationSec": 180,
-      "subCount": 72500,
-      "ratio": 4921.754482758621,
-      "viewsPerHour": 19175,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "3QZCFZXvGdY"
-      },
-      "title": "결혼기념일 한정식을 먹다가 남편 말을 듣고 황혼 이혼을 결심했습니다.",
-      "thumbnail": "https://i.ytimg.com/vi/3QZCFZXvGdY/mqdefault.jpg",
-      "channelTitle": "하루끝 감동사연",
-      "channelId": "UCgUtfew6VjG8lftFOOKe2mw",
-      "publishedAt": "2026-11-04T11:45:31Z",
-      "viewCount": 174548,
-      "durationSec": 175,
-      "subCount": 3550,
-      "ratio": 4916.845070422535,
-      "viewsPerHour": 444,
+      "subCount": 73800,
+      "ratio": 4860.844173441735,
+      "viewsPerHour": 18755,
       "hiddenSubs": false
     },
     {
@@ -930,11 +946,27 @@
       "channelTitle": "어쩔편",
       "channelId": "UCEM18J5nGwwOUhTEixC_uyQ",
       "publishedAt": "2026-11-07T21:45:06Z",
-      "viewCount": 722175,
+      "viewCount": 730794,
       "durationSec": 135,
-      "subCount": 15000,
-      "ratio": 4814.5,
-      "viewsPerHour": 2319,
+      "subCount": 15200,
+      "ratio": 4807.855263157894,
+      "viewsPerHour": 2309,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "3QZCFZXvGdY"
+      },
+      "title": "결혼기념일 한정식을 먹다가 남편 말을 듣고 황혼 이혼을 결심했습니다.",
+      "thumbnail": "https://i.ytimg.com/vi/3QZCFZXvGdY/mqdefault.jpg",
+      "channelTitle": "하루끝 감동사연",
+      "channelId": "UCgUtfew6VjG8lftFOOKe2mw",
+      "publishedAt": "2026-11-04T11:45:31Z",
+      "viewCount": 174623,
+      "durationSec": 175,
+      "subCount": 3650,
+      "ratio": 4784.191780821918,
+      "viewsPerHour": 438,
       "hiddenSubs": false
     },
     {
@@ -946,11 +978,11 @@
       "channelTitle": "Gdmn Jendn",
       "channelId": "UCnXHd48PvkN0l8aHMMbj4hg",
       "publishedAt": "2026-11-10T09:00:38Z",
-      "viewCount": 1235593,
+      "viewCount": 1238912,
       "durationSec": 133,
       "subCount": 26000,
-      "ratio": 4752.28076923077,
-      "viewsPerHour": 4901,
+      "ratio": 4765.046153846154,
+      "viewsPerHour": 4815,
       "hiddenSubs": false
     },
     {
@@ -962,11 +994,11 @@
       "channelTitle": "나였다면?",
       "channelId": "UChCJGodj9pFZ_7MsMDiVh9Q",
       "publishedAt": "2026-11-03T09:00:00Z",
-      "viewCount": 84878,
+      "viewCount": 84881,
       "durationSec": 102,
-      "subCount": 1790,
-      "ratio": 4741.787709497207,
-      "viewsPerHour": 202,
+      "subCount": 1820,
+      "ratio": 4663.791208791208,
+      "viewsPerHour": 200,
       "hiddenSubs": false
     },
     {
@@ -978,11 +1010,11 @@
       "channelTitle": "박작가의 숏드라마",
       "channelId": "UCxxjUyTTMX-hciRrmFzHE8Q",
       "publishedAt": "2026-11-14T09:27:22Z",
-      "viewCount": 2463109,
+      "viewCount": 2513344,
       "durationSec": 168,
-      "subCount": 57100,
-      "ratio": 4313.676007005254,
-      "viewsPerHour": 15823,
+      "subCount": 57500,
+      "ratio": 4371.033043478261,
+      "viewsPerHour": 15625,
       "hiddenSubs": false
     },
     {
@@ -994,11 +1026,11 @@
       "channelTitle": "Gdmn Jendn",
       "channelId": "UCnXHd48PvkN0l8aHMMbj4hg",
       "publishedAt": "2026-11-08T09:00:12Z",
-      "viewCount": 1086414,
+      "viewCount": 1087288,
       "durationSec": 159,
       "subCount": 26000,
-      "ratio": 4178.515384615384,
-      "viewsPerHour": 3620,
+      "ratio": 4181.876923076923,
+      "viewsPerHour": 3561,
       "hiddenSubs": false
     },
     {
@@ -1010,11 +1042,11 @@
       "channelTitle": "hayman esteban",
       "channelId": "UCIQWyA4wr8EdUKjk9Dh0Bjw",
       "publishedAt": "2026-11-05T03:10:26Z",
-      "viewCount": 741540,
+      "viewCount": 742380,
       "durationSec": 152,
       "subCount": 17800,
-      "ratio": 4165.955056179775,
-      "viewsPerHour": 1962,
+      "ratio": 4170.674157303371,
+      "viewsPerHour": 1938,
       "hiddenSubs": false
     },
     {
@@ -1026,11 +1058,11 @@
       "channelTitle": "은빛펀치",
       "channelId": "UCU8Zq8p1E5Gy3Q-nU3bYMvw",
       "publishedAt": "2026-11-12T10:00:40Z",
-      "viewCount": 679238,
+      "viewCount": 679559,
       "durationSec": 89,
       "subCount": 16900,
-      "ratio": 4019.15976331361,
-      "viewsPerHour": 3344,
+      "ratio": 4021.059171597633,
+      "viewsPerHour": 3262,
       "hiddenSubs": false
     },
     {
@@ -1042,11 +1074,27 @@
       "channelTitle": "편지사연",
       "channelId": "UCfci_yV9TRx4p5WTm3M28Jg",
       "publishedAt": "2026-11-05T06:00:09Z",
-      "viewCount": 2076393,
+      "viewCount": 2078661,
       "durationSec": 140,
-      "subCount": 52700,
-      "ratio": 3940.024667931689,
-      "viewsPerHour": 5535,
+      "subCount": 52900,
+      "ratio": 3929.415879017013,
+      "viewsPerHour": 5466,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "BavqnbUpra8"
+      },
+      "title": "작은 오류를 외면하지 않은 진심이 만든 명작",
+      "thumbnail": "https://i.ytimg.com/vi/BavqnbUpra8/mqdefault.jpg",
+      "channelTitle": "언택트립",
+      "channelId": "UCF44GGIofZeEd_RRigSFafA",
+      "publishedAt": "2026-11-05T00:20:21Z",
+      "viewCount": 2521494,
+      "durationSec": 91,
+      "subCount": 64200,
+      "ratio": 3927.5607476635514,
+      "viewsPerHour": 6533,
       "hiddenSubs": false
     },
     {
@@ -1058,11 +1106,11 @@
       "channelTitle": "사연나라",
       "channelId": "UCi4bjjUEqyCyycvf2995cDQ",
       "publishedAt": "2026-11-09T14:34:34Z",
-      "viewCount": 350962,
+      "viewCount": 350999,
       "durationSec": 139,
-      "subCount": 8990,
-      "ratio": 3903.9154616240266,
-      "viewsPerHour": 1297,
+      "subCount": 9000,
+      "ratio": 3899.988888888889,
+      "viewsPerHour": 1273,
       "hiddenSubs": false
     },
     {
@@ -1074,11 +1122,11 @@
       "channelTitle": "와우드라마",
       "channelId": "UCDmiSK9Yc_bDafXc51AraOw",
       "publishedAt": "2026-11-02T11:00:03Z",
-      "viewCount": 464709,
+      "viewCount": 464725,
       "durationSec": 161,
-      "subCount": 12100,
-      "ratio": 3840.5702479338843,
-      "viewsPerHour": 1051,
+      "subCount": 12200,
+      "ratio": 3809.2213114754095,
+      "viewsPerHour": 1039,
       "hiddenSubs": false
     },
     {
@@ -1090,11 +1138,11 @@
       "channelTitle": "무비픽스",
       "channelId": "UC1i-J68LERo5YsIy-VH3c6Q",
       "publishedAt": "2026-11-11T02:30:31Z",
-      "viewCount": 4073138,
+      "viewCount": 4120489,
       "durationSec": 120,
       "subCount": 121000,
-      "ratio": 3366.2297520661155,
-      "viewsPerHour": 17361,
+      "ratio": 3405.362809917355,
+      "viewsPerHour": 17183,
       "hiddenSubs": false
     },
     {
@@ -1106,11 +1154,11 @@
       "channelTitle": "스토리 한바다",
       "channelId": "UC961n8kvBRba6MiQ7X11x5w",
       "publishedAt": "2026-10-31T21:30:07Z",
-      "viewCount": 577221,
+      "viewCount": 577228,
       "durationSec": 82,
       "subCount": 17200,
-      "ratio": 3355.936046511628,
-      "viewsPerHour": 1203,
+      "ratio": 3355.9767441860467,
+      "viewsPerHour": 1191,
       "hiddenSubs": false
     },
     {
@@ -1122,11 +1170,11 @@
       "channelTitle": "별 : ★잡도리",
       "channelId": "UCN1DIQ26H4VZtc9gD9tMZ9g",
       "publishedAt": "2026-11-11T10:00:30Z",
-      "viewCount": 584027,
+      "viewCount": 585906,
       "durationSec": 179,
-      "subCount": 18000,
-      "ratio": 3244.5944444444444,
-      "viewsPerHour": 2571,
+      "subCount": 18100,
+      "ratio": 3237.049723756906,
+      "viewsPerHour": 2522,
       "hiddenSubs": false
     },
     {
@@ -1138,11 +1186,11 @@
       "channelTitle": "단골극장",
       "channelId": "UCR7zMAaars6atni2glJs7dw",
       "publishedAt": "2026-10-31T08:45:08Z",
-      "viewCount": 1857819,
+      "viewCount": 1863009,
       "durationSec": 113,
-      "subCount": 63200,
-      "ratio": 2939.5870253164558,
-      "viewsPerHour": 3773,
+      "subCount": 63300,
+      "ratio": 2943.1421800947865,
+      "viewsPerHour": 3744,
       "hiddenSubs": false
     },
     {
@@ -1154,27 +1202,11 @@
       "channelTitle": "스토리 한바다",
       "channelId": "UC961n8kvBRba6MiQ7X11x5w",
       "publishedAt": "2026-11-02T04:22:12Z",
-      "viewCount": 504997,
+      "viewCount": 505005,
       "durationSec": 101,
       "subCount": 17200,
-      "ratio": 2936.029069767442,
-      "viewsPerHour": 1125,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "OiCa1WBV5Gs"
-      },
-      "title": "#사이다사연 #드라마 #반전사연",
-      "thumbnail": "https://i.ytimg.com/vi/OiCa1WBV5Gs/mqdefault.jpg",
-      "channelTitle": "스토리 한바다",
-      "channelId": "UC961n8kvBRba6MiQ7X11x5w",
-      "publishedAt": "2026-10-30T21:30:34Z",
-      "viewCount": 479380,
-      "durationSec": 86,
-      "subCount": 17200,
-      "ratio": 2787.093023255814,
-      "viewsPerHour": 952,
+      "ratio": 2936.0755813953488,
+      "viewsPerHour": 1112,
       "hiddenSubs": false
     },
     {
@@ -1186,11 +1218,11 @@
       "channelTitle": "겁나재밌다",
       "channelId": "UC0O2F97fxLW2jpGlJ8bs0nA",
       "publishedAt": "2026-11-05T10:15:38Z",
-      "viewCount": 2503711,
+      "viewCount": 2516622,
       "durationSec": 73,
       "subCount": 90100,
-      "ratio": 2778.813540510544,
-      "viewsPerHour": 6751,
+      "ratio": 2793.143174250832,
+      "viewsPerHour": 6692,
       "hiddenSubs": false
     },
     {
@@ -1202,27 +1234,11 @@
       "channelTitle": "인생톡 고민톡",
       "channelId": "UCE3u6JUU_qzFtXMSXnhJ2fQ",
       "publishedAt": "2026-11-04T09:00:27Z",
-      "viewCount": 990349,
+      "viewCount": 990913,
       "durationSec": 96,
       "subCount": 38100,
-      "ratio": 2599.3412073490813,
-      "viewsPerHour": 2500,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "y-8gSPUUs0E"
-      },
-      "title": "70 넘으면 딱 이렇게만 사세요 #노후 #노후건강 #노후지혜 #노후생활 #노년 #노년건강 #노년지혜 #노년의삶 #좋은글 #50代 #60代 #70代",
-      "thumbnail": "https://i.ytimg.com/vi/y-8gSPUUs0E/mqdefault.jpg",
-      "channelTitle": "노후의 행복한 삶",
-      "channelId": "UCFrA6jbl3sIxwxe7DK-hqPQ",
-      "publishedAt": "2026-10-31T01:00:22Z",
-      "viewCount": 241916,
-      "durationSec": 74,
-      "subCount": 9460,
-      "ratio": 2557.2515856236787,
-      "viewsPerHour": 484,
+      "ratio": 2600.8215223097113,
+      "viewsPerHour": 2469,
       "hiddenSubs": false
     },
     {
@@ -1234,27 +1250,11 @@
       "channelTitle": "Gdmn Jendn",
       "channelId": "UCnXHd48PvkN0l8aHMMbj4hg",
       "publishedAt": "2026-11-09T10:19:43Z",
-      "viewCount": 647497,
+      "viewCount": 648264,
       "durationSec": 180,
       "subCount": 26000,
-      "ratio": 2490.373076923077,
-      "viewsPerHour": 2356,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "GR1W0B215pA"
-      },
-      "title": "내 땅 경계에 옹벽이 있다면 이 내용 꼭 확인하세요",
-      "thumbnail": "https://i.ytimg.com/vi/GR1W0B215pA/mqdefault.jpg",
-      "channelTitle": "황혼의기억",
-      "channelId": "UCgA7AJ59Mo0wk3o_RZwnCWQ",
-      "publishedAt": "2026-11-07T02:45:01Z",
-      "viewCount": 115491,
-      "durationSec": 177,
-      "subCount": 4900,
-      "ratio": 2356.9591836734694,
-      "viewsPerHour": 350,
+      "ratio": 2493.3230769230768,
+      "viewsPerHour": 2315,
       "hiddenSubs": false
     },
     {
@@ -1266,11 +1266,27 @@
       "channelTitle": "이야기쿵",
       "channelId": "UCWS5lnU28J4LdaMoQmdznYw",
       "publishedAt": "2026-11-14T05:00:08Z",
-      "viewCount": 1430697,
+      "viewCount": 1444661,
       "durationSec": 136,
-      "subCount": 61200,
-      "ratio": 2337.7401960784314,
-      "viewsPerHour": 8935,
+      "subCount": 61300,
+      "ratio": 2356.7063621533443,
+      "viewsPerHour": 8739,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "GR1W0B215pA"
+      },
+      "title": "내 땅 경계에 옹벽이 있다면 이 내용 꼭 확인하세요",
+      "thumbnail": "https://i.ytimg.com/vi/GR1W0B215pA/mqdefault.jpg",
+      "channelTitle": "황혼의기억",
+      "channelId": "UCgA7AJ59Mo0wk3o_RZwnCWQ",
+      "publishedAt": "2026-11-07T02:45:01Z",
+      "viewCount": 115894,
+      "durationSec": 177,
+      "subCount": 4980,
+      "ratio": 2327.18875502008,
+      "viewsPerHour": 345,
       "hiddenSubs": false
     },
     {
@@ -1282,11 +1298,11 @@
       "channelTitle": "단골극장",
       "channelId": "UCR7zMAaars6atni2glJs7dw",
       "publishedAt": "2026-11-01T11:00:39Z",
-      "viewCount": 1445755,
+      "viewCount": 1447677,
       "durationSec": 81,
-      "subCount": 63200,
-      "ratio": 2287.5870253164558,
-      "viewsPerHour": 3102,
+      "subCount": 63300,
+      "ratio": 2287.009478672986,
+      "viewsPerHour": 3072,
       "hiddenSubs": false
     },
     {
@@ -1298,11 +1314,11 @@
       "channelTitle": "무대 위 사연",
       "channelId": "UCnNjFA30UkAl1hkBO-0Pilw",
       "publishedAt": "2026-11-04T23:04:06Z",
-      "viewCount": 1962899,
+      "viewCount": 1965426,
       "durationSec": 180,
-      "subCount": 87500,
-      "ratio": 2243.313142857143,
-      "viewsPerHour": 5138,
+      "subCount": 87700,
+      "ratio": 2241.078677309008,
+      "viewsPerHour": 5075,
       "hiddenSubs": false
     },
     {
@@ -1314,11 +1330,11 @@
       "channelTitle": "팝콘잼",
       "channelId": "UCh-10N8d9LnSqfHTL02TFyg",
       "publishedAt": "2026-11-15T04:00:07Z",
-      "viewCount": 597682,
+      "viewCount": 601168,
       "durationSec": 78,
-      "subCount": 26800,
-      "ratio": 2230.1567164179105,
-      "viewsPerHour": 4359,
+      "subCount": 26900,
+      "ratio": 2234.825278810409,
+      "viewsPerHour": 4224,
       "hiddenSubs": false
     },
     {
@@ -1330,11 +1346,11 @@
       "channelTitle": "마지막 장의 이야기",
       "channelId": "UC0FJNdm4Ix0KN6JZO-S1PVQ",
       "publishedAt": "2026-11-01T11:13:37Z",
-      "viewCount": 562755,
+      "viewCount": 562920,
       "durationSec": 121,
-      "subCount": 25900,
-      "ratio": 2172.799227799228,
-      "viewsPerHour": 1208,
+      "subCount": 26000,
+      "ratio": 2165.0769230769233,
+      "viewsPerHour": 1195,
       "hiddenSubs": false
     },
     {
@@ -1346,11 +1362,11 @@
       "channelTitle": "편지사연",
       "channelId": "UCfci_yV9TRx4p5WTm3M28Jg",
       "publishedAt": "2026-11-04T22:30:32Z",
-      "viewCount": 1121398,
+      "viewCount": 1122509,
       "durationSec": 149,
-      "subCount": 52700,
-      "ratio": 2127.8899430740034,
-      "viewsPerHour": 2931,
+      "subCount": 52900,
+      "ratio": 2121.945179584121,
+      "viewsPerHour": 2895,
       "hiddenSubs": false
     },
     {
@@ -1362,11 +1378,11 @@
       "channelTitle": "세상만사연",
       "channelId": "UCfEVDZ_qve0-xeZEEYhURrw",
       "publishedAt": "2026-11-14T03:00:31Z",
-      "viewCount": 894277,
+      "viewCount": 894522,
       "durationSec": 64,
       "subCount": 43400,
-      "ratio": 2060.5460829493086,
-      "viewsPerHour": 5516,
+      "ratio": 2061.1105990783412,
+      "viewsPerHour": 5347,
       "hiddenSubs": false
     },
     {
@@ -1378,11 +1394,11 @@
       "channelTitle": "백년가족 드라마",
       "channelId": "UC_RtaboHSI49lTnvbZ-Gvhg",
       "publishedAt": "2026-11-14T09:47:04Z",
-      "viewCount": 134553,
+      "viewCount": 135058,
       "durationSec": 146,
-      "subCount": 6720,
-      "ratio": 2002.2767857142856,
-      "viewsPerHour": 866,
+      "subCount": 6730,
+      "ratio": 2006.8053491827636,
+      "viewsPerHour": 841,
       "hiddenSubs": false
     },
     {
@@ -1394,11 +1410,11 @@
       "channelTitle": "Reel Wild Outdoors",
       "channelId": "UCg223aiDcOTUu1wtqevhELQ",
       "publishedAt": "2026-11-10T05:22:57Z",
-      "viewCount": 335025,
+      "viewCount": 335102,
       "durationSec": 94,
-      "subCount": 16900,
-      "ratio": 1982.396449704142,
-      "viewsPerHour": 1310,
+      "subCount": 17000,
+      "ratio": 1971.1882352941177,
+      "viewsPerHour": 1284,
       "hiddenSubs": false
     },
     {
@@ -1410,11 +1426,11 @@
       "channelTitle": "감동60분",
       "channelId": "UCLV7tFkQmnZlNVvoYJBgiJg",
       "publishedAt": "2026-11-07T21:00:31Z",
-      "viewCount": 2010721,
+      "viewCount": 2018364,
       "durationSec": 150,
       "subCount": 103000,
-      "ratio": 1952.1563106796116,
-      "viewsPerHour": 6442,
+      "ratio": 1959.5766990291263,
+      "viewsPerHour": 6361,
       "hiddenSubs": false
     },
     {
@@ -1426,11 +1442,11 @@
       "channelTitle": "세상만사연",
       "channelId": "UCfEVDZ_qve0-xeZEEYhURrw",
       "publishedAt": "2026-11-03T03:00:16Z",
-      "viewCount": 830787,
+      "viewCount": 830827,
       "durationSec": 71,
       "subCount": 43400,
-      "ratio": 1914.2557603686637,
-      "viewsPerHour": 1950,
+      "ratio": 1914.3479262672813,
+      "viewsPerHour": 1926,
       "hiddenSubs": false
     },
     {
@@ -1444,9 +1460,9 @@
       "publishedAt": "2026-11-02T11:11:57Z",
       "viewCount": 167486,
       "durationSec": 142,
-      "subCount": 8990,
-      "ratio": 1863.0255839822023,
-      "viewsPerHour": 379,
+      "subCount": 9000,
+      "ratio": 1860.9555555555555,
+      "viewsPerHour": 375,
       "hiddenSubs": false
     },
     {
@@ -1458,11 +1474,11 @@
       "channelTitle": "도파민필름 Dopamine Film",
       "channelId": "UCw0GGZ1VhnGDBe6lGAJDyLw",
       "publishedAt": "2026-11-06T09:01:49Z",
-      "viewCount": 719443,
+      "viewCount": 723126,
       "durationSec": 64,
-      "subCount": 39200,
-      "ratio": 1835.3137755102039,
-      "viewsPerHour": 2067,
+      "subCount": 39300,
+      "ratio": 1840.0152671755727,
+      "viewsPerHour": 2047,
       "hiddenSubs": false
     },
     {
@@ -1474,11 +1490,11 @@
       "channelTitle": "백년가족 드라마",
       "channelId": "UC_RtaboHSI49lTnvbZ-Gvhg",
       "publishedAt": "2026-11-05T14:29:35Z",
-      "viewCount": 119920,
+      "viewCount": 119930,
       "durationSec": 117,
-      "subCount": 6720,
-      "ratio": 1784.5238095238094,
-      "viewsPerHour": 327,
+      "subCount": 6730,
+      "ratio": 1782.0208023774146,
+      "viewsPerHour": 323,
       "hiddenSubs": false
     },
     {
@@ -1490,11 +1506,11 @@
       "channelTitle": "Reel Wild Outdoors",
       "channelId": "UCg223aiDcOTUu1wtqevhELQ",
       "publishedAt": "2026-11-12T06:40:29Z",
-      "viewCount": 290287,
+      "viewCount": 293829,
       "durationSec": 124,
-      "subCount": 16900,
-      "ratio": 1717.674556213018,
-      "viewsPerHour": 1406,
+      "subCount": 17000,
+      "ratio": 1728.4058823529413,
+      "viewsPerHour": 1388,
       "hiddenSubs": false
     },
     {
@@ -1506,11 +1522,11 @@
       "channelTitle": "시니어사연 전문가",
       "channelId": "UCdCR_5PK-erclkX5SJos1sQ",
       "publishedAt": "2026-11-02T06:30:33Z",
-      "viewCount": 1124005,
+      "viewCount": 1125145,
       "durationSec": 142,
-      "subCount": 70400,
-      "ratio": 1596.5980113636365,
-      "viewsPerHour": 2517,
+      "subCount": 70800,
+      "ratio": 1589.1878531073446,
+      "viewsPerHour": 2490,
       "hiddenSubs": false
     },
     {
@@ -1522,11 +1538,11 @@
       "channelTitle": "연두빛인생사연",
       "channelId": "UCQaSPUlW4TjADd5Mm9vam1Q",
       "publishedAt": "2026-11-03T02:15:24Z",
-      "viewCount": 511071,
+      "viewCount": 511073,
       "durationSec": 178,
       "subCount": 33300,
-      "ratio": 1534.7477477477478,
-      "viewsPerHour": 1197,
+      "ratio": 1534.7537537537537,
+      "viewsPerHour": 1183,
       "hiddenSubs": false
     },
     {
@@ -1538,11 +1554,11 @@
       "channelTitle": "참교육TV",
       "channelId": "UCZKYyDOi3L_Dmxcqlk1crZA",
       "publishedAt": "2026-11-04T22:00:11Z",
-      "viewCount": 2466563,
+      "viewCount": 2467672,
       "durationSec": 180,
       "subCount": 167000,
-      "ratio": 1476.9838323353292,
-      "viewsPerHour": 6438,
+      "ratio": 1477.6479041916168,
+      "viewsPerHour": 6355,
       "hiddenSubs": false
     },
     {
@@ -1554,11 +1570,11 @@
       "channelTitle": "성자네",
       "channelId": "UC7OZXmIh3YF4B_8VBGFOvnQ",
       "publishedAt": "2026-10-31T06:00:26Z",
-      "viewCount": 353473,
+      "viewCount": 353656,
       "durationSec": 73,
       "subCount": 24100,
-      "ratio": 1466.6929460580914,
-      "viewsPerHour": 714,
+      "ratio": 1467.4522821576763,
+      "viewsPerHour": 707,
       "hiddenSubs": false
     },
     {
@@ -1570,11 +1586,11 @@
       "channelTitle": "시월드며느리",
       "channelId": "UCVEQfwzdJcPo8R5RsIwxtiA",
       "publishedAt": "2026-11-04T21:00:18Z",
-      "viewCount": 462030,
+      "viewCount": 462354,
       "durationSec": 63,
-      "subCount": 31700,
-      "ratio": 1457.507886435331,
-      "viewsPerHour": 1203,
+      "subCount": 31800,
+      "ratio": 1453.9433962264152,
+      "viewsPerHour": 1188,
       "hiddenSubs": false
     },
     {
@@ -1586,11 +1602,11 @@
       "channelTitle": "연두빛인생사연",
       "channelId": "UCQaSPUlW4TjADd5Mm9vam1Q",
       "publishedAt": "2026-11-11T02:00:06Z",
-      "viewCount": 482619,
+      "viewCount": 482812,
       "durationSec": 145,
       "subCount": 33300,
-      "ratio": 1449.3063063063064,
-      "viewsPerHour": 2053,
+      "ratio": 1449.8858858858857,
+      "viewsPerHour": 2009,
       "hiddenSubs": false
     },
     {
@@ -1602,11 +1618,11 @@
       "channelTitle": "인생톡 고민톡",
       "channelId": "UCE3u6JUU_qzFtXMSXnhJ2fQ",
       "publishedAt": "2026-11-13T09:00:34Z",
-      "viewCount": 545531,
+      "viewCount": 545856,
       "durationSec": 90,
       "subCount": 38100,
-      "ratio": 1431.8398950131234,
-      "viewsPerHour": 3029,
+      "ratio": 1432.6929133858268,
+      "viewsPerHour": 2946,
       "hiddenSubs": false
     },
     {
@@ -1618,11 +1634,11 @@
       "channelTitle": "사연나라",
       "channelId": "UCi4bjjUEqyCyycvf2995cDQ",
       "publishedAt": "2026-11-08T13:00:32Z",
-      "viewCount": 128051,
+      "viewCount": 128056,
       "durationSec": 174,
-      "subCount": 8990,
-      "ratio": 1424.3715239154617,
-      "viewsPerHour": 432,
+      "subCount": 9000,
+      "ratio": 1422.8444444444444,
+      "viewsPerHour": 425,
       "hiddenSubs": false
     },
     {
@@ -1634,11 +1650,11 @@
       "channelTitle": "행복희망사연",
       "channelId": "UCtSYpZA8jkIFOOcl95WmXKg",
       "publishedAt": "2026-11-12T01:00:27Z",
-      "viewCount": 159823,
+      "viewCount": 162373,
       "durationSec": 73,
-      "subCount": 11400,
-      "ratio": 1401.9561403508771,
-      "viewsPerHour": 753,
+      "subCount": 11500,
+      "ratio": 1411.9391304347826,
+      "viewsPerHour": 747,
       "hiddenSubs": false
     },
     {
@@ -1650,11 +1666,11 @@
       "channelTitle": "별별일생",
       "channelId": "UCaiLd0mje2vbdS6d6YcT4Yg",
       "publishedAt": "2026-10-31T07:00:15Z",
-      "viewCount": 215421,
+      "viewCount": 215883,
       "durationSec": 124,
       "subCount": 16000,
-      "ratio": 1346.38125,
-      "viewsPerHour": 436,
+      "ratio": 1349.26875,
+      "viewsPerHour": 432,
       "hiddenSubs": false
     },
     {
@@ -1666,11 +1682,11 @@
       "channelTitle": "도파민필름 Dopamine Film",
       "channelId": "UCw0GGZ1VhnGDBe6lGAJDyLw",
       "publishedAt": "2026-11-06T03:14:36Z",
-      "viewCount": 514047,
+      "viewCount": 517118,
       "durationSec": 100,
-      "subCount": 39200,
-      "ratio": 1311.3443877551022,
-      "viewsPerHour": 1453,
+      "subCount": 39300,
+      "ratio": 1315.8218829516538,
+      "viewsPerHour": 1440,
       "hiddenSubs": false
     },
     {
@@ -1682,11 +1698,11 @@
       "channelTitle": "인생톡 고민톡",
       "channelId": "UCE3u6JUU_qzFtXMSXnhJ2fQ",
       "publishedAt": "2026-11-09T09:00:35Z",
-      "viewCount": 490972,
+      "viewCount": 491373,
       "durationSec": 99,
       "subCount": 38100,
-      "ratio": 1288.6404199475066,
-      "viewsPerHour": 1778,
+      "ratio": 1289.6929133858268,
+      "viewsPerHour": 1747,
       "hiddenSubs": false
     },
     {
@@ -1698,11 +1714,11 @@
       "channelTitle": "인생사연한자락",
       "channelId": "UCE2icl9n8Xo_lY2UcaF3yVA",
       "publishedAt": "2026-11-07T08:00:37Z",
-      "viewCount": 498267,
+      "viewCount": 500340,
       "durationSec": 177,
-      "subCount": 39800,
-      "ratio": 1251.927135678392,
-      "viewsPerHour": 1533,
+      "subCount": 40100,
+      "ratio": 1247.7306733167084,
+      "viewsPerHour": 1515,
       "hiddenSubs": false
     },
     {
@@ -1714,11 +1730,11 @@
       "channelTitle": "인생공감사연",
       "channelId": "UC8jx9dQKfUUNgFAbiYSp0Pw",
       "publishedAt": "2026-11-10T07:27:56Z",
-      "viewCount": 717418,
+      "viewCount": 718010,
       "durationSec": 180,
       "subCount": 58600,
-      "ratio": 1224.2627986348123,
-      "viewsPerHour": 2828,
+      "ratio": 1225.273037542662,
+      "viewsPerHour": 2774,
       "hiddenSubs": false
     },
     {
@@ -1730,11 +1746,11 @@
       "channelTitle": "말해도 될까요?",
       "channelId": "UC4r61uDVZ27pdplUdlbBXrg",
       "publishedAt": "2026-11-02T03:00:18Z",
-      "viewCount": 292744,
+      "viewCount": 292746,
       "durationSec": 76,
       "subCount": 24100,
-      "ratio": 1214.7053941908714,
-      "viewsPerHour": 650,
+      "ratio": 1214.713692946058,
+      "viewsPerHour": 643,
       "hiddenSubs": false
     },
     {
@@ -1746,11 +1762,11 @@
       "channelTitle": "말해도 될까요?",
       "channelId": "UC4r61uDVZ27pdplUdlbBXrg",
       "publishedAt": "2026-11-01T09:00:39Z",
-      "viewCount": 286207,
+      "viewCount": 286217,
       "durationSec": 74,
       "subCount": 24100,
-      "ratio": 1187.5809128630704,
-      "viewsPerHour": 611,
+      "ratio": 1187.622406639004,
+      "viewsPerHour": 605,
       "hiddenSubs": false
     },
     {
@@ -1762,11 +1778,11 @@
       "channelTitle": "세상만사연",
       "channelId": "UCfEVDZ_qve0-xeZEEYhURrw",
       "publishedAt": "2026-11-12T03:00:35Z",
-      "viewCount": 509339,
+      "viewCount": 509388,
       "durationSec": 70,
       "subCount": 43400,
-      "ratio": 1173.5921658986176,
-      "viewsPerHour": 2424,
+      "ratio": 1173.705069124424,
+      "viewsPerHour": 2366,
       "hiddenSubs": false
     },
     {
@@ -1778,11 +1794,11 @@
       "channelTitle": "사연나라",
       "channelId": "UCi4bjjUEqyCyycvf2995cDQ",
       "publishedAt": "2026-10-31T10:38:23Z",
-      "viewCount": 98354,
+      "viewCount": 98355,
       "durationSec": 176,
-      "subCount": 8990,
-      "ratio": 1094.0378197997775,
-      "viewsPerHour": 201,
+      "subCount": 9000,
+      "ratio": 1092.8333333333333,
+      "viewsPerHour": 198,
       "hiddenSubs": false
     },
     {
@@ -1794,11 +1810,11 @@
       "channelTitle": "말해도 될까요?",
       "channelId": "UC4r61uDVZ27pdplUdlbBXrg",
       "publishedAt": "2026-11-10T09:00:11Z",
-      "viewCount": 261990,
+      "viewCount": 262095,
       "durationSec": 72,
       "subCount": 24100,
-      "ratio": 1087.0954356846473,
-      "viewsPerHour": 1039,
+      "ratio": 1087.5311203319502,
+      "viewsPerHour": 1019,
       "hiddenSubs": false
     },
     {
@@ -1810,11 +1826,11 @@
       "channelTitle": "연두빛인생사연",
       "channelId": "UCQaSPUlW4TjADd5Mm9vam1Q",
       "publishedAt": "2026-11-04T11:00:30Z",
-      "viewCount": 350906,
+      "viewCount": 350931,
       "durationSec": 177,
       "subCount": 33300,
-      "ratio": 1053.7717717717717,
-      "viewsPerHour": 890,
+      "ratio": 1053.846846846847,
+      "viewsPerHour": 879,
       "hiddenSubs": false
     },
     {
@@ -1826,27 +1842,11 @@
       "channelTitle": "인생톡 고민톡",
       "channelId": "UCE3u6JUU_qzFtXMSXnhJ2fQ",
       "publishedAt": "2026-11-10T10:00:17Z",
-      "viewCount": 397339,
+      "viewCount": 397902,
       "durationSec": 100,
       "subCount": 38100,
-      "ratio": 1042.8845144356956,
-      "viewsPerHour": 1582,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "HSvzXUgLHVY"
-      },
-      "title": "노후를 망치는 결정적 실수 10가지 | 노자 도덕경 2,500년의 경고",
-      "thumbnail": "https://i.ytimg.com/vi/HSvzXUgLHVY/mqdefault.jpg",
-      "channelTitle": "인생 FUN FUN",
-      "channelId": "UCQI8SNgEXiu4WgAm56cEhOw",
-      "publishedAt": "2026-10-30T23:00:00Z",
-      "viewCount": 135521,
-      "durationSec": 139,
-      "subCount": 13200,
-      "ratio": 1026.6742424242425,
-      "viewsPerHour": 270,
+      "ratio": 1044.3622047244094,
+      "viewsPerHour": 1552,
       "hiddenSubs": false
     },
     {
@@ -1858,11 +1858,11 @@
       "channelTitle": "훈작가의 숏드라마",
       "channelId": "UCqttFyZf9qFyrtujfWtbgig",
       "publishedAt": "2026-11-05T07:00:25Z",
-      "viewCount": 2914862,
+      "viewCount": 2915961,
       "durationSec": 128,
-      "subCount": 290000,
-      "ratio": 1005.1248275862068,
-      "viewsPerHour": 7791,
+      "subCount": 291000,
+      "ratio": 1002.0484536082474,
+      "viewsPerHour": 7688,
       "hiddenSubs": false
     },
     {
@@ -1874,27 +1874,11 @@
       "channelTitle": "사연과노래",
       "channelId": "UClrVbR_XprMaAJS3C_Yl_KA",
       "publishedAt": "2026-11-03T01:58:35Z",
-      "viewCount": 220586,
+      "viewCount": 221417,
       "durationSec": 79,
-      "subCount": 22200,
-      "ratio": 993.6306306306307,
-      "viewsPerHour": 516,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "t0x9ugGja-8"
-      },
-      "title": "동창회에 앞치마가 뭐야\" 30년 만에 만난 친구를 식당 일꾼 취급한 총무… 잠시 후 대반전 #막장드라마 #사이다",
-      "thumbnail": "https://i.ytimg.com/vi/t0x9ugGja-8/mqdefault.jpg",
-      "channelTitle": "사이다한사발TV",
-      "channelId": "UCZEQFkd2Z4MdGh9Q7-PSMlw",
-      "publishedAt": "2026-10-31T01:30:17Z",
-      "viewCount": 269436,
-      "durationSec": 118,
-      "subCount": 27600,
-      "ratio": 976.2173913043478,
-      "viewsPerHour": 539,
+      "subCount": 22600,
+      "ratio": 979.7212389380531,
+      "viewsPerHour": 512,
       "hiddenSubs": false
     },
     {
@@ -1906,11 +1890,11 @@
       "channelTitle": "편지사연",
       "channelId": "UCfci_yV9TRx4p5WTm3M28Jg",
       "publishedAt": "2026-10-31T13:42:18Z",
-      "viewCount": 506628,
+      "viewCount": 506634,
       "durationSec": 130,
-      "subCount": 52700,
-      "ratio": 961.3434535104365,
-      "viewsPerHour": 1039,
+      "subCount": 52900,
+      "ratio": 957.7202268431001,
+      "viewsPerHour": 1028,
       "hiddenSubs": false
     },
     {
@@ -1922,11 +1906,11 @@
       "channelTitle": "별사탕이슈",
       "channelId": "UCdlLSjQHcH_wCUszbGnHmfw",
       "publishedAt": "2026-11-07T07:50:11Z",
-      "viewCount": 548352,
+      "viewCount": 549879,
       "durationSec": 142,
-      "subCount": 59100,
-      "ratio": 927.8375634517766,
-      "viewsPerHour": 1686,
+      "subCount": 59300,
+      "ratio": 927.283305227656,
+      "viewsPerHour": 1664,
       "hiddenSubs": false
     },
     {
@@ -1938,11 +1922,11 @@
       "channelTitle": "사연봐야지",
       "channelId": "UC8OxdxIxINFZixzBKyGojBA",
       "publishedAt": "2026-11-06T19:00:27Z",
-      "viewCount": 135245,
+      "viewCount": 135248,
       "durationSec": 67,
       "subCount": 14900,
-      "ratio": 907.6845637583892,
-      "viewsPerHour": 400,
+      "ratio": 907.7046979865772,
+      "viewsPerHour": 394,
       "hiddenSubs": false
     },
     {
@@ -1954,11 +1938,11 @@
       "channelTitle": "ai방송국",
       "channelId": "UCzaFK9x6W7JKkoPzsXDScJw",
       "publishedAt": "2026-11-18T12:00:11Z",
-      "viewCount": 344028,
+      "viewCount": 347874,
       "durationSec": 136,
       "subCount": 38500,
-      "ratio": 893.5792207792208,
-      "viewsPerHour": 6023,
+      "ratio": 903.5688311688311,
+      "viewsPerHour": 5583,
       "hiddenSubs": false
     },
     {
@@ -1970,11 +1954,11 @@
       "channelTitle": "훈작가의 숏드라마",
       "channelId": "UCqttFyZf9qFyrtujfWtbgig",
       "publishedAt": "2026-11-17T07:00:09Z",
-      "viewCount": 2554706,
+      "viewCount": 2572208,
       "durationSec": 170,
-      "subCount": 290000,
-      "ratio": 880.9331034482758,
-      "viewsPerHour": 29664,
+      "subCount": 291000,
+      "ratio": 883.9202749140893,
+      "viewsPerHour": 28170,
       "hiddenSubs": false
     },
     {
@@ -1990,7 +1974,7 @@
       "durationSec": 178,
       "subCount": 49200,
       "ratio": 844.3434959349594,
-      "viewsPerHour": 838,
+      "viewsPerHour": 829,
       "hiddenSubs": false
     },
     {
@@ -2002,11 +1986,11 @@
       "channelTitle": "칠썰사이다",
       "channelId": "UCbAYWNQXQ_gvFFyRdQ9-pTw",
       "publishedAt": "2026-10-31T04:30:10Z",
-      "viewCount": 184911,
+      "viewCount": 184915,
       "durationSec": 116,
-      "subCount": 23300,
-      "ratio": 793.6094420600858,
-      "viewsPerHour": 372,
+      "subCount": 23400,
+      "ratio": 790.2350427350427,
+      "viewsPerHour": 368,
       "hiddenSubs": false
     },
     {
@@ -2018,11 +2002,11 @@
       "channelTitle": "말해도 될까요?",
       "channelId": "UC4r61uDVZ27pdplUdlbBXrg",
       "publishedAt": "2026-11-06T09:00:31Z",
-      "viewCount": 181945,
+      "viewCount": 181947,
       "durationSec": 83,
       "subCount": 24100,
-      "ratio": 754.9585062240664,
-      "viewsPerHour": 523,
+      "ratio": 754.9668049792532,
+      "viewsPerHour": 515,
       "hiddenSubs": false
     },
     {
@@ -2034,27 +2018,11 @@
       "channelTitle": "Dahai Relin",
       "channelId": "UCxtEDdT4ccDYlj30-Sa5Axw",
       "publishedAt": "2026-11-17T10:47:44Z",
-      "viewCount": 168534,
+      "viewCount": 170432,
       "durationSec": 179,
-      "subCount": 22500,
-      "ratio": 749.04,
-      "viewsPerHour": 2047,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "Vz5KjvW_lPQ"
-      },
-      "title": "죽고나면 아무 쓸모 없는 10가지 #shorts #명언 #노후조언 #인생명언 #좋은글",
-      "thumbnail": "https://i.ytimg.com/vi/Vz5KjvW_lPQ/mqdefault.jpg",
-      "channelTitle": "건강지혜tv",
-      "channelId": "UC4ZoCpnMRKvgIqnEf-lQa4Q",
-      "publishedAt": "2026-10-30T23:15:18Z",
-      "viewCount": 135339,
-      "durationSec": 127,
-      "subCount": 19000,
-      "ratio": 712.3105263157894,
-      "viewsPerHour": 270,
+      "subCount": 22800,
+      "ratio": 747.5087719298245,
+      "viewsPerHour": 1947,
       "hiddenSubs": false
     },
     {
@@ -2068,9 +2036,9 @@
       "publishedAt": "2026-11-12T11:28:24Z",
       "viewCount": 63878,
       "durationSec": 180,
-      "subCount": 8990,
-      "ratio": 710.5450500556174,
-      "viewsPerHour": 317,
+      "subCount": 9000,
+      "ratio": 709.7555555555555,
+      "viewsPerHour": 309,
       "hiddenSubs": false
     },
     {
@@ -2082,11 +2050,11 @@
       "channelTitle": "연두빛인생사연",
       "channelId": "UCQaSPUlW4TjADd5Mm9vam1Q",
       "publishedAt": "2026-11-04T02:30:23Z",
-      "viewCount": 236229,
+      "viewCount": 236234,
       "durationSec": 168,
       "subCount": 33300,
-      "ratio": 709.3963963963964,
-      "viewsPerHour": 587,
+      "ratio": 709.4114114114114,
+      "viewsPerHour": 579,
       "hiddenSubs": false
     },
     {
@@ -2098,11 +2066,11 @@
       "channelTitle": "훈작가의 숏드라마",
       "channelId": "UCqttFyZf9qFyrtujfWtbgig",
       "publishedAt": "2026-11-08T06:00:00Z",
-      "viewCount": 2025367,
+      "viewCount": 2028485,
       "durationSec": 137,
-      "subCount": 290000,
-      "ratio": 698.4024137931034,
-      "viewsPerHour": 6682,
+      "subCount": 291000,
+      "ratio": 697.0738831615121,
+      "viewsPerHour": 6579,
       "hiddenSubs": false
     },
     {
@@ -2114,11 +2082,11 @@
       "channelTitle": "이웃집드라마",
       "channelId": "UCDPC8vnkz0y-6DvaGze3LIg",
       "publishedAt": "2026-11-04T10:15:39Z",
-      "viewCount": 443052,
+      "viewCount": 443378,
       "durationSec": 64,
-      "subCount": 65000,
-      "ratio": 681.6184615384615,
-      "viewsPerHour": 1122,
+      "subCount": 65500,
+      "ratio": 676.9129770992366,
+      "viewsPerHour": 1108,
       "hiddenSubs": false
     },
     {
@@ -2130,11 +2098,11 @@
       "channelTitle": "훈작가의 숏드라마",
       "channelId": "UCqttFyZf9qFyrtujfWtbgig",
       "publishedAt": "2026-11-04T07:00:14Z",
-      "viewCount": 1952913,
+      "viewCount": 1954373,
       "durationSec": 154,
-      "subCount": 290000,
-      "ratio": 673.418275862069,
-      "viewsPerHour": 4905,
+      "subCount": 291000,
+      "ratio": 671.6058419243986,
+      "viewsPerHour": 4846,
       "hiddenSubs": false
     },
     {
@@ -2150,39 +2118,7 @@
       "durationSec": 179,
       "subCount": 8830,
       "ratio": 645.5492638731597,
-      "viewsPerHour": 120,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "3wbOlmuXDCw"
-      },
-      "title": "황혼 재혼 4년, 남편 자식들이 \"새엄마 죽으면 이 집 우리 거 되냐\"며 각서를 내밀었습니다",
-      "thumbnail": "https://i.ytimg.com/vi/3wbOlmuXDCw/mqdefault.jpg",
-      "channelTitle": "편지사연",
-      "channelId": "UCfci_yV9TRx4p5WTm3M28Jg",
-      "publishedAt": "2026-10-31T22:30:28Z",
-      "viewCount": 330206,
-      "durationSec": 126,
-      "subCount": 52700,
-      "ratio": 626.5768500948766,
-      "viewsPerHour": 690,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "b1VXMriev_g"
-      },
-      "title": "월세 사는 사돈을 무시하는 줄 알았던 상견례의 반전 #AI가상인물 #시니어드라마 #시니어쇼츠 #시니어 #반전드라마",
-      "thumbnail": "https://i.ytimg.com/vi/b1VXMriev_g/mqdefault.jpg",
-      "channelTitle": "훈작가의 숏드라마",
-      "channelId": "UCqttFyZf9qFyrtujfWtbgig",
-      "publishedAt": "2026-11-10T07:00:20Z",
-      "viewCount": 1813166,
-      "durationSec": 161,
-      "subCount": 290000,
-      "ratio": 625.2296551724138,
-      "viewsPerHour": 7135,
+      "viewsPerHour": 119,
       "hiddenSubs": false
     },
     {
@@ -2194,11 +2130,11 @@
       "channelTitle": "마음우체국",
       "channelId": "UCz76CRItruM2qkMlUWAqiAw",
       "publishedAt": "2026-11-08T22:00:13Z",
-      "viewCount": 430177,
+      "viewCount": 431207,
       "durationSec": 166,
       "subCount": 68900,
-      "ratio": 624.3497822931786,
-      "viewsPerHour": 1498,
+      "ratio": 625.844702467344,
+      "viewsPerHour": 1475,
       "hiddenSubs": false
     },
     {
@@ -2210,11 +2146,43 @@
       "channelTitle": "썰전소",
       "channelId": "UC46WKjbi8EXju8h1POccp5g",
       "publishedAt": "2026-11-10T09:10:18Z",
-      "viewCount": 1494398,
+      "viewCount": 1506621,
       "durationSec": 133,
       "subCount": 241000,
-      "ratio": 620.0821576763485,
-      "viewsPerHour": 5931,
+      "ratio": 625.1539419087137,
+      "viewsPerHour": 5859,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "3wbOlmuXDCw"
+      },
+      "title": "황혼 재혼 4년, 남편 자식들이 \"새엄마 죽으면 이 집 우리 거 되냐\"며 각서를 내밀었습니다",
+      "thumbnail": "https://i.ytimg.com/vi/3wbOlmuXDCw/mqdefault.jpg",
+      "channelTitle": "편지사연",
+      "channelId": "UCfci_yV9TRx4p5WTm3M28Jg",
+      "publishedAt": "2026-10-31T22:30:28Z",
+      "viewCount": 330306,
+      "durationSec": 126,
+      "subCount": 52900,
+      "ratio": 624.3969754253308,
+      "viewsPerHour": 683,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "b1VXMriev_g"
+      },
+      "title": "월세 사는 사돈을 무시하는 줄 알았던 상견례의 반전 #AI가상인물 #시니어드라마 #시니어쇼츠 #시니어 #반전드라마",
+      "thumbnail": "https://i.ytimg.com/vi/b1VXMriev_g/mqdefault.jpg",
+      "channelTitle": "훈작가의 숏드라마",
+      "channelId": "UCqttFyZf9qFyrtujfWtbgig",
+      "publishedAt": "2026-11-10T07:00:20Z",
+      "viewCount": 1816915,
+      "durationSec": 161,
+      "subCount": 291000,
+      "ratio": 624.3694158075601,
+      "viewsPerHour": 7007,
       "hiddenSubs": false
     },
     {
@@ -2226,11 +2194,11 @@
       "channelTitle": "훈작가의 숏드라마",
       "channelId": "UCqttFyZf9qFyrtujfWtbgig",
       "publishedAt": "2026-11-06T07:00:07Z",
-      "viewCount": 1767424,
+      "viewCount": 1768452,
       "durationSec": 173,
-      "subCount": 290000,
-      "ratio": 609.456551724138,
-      "viewsPerHour": 5048,
+      "subCount": 291000,
+      "ratio": 607.7154639175258,
+      "viewsPerHour": 4977,
       "hiddenSubs": false
     },
     {
@@ -2242,43 +2210,11 @@
       "channelTitle": "노을빛정거장",
       "channelId": "UCi6Ya91zbXeziFRHHMtjlBg",
       "publishedAt": "2026-11-12T21:30:01Z",
-      "viewCount": 215618,
+      "viewCount": 216372,
       "durationSec": 149,
       "subCount": 36600,
-      "ratio": 589.1202185792349,
-      "viewsPerHour": 1125,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "ynmufWUhOek"
-      },
-      "title": "5년 맡긴 내 연금, 아내는 누구를 위해 모았을까 #Shorts",
-      "thumbnail": "https://i.ytimg.com/vi/ynmufWUhOek/mqdefault.jpg",
-      "channelTitle": "밥상사연",
-      "channelId": "UC619WXDyUNvYBOL5pJyGNOw",
-      "publishedAt": "2026-10-30T22:00:38Z",
-      "viewCount": 191851,
-      "durationSec": 168,
-      "subCount": 34300,
-      "ratio": 559.332361516035,
-      "viewsPerHour": 381,
-      "hiddenSubs": false
-    },
-    {
-      "id": {
-        "videoId": "0LE8SP91hxc"
-      },
-      "title": "엄마, 그 남자 82세야! 그런데 신랑을 직접 보니…/#황혼재혼 #82세신랑 #엄마의재혼 #시니어드라마 #가족드라마 #shorts #부부이야기 #시니어사연",
-      "thumbnail": "https://i.ytimg.com/vi/0LE8SP91hxc/mqdefault.jpg",
-      "channelTitle": "양치방향연구소",
-      "channelId": "UCrUvcpthbRyyJqz9WgBTsIg",
-      "publishedAt": "2026-11-05T23:30:02Z",
-      "viewCount": 11615,
-      "durationSec": 79,
-      "subCount": 2110,
-      "ratio": 550.4739336492892,
-      "viewsPerHour": 32,
+      "ratio": 591.1803278688525,
+      "viewsPerHour": 1099,
       "hiddenSubs": false
     },
     {
@@ -2290,11 +2226,27 @@
       "channelTitle": "시니어백세인생",
       "channelId": "UCCkz-EI1B3m1EKRS_raENNg",
       "publishedAt": "2026-11-02T03:37:17Z",
-      "viewCount": 316317,
+      "viewCount": 319418,
       "durationSec": 106,
-      "subCount": 57900,
-      "ratio": 546.3160621761658,
-      "viewsPerHour": 704,
+      "subCount": 58000,
+      "ratio": 550.7206896551725,
+      "viewsPerHour": 702,
+      "hiddenSubs": false
+    },
+    {
+      "id": {
+        "videoId": "0LE8SP91hxc"
+      },
+      "title": "엄마, 그 남자 82세야! 그런데 신랑을 직접 보니…/#황혼재혼 #82세신랑 #엄마의재혼 #시니어드라마 #가족드라마 #shorts #부부이야기 #시니어사연",
+      "thumbnail": "https://i.ytimg.com/vi/0LE8SP91hxc/mqdefault.jpg",
+      "channelTitle": "양치방향연구소",
+      "channelId": "UCrUvcpthbRyyJqz9WgBTsIg",
+      "publishedAt": "2026-11-05T23:30:02Z",
+      "viewCount": 11619,
+      "durationSec": 79,
+      "subCount": 2120,
+      "ratio": 548.066037735849,
+      "viewsPerHour": 32,
       "hiddenSubs": false
     },
     {
@@ -2306,11 +2258,11 @@
       "channelTitle": "ai방송국",
       "channelId": "UCzaFK9x6W7JKkoPzsXDScJw",
       "publishedAt": "2026-11-12T12:00:27Z",
-      "viewCount": 178718,
+      "viewCount": 179064,
       "durationSec": 134,
       "subCount": 38500,
-      "ratio": 464.2025974025974,
-      "viewsPerHour": 889,
+      "ratio": 465.1012987012987,
+      "viewsPerHour": 868,
       "hiddenSubs": false
     },
     {
@@ -2322,11 +2274,11 @@
       "channelTitle": "편지사연",
       "channelId": "UCfci_yV9TRx4p5WTm3M28Jg",
       "publishedAt": "2026-11-01T06:00:14Z",
-      "viewCount": 242103,
+      "viewCount": 242108,
       "durationSec": 116,
-      "subCount": 52700,
-      "ratio": 459.3984819734345,
-      "viewsPerHour": 514,
+      "subCount": 52900,
+      "ratio": 457.6710775047259,
+      "viewsPerHour": 508,
       "hiddenSubs": false
     },
     {
@@ -2338,11 +2290,11 @@
       "channelTitle": "사연콸콸",
       "channelId": "UCfGT0xaIxV6TR_1wiDVtQAQ",
       "publishedAt": "2026-10-31T21:15:20Z",
-      "viewCount": 510879,
+      "viewCount": 510891,
       "durationSec": 110,
       "subCount": 115000,
-      "ratio": 444.2426086956521,
-      "viewsPerHour": 1065,
+      "ratio": 444.25304347826085,
+      "viewsPerHour": 1053,
       "hiddenSubs": false
     },
     {
@@ -2354,11 +2306,11 @@
       "channelTitle": "사연나라",
       "channelId": "UCi4bjjUEqyCyycvf2995cDQ",
       "publishedAt": "2026-11-11T12:25:46Z",
-      "viewCount": 39932,
+      "viewCount": 39939,
       "durationSec": 180,
-      "subCount": 8990,
-      "ratio": 444.182424916574,
-      "viewsPerHour": 178,
+      "subCount": 9000,
+      "ratio": 443.7666666666667,
+      "viewsPerHour": 174,
       "hiddenSubs": false
     },
     {
@@ -2370,11 +2322,11 @@
       "channelTitle": "말만하면썰",
       "channelId": "UCiXVWrI5UIc5kjgjs8hU5GA",
       "publishedAt": "2026-11-04T09:00:37Z",
-      "viewCount": 541468,
+      "viewCount": 541906,
       "durationSec": 158,
       "subCount": 127000,
-      "ratio": 426.35275590551186,
-      "viewsPerHour": 1367,
+      "ratio": 426.69763779527557,
+      "viewsPerHour": 1350,
       "hiddenSubs": false
     },
     {
@@ -2386,11 +2338,11 @@
       "channelTitle": "hayman esteban",
       "channelId": "UCIQWyA4wr8EdUKjk9Dh0Bjw",
       "publishedAt": "2026-11-01T03:34:51Z",
-      "viewCount": 75402,
+      "viewCount": 75403,
       "durationSec": 149,
       "subCount": 17800,
-      "ratio": 423.60674157303373,
-      "viewsPerHour": 159,
+      "ratio": 423.61235955056185,
+      "viewsPerHour": 158,
       "hiddenSubs": false
     },
     {
@@ -2402,11 +2354,11 @@
       "channelTitle": "Bisju",
       "channelId": "UCbnxrD-pRdav3omJXu6GzbQ",
       "publishedAt": "2026-11-05T10:13:15Z",
-      "viewCount": 410293,
+      "viewCount": 410851,
       "durationSec": 172,
-      "subCount": 100000,
-      "ratio": 410.29299999999995,
-      "viewsPerHour": 1106,
+      "subCount": 101000,
+      "ratio": 406.7831683168317,
+      "viewsPerHour": 1092,
       "hiddenSubs": false
     },
     {
@@ -2418,11 +2370,11 @@
       "channelTitle": "돌고 도는 시월드",
       "channelId": "UCmbkCrQVOX6XXz7b3IHJ_iA",
       "publishedAt": "2026-11-12T03:00:21Z",
-      "viewCount": 680636,
+      "viewCount": 682390,
       "durationSec": 105,
       "subCount": 184000,
-      "ratio": 369.9108695652174,
-      "viewsPerHour": 3239,
+      "ratio": 370.8641304347826,
+      "viewsPerHour": 3169,
       "hiddenSubs": false
     },
     {
@@ -2434,11 +2386,11 @@
       "channelTitle": "추억 쉼터",
       "channelId": "UCPNsLgMv_tyE2-vrQeboyPQ",
       "publishedAt": "2026-10-31T10:17:37Z",
-      "viewCount": 140846,
+      "viewCount": 140855,
       "durationSec": 178,
       "subCount": 41300,
-      "ratio": 341.0314769975787,
-      "viewsPerHour": 287,
+      "ratio": 341.05326876513317,
+      "viewsPerHour": 284,
       "hiddenSubs": false
     }
   ]
